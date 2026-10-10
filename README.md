@@ -1,9 +1,6 @@
 # VEX-RDDME manuscript: figures, data and scripts
 
-Everything needed to regenerate the figures of the MPD-RDDME manuscript (main text and Supplementary Information):
-the plotting scripts, the simulation output each figure reads, the drivers that produced that output, and a README per
-figure with its provenance. The repository is self-contained: no symlinks, and no file is read from outside it when the
-figures are rendered.
+Contianeed in this repo are the figures, raw data, and scripts used to generate the figures for the manuscript.
 
 ## Quick start
 
@@ -95,15 +92,6 @@ Figures that use another figure's data read it in place through a relative path 
 the letter or headline. Unlettered two-panel figures (S12, S15, S16) are split into `_left` and `_right`; a piece shared
 by two panels (S11's key, S19's colour bar) goes to `_shared`; single-panel figures (S1, S13, S14) write none. S5-S7
 are split by `common/tikz_panels.py` (called from `render_all.sh`); S4's two panels are its two files.
-
-## Reproducibility check
-
-On 2026-10-10 every figure was rendered from this folder alone with `AUDIT=1 ./render_all.sh`. The audit (Python's
-`open` hook) recorded no file read from outside the repository. Compared with the files in the manuscript:
-
-- pixel-identical: Figs. 1-6, S1, S2, S8, S10-S14, S16, S18, S19;
-- S3, S4, S15, S17 differ in under 0.01 % of pixels (antialiasing);
-- S9: the saved margin was widened by 0.07 in so that panel b's axis label is no longer clipped; the content is the same.
 
 ## Regenerating the data
 
