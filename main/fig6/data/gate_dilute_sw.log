@@ -1,0 +1,945 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+h=10 nm  L=1000 sites  alpha=10 kT  v0=56 nm/s  k+=5.60/s  D_ax=5.6e-17 m^2/s (56 nm^2/s)  D_lat=3e-17  back/forward=4.54e-05  F_ins=5.562 kT (x260 on k_on)
+mode=dilute arm=excluded lanes=switching leduc=none  rates=None
+dt=8.9290e-03 s  steps=6720  frames every 22 steps (0.20 s)  seeded {'T': 160}  k_on_nom=n/a
+2026-10-09 16:30:29) Warning: White Bear: MAX_OCC=64 of the largest species reaches eta=33.410 > 0.64 (geometric packing). The lattice cap, not the BMCSL functional, will limit occupancy in crowded voxels; raise MPD_LATTICE_MAX_OCCUPANCY or reduce diameters.
+2026-10-09 16:30:29) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-09 16:30:29) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-09 16:30:29) Info: Data output thread running.
+2026-10-09 16:30:29) Info: MPDRDME: Rng seed: top word 65535, bottom word 1
+2026-10-09 16:30:29) Info: Running mpd rdme simulation with 3 species, 0 reactions, 6 site types for 6.000000e+01 s with tau 8.928977e-03. Writing species at 0.000000e+00 and lattice at 5.332097e-310 intervals
+2026-10-09 16:30:29) Info: MPD_RNG_ORIGIN_SHIFT disarmed (env unset or != 1): RNG keys use the bare lattice index.
+2026-10-09 16:30:29) Info: ERA_FUSE_RXN_Z on: the FN reaction step runs inside the z drift kernel when no structure/field/CRDME pass intervenes.
+2026-10-09 16:30:29) Info: Time is 0.19643748967700
+2026-10-09 16:30:29) Info: Lattice write time is 0.19643748967700, in steps is 22
+2026-10-09 16:30:29) Info: Next lattice write time is 44
+2026-10-09 16:30:29) Info: Time is 0.39287497935400
+2026-10-09 16:30:29) Info: Lattice write time is 0.39287497935400, in steps is 44
+2026-10-09 16:30:29) Info: Next lattice write time is 66
+2026-10-09 16:30:29) Info: Time is 0.58931246903100
+2026-10-09 16:30:29) Info: Lattice write time is 0.58931246903100, in steps is 66
+2026-10-09 16:30:29) Info: Next lattice write time is 88
+2026-10-09 16:30:29) Info: Time is 0.78574995870800
+2026-10-09 16:30:29) Info: Lattice write time is 0.78574995870800, in steps is 88
+2026-10-09 16:30:29) Info: Next lattice write time is 110
+2026-10-09 16:30:29) Info: Time is 0.98218744838500
+2026-10-09 16:30:29) Info: Lattice write time is 0.98218744838500, in steps is 110
+2026-10-09 16:30:29) Info: Next lattice write time is 132
+2026-10-09 16:30:29) Info: Time is 1.17862493806200
+2026-10-09 16:30:29) Info: Lattice write time is 1.17862493806200, in steps is 132
+2026-10-09 16:30:29) Info: Next lattice write time is 154
+2026-10-09 16:30:29) Info: Time is 1.37506242773900
+2026-10-09 16:30:29) Info: Lattice write time is 1.37506242773900, in steps is 154
+2026-10-09 16:30:29) Info: Next lattice write time is 176
+2026-10-09 16:30:29) Info: Time is 1.57149991741600
+2026-10-09 16:30:29) Info: Lattice write time is 1.57149991741600, in steps is 176
+2026-10-09 16:30:29) Info: Next lattice write time is 198
+2026-10-09 16:30:29) Info: Time is 1.76793740709299
+2026-10-09 16:30:29) Info: Lattice write time is 1.76793740709299, in steps is 198
+2026-10-09 16:30:29) Info: Next lattice write time is 220
+2026-10-09 16:30:29) Info: Time is 1.96437489676999
+2026-10-09 16:30:29) Info: Lattice write time is 1.96437489676999, in steps is 220
+2026-10-09 16:30:29) Info: Next lattice write time is 242
+2026-10-09 16:30:29) Info: Time is 2.16081238644699
+2026-10-09 16:30:29) Info: Lattice write time is 2.16081238644699, in steps is 242
+2026-10-09 16:30:29) Info: Next lattice write time is 264
+2026-10-09 16:30:29) Info: Time is 2.35724987612399
+2026-10-09 16:30:29) Info: Lattice write time is 2.35724987612399, in steps is 264
+2026-10-09 16:30:29) Info: Next lattice write time is 286
+2026-10-09 16:30:29) Info: Time is 2.55368736580099
+2026-10-09 16:30:29) Info: Lattice write time is 2.55368736580099, in steps is 286
+2026-10-09 16:30:29) Info: Next lattice write time is 308
+2026-10-09 16:30:29) Info: Time is 2.75012485547798
+2026-10-09 16:30:29) Info: Lattice write time is 2.75012485547798, in steps is 308
+2026-10-09 16:30:29) Info: Next lattice write time is 330
+2026-10-09 16:30:29) Info: Time is 2.94656234515498
+2026-10-09 16:30:29) Info: Lattice write time is 2.94656234515498, in steps is 330
+2026-10-09 16:30:29) Info: Next lattice write time is 352
+2026-10-09 16:30:29) Info: Time is 3.14299983483198
+2026-10-09 16:30:29) Info: Lattice write time is 3.14299983483198, in steps is 352
+2026-10-09 16:30:29) Info: Next lattice write time is 374
+2026-10-09 16:30:29) Info: Time is 3.33943732450898
+2026-10-09 16:30:29) Info: Lattice write time is 3.33943732450898, in steps is 374
+2026-10-09 16:30:29) Info: Next lattice write time is 396
+2026-10-09 16:30:29) Info: Time is 3.53587481418598
+2026-10-09 16:30:29) Info: Lattice write time is 3.53587481418598, in steps is 396
+2026-10-09 16:30:29) Info: Next lattice write time is 418
+2026-10-09 16:30:30) Info: Time is 3.73231230386297
+2026-10-09 16:30:30) Info: Lattice write time is 3.73231230386297, in steps is 418
+2026-10-09 16:30:30) Info: Next lattice write time is 440
+2026-10-09 16:30:30) Info: Time is 3.92874979353997
+2026-10-09 16:30:30) Info: Lattice write time is 3.92874979353997, in steps is 440
+2026-10-09 16:30:30) Info: Next lattice write time is 462
+2026-10-09 16:30:30) Info: Time is 4.12518728321698
+2026-10-09 16:30:30) Info: Lattice write time is 4.12518728321698, in steps is 462
+2026-10-09 16:30:30) Info: Next lattice write time is 484
+2026-10-09 16:30:30) Info: Time is 4.32162477289398
+2026-10-09 16:30:30) Info: Lattice write time is 4.32162477289398, in steps is 484
+2026-10-09 16:30:30) Info: Next lattice write time is 506
+2026-10-09 16:30:30) Info: Time is 4.51806226257099
+2026-10-09 16:30:30) Info: Lattice write time is 4.51806226257099, in steps is 506
+2026-10-09 16:30:30) Info: Next lattice write time is 528
+2026-10-09 16:30:30) Info: Time is 4.71449975224800
+2026-10-09 16:30:30) Info: Lattice write time is 4.71449975224800, in steps is 528
+2026-10-09 16:30:30) Info: Next lattice write time is 550
+2026-10-09 16:30:30) Info: Time is 4.91093724192501
+2026-10-09 16:30:30) Info: Lattice write time is 4.91093724192501, in steps is 550
+2026-10-09 16:30:30) Info: Next lattice write time is 572
+2026-10-09 16:30:30) Info: Time is 5.10737473160202
+2026-10-09 16:30:30) Info: Lattice write time is 5.10737473160202, in steps is 572
+2026-10-09 16:30:30) Info: Next lattice write time is 594
+2026-10-09 16:30:30) Info: Time is 5.30381222127902
+2026-10-09 16:30:30) Info: Lattice write time is 5.30381222127902, in steps is 594
+2026-10-09 16:30:30) Info: Next lattice write time is 616
+2026-10-09 16:30:30) Info: Time is 5.50024971095603
+2026-10-09 16:30:30) Info: Lattice write time is 5.50024971095603, in steps is 616
+2026-10-09 16:30:30) Info: Next lattice write time is 638
+2026-10-09 16:30:30) Info: Time is 5.69668720063304
+2026-10-09 16:30:30) Info: Lattice write time is 5.69668720063304, in steps is 638
+2026-10-09 16:30:30) Info: Next lattice write time is 660
+2026-10-09 16:30:30) Info: Time is 5.89312469031005
+2026-10-09 16:30:30) Info: Lattice write time is 5.89312469031005, in steps is 660
+2026-10-09 16:30:30) Info: Next lattice write time is 682
+2026-10-09 16:30:30) Info: Time is 6.08956217998705
+2026-10-09 16:30:30) Info: Lattice write time is 6.08956217998705, in steps is 682
+2026-10-09 16:30:30) Info: Next lattice write time is 704
+2026-10-09 16:30:30) Info: Time is 6.28599966966406
+2026-10-09 16:30:30) Info: Lattice write time is 6.28599966966406, in steps is 704
+2026-10-09 16:30:30) Info: Next lattice write time is 726
+2026-10-09 16:30:30) Info: Time is 6.48243715934107
+2026-10-09 16:30:30) Info: Lattice write time is 6.48243715934107, in steps is 726
+2026-10-09 16:30:30) Info: Next lattice write time is 748
+2026-10-09 16:30:30) Info: Time is 6.67887464901808
+2026-10-09 16:30:30) Info: Lattice write time is 6.67887464901808, in steps is 748
+2026-10-09 16:30:30) Info: Next lattice write time is 770
+2026-10-09 16:30:30) Info: Time is 6.87531213869509
+2026-10-09 16:30:30) Info: Lattice write time is 6.87531213869509, in steps is 770
+2026-10-09 16:30:30) Info: Next lattice write time is 792
+2026-10-09 16:30:30) Info: Time is 7.07174962837209
+2026-10-09 16:30:30) Info: Lattice write time is 7.07174962837209, in steps is 792
+2026-10-09 16:30:30) Info: Next lattice write time is 814
+2026-10-09 16:30:30) Info: Time is 7.26818711804910
+2026-10-09 16:30:30) Info: Lattice write time is 7.26818711804910, in steps is 814
+2026-10-09 16:30:30) Info: Next lattice write time is 836
+2026-10-09 16:30:30) Info: Time is 7.46462460772611
+2026-10-09 16:30:30) Info: Lattice write time is 7.46462460772611, in steps is 836
+2026-10-09 16:30:30) Info: Next lattice write time is 858
+2026-10-09 16:30:30) Info: Time is 7.66106209740312
+2026-10-09 16:30:30) Info: Lattice write time is 7.66106209740312, in steps is 858
+2026-10-09 16:30:30) Info: Next lattice write time is 880
+2026-10-09 16:30:30) Info: Time is 7.85749958708012
+2026-10-09 16:30:30) Info: Lattice write time is 7.85749958708012, in steps is 880
+2026-10-09 16:30:30) Info: Next lattice write time is 902
+2026-10-09 16:30:30) Info: Time is 8.05393707675713
+2026-10-09 16:30:30) Info: Lattice write time is 8.05393707675713, in steps is 902
+2026-10-09 16:30:30) Info: Next lattice write time is 924
+2026-10-09 16:30:30) Info: Time is 8.25037456643411
+2026-10-09 16:30:30) Info: Lattice write time is 8.25037456643411, in steps is 924
+2026-10-09 16:30:30) Info: Next lattice write time is 946
+2026-10-09 16:30:30) Info: Time is 8.44681205611110
+2026-10-09 16:30:30) Info: Lattice write time is 8.44681205611110, in steps is 946
+2026-10-09 16:30:30) Info: Next lattice write time is 968
+2026-10-09 16:30:30) Info: Time is 8.64324954578809
+2026-10-09 16:30:30) Info: Lattice write time is 8.64324954578809, in steps is 968
+2026-10-09 16:30:30) Info: Next lattice write time is 990
+2026-10-09 16:30:30) Info: Time is 8.83968703546508
+2026-10-09 16:30:30) Info: Lattice write time is 8.83968703546508, in steps is 990
+2026-10-09 16:30:30) Info: Next lattice write time is 1012
+2026-10-09 16:30:30) Info: Time is 9.03612452514207
+2026-10-09 16:30:30) Info: Lattice write time is 9.03612452514207, in steps is 1012
+2026-10-09 16:30:30) Info: Next lattice write time is 1034
+2026-10-09 16:30:30) Info: Time is 9.23256201481906
+2026-10-09 16:30:30) Info: Lattice write time is 9.23256201481906, in steps is 1034
+2026-10-09 16:30:30) Info: Next lattice write time is 1056
+2026-10-09 16:30:30) Info: Time is 9.42899950449604
+2026-10-09 16:30:30) Info: Lattice write time is 9.42899950449604, in steps is 1056
+2026-10-09 16:30:30) Info: Next lattice write time is 1078
+2026-10-09 16:30:30) Info: Time is 9.62543699417303
+2026-10-09 16:30:30) Info: Lattice write time is 9.62543699417303, in steps is 1078
+2026-10-09 16:30:30) Info: Next lattice write time is 1100
+2026-10-09 16:30:30) Info: Time is 9.82187448385002
+2026-10-09 16:30:30) Info: Lattice write time is 9.82187448385002, in steps is 1100
+2026-10-09 16:30:30) Info: Next lattice write time is 1122
+2026-10-09 16:30:30) Info: Time is 10.01831197352701
+2026-10-09 16:30:30) Info: Lattice write time is 10.01831197352701, in steps is 1122
+2026-10-09 16:30:30) Info: Next lattice write time is 1144
+2026-10-09 16:30:30) Info: Time is 10.21474946320400
+2026-10-09 16:30:30) Info: Lattice write time is 10.21474946320400, in steps is 1144
+2026-10-09 16:30:30) Info: Next lattice write time is 1166
+2026-10-09 16:30:30) Info: Time is 10.41118695288099
+2026-10-09 16:30:30) Info: Lattice write time is 10.41118695288099, in steps is 1166
+2026-10-09 16:30:30) Info: Next lattice write time is 1188
+2026-10-09 16:30:30) Info: Time is 10.60762444255797
+2026-10-09 16:30:30) Info: Lattice write time is 10.60762444255797, in steps is 1188
+2026-10-09 16:30:30) Info: Next lattice write time is 1210
+2026-10-09 16:30:30) Info: Time is 10.80406193223496
+2026-10-09 16:30:30) Info: Lattice write time is 10.80406193223496, in steps is 1210
+2026-10-09 16:30:30) Info: Next lattice write time is 1232
+2026-10-09 16:30:30) Info: Time is 11.00049942191195
+2026-10-09 16:30:30) Info: Lattice write time is 11.00049942191195, in steps is 1232
+2026-10-09 16:30:30) Info: Next lattice write time is 1254
+2026-10-09 16:30:30) Info: Time is 11.19693691158894
+2026-10-09 16:30:30) Info: Lattice write time is 11.19693691158894, in steps is 1254
+2026-10-09 16:30:30) Info: Next lattice write time is 1276
+2026-10-09 16:30:30) Info: Time is 11.39337440126593
+2026-10-09 16:30:30) Info: Lattice write time is 11.39337440126593, in steps is 1276
+2026-10-09 16:30:30) Info: Next lattice write time is 1298
+2026-10-09 16:30:30) Info: Time is 11.58981189094292
+2026-10-09 16:30:30) Info: Lattice write time is 11.58981189094292, in steps is 1298
+2026-10-09 16:30:30) Info: Next lattice write time is 1320
+2026-10-09 16:30:30) Info: Time is 11.78624938061990
+2026-10-09 16:30:30) Info: Lattice write time is 11.78624938061990, in steps is 1320
+2026-10-09 16:30:30) Info: Next lattice write time is 1342
+2026-10-09 16:30:30) Info: Time is 11.98268687029689
+2026-10-09 16:30:30) Info: Lattice write time is 11.98268687029689, in steps is 1342
+2026-10-09 16:30:30) Info: Next lattice write time is 1364
+2026-10-09 16:30:30) Info: Time is 12.17912435997388
+2026-10-09 16:30:30) Info: Lattice write time is 12.17912435997388, in steps is 1364
+2026-10-09 16:30:30) Info: Next lattice write time is 1386
+2026-10-09 16:30:30) Info: Time is 12.37556184965087
+2026-10-09 16:30:30) Info: Lattice write time is 12.37556184965087, in steps is 1386
+2026-10-09 16:30:30) Info: Next lattice write time is 1408
+2026-10-09 16:30:30) Info: Time is 12.57199933932786
+2026-10-09 16:30:30) Info: Lattice write time is 12.57199933932786, in steps is 1408
+2026-10-09 16:30:30) Info: Next lattice write time is 1430
+2026-10-09 16:30:30) Info: Time is 12.76843682900484
+2026-10-09 16:30:30) Info: Lattice write time is 12.76843682900484, in steps is 1430
+2026-10-09 16:30:30) Info: Next lattice write time is 1452
+2026-10-09 16:30:30) Info: Time is 12.96487431868183
+2026-10-09 16:30:30) Info: Lattice write time is 12.96487431868183, in steps is 1452
+2026-10-09 16:30:30) Info: Next lattice write time is 1474
+2026-10-09 16:30:30) Info: Time is 13.16131180835882
+2026-10-09 16:30:30) Info: Lattice write time is 13.16131180835882, in steps is 1474
+2026-10-09 16:30:30) Info: Next lattice write time is 1496
+2026-10-09 16:30:30) Info: Time is 13.35774929803581
+2026-10-09 16:30:30) Info: Lattice write time is 13.35774929803581, in steps is 1496
+2026-10-09 16:30:30) Info: Next lattice write time is 1518
+2026-10-09 16:30:30) Info: Time is 13.55418678771280
+2026-10-09 16:30:30) Info: Lattice write time is 13.55418678771280, in steps is 1518
+2026-10-09 16:30:30) Info: Next lattice write time is 1540
+2026-10-09 16:30:30) Info: Time is 13.75062427738979
+2026-10-09 16:30:30) Info: Lattice write time is 13.75062427738979, in steps is 1540
+2026-10-09 16:30:30) Info: Next lattice write time is 1562
+2026-10-09 16:30:30) Info: Time is 13.94706176706677
+2026-10-09 16:30:30) Info: Lattice write time is 13.94706176706677, in steps is 1562
+2026-10-09 16:30:30) Info: Next lattice write time is 1584
+2026-10-09 16:30:30) Info: Time is 14.14349925674376
+2026-10-09 16:30:30) Info: Lattice write time is 14.14349925674376, in steps is 1584
+2026-10-09 16:30:30) Info: Next lattice write time is 1606
+2026-10-09 16:30:30) Info: Time is 14.33993674642075
+2026-10-09 16:30:30) Info: Lattice write time is 14.33993674642075, in steps is 1606
+2026-10-09 16:30:30) Info: Next lattice write time is 1628
+2026-10-09 16:30:30) Info: Time is 14.53637423609774
+2026-10-09 16:30:30) Info: Lattice write time is 14.53637423609774, in steps is 1628
+2026-10-09 16:30:30) Info: Next lattice write time is 1650
+2026-10-09 16:30:30) Info: Time is 14.73281172577473
+2026-10-09 16:30:30) Info: Lattice write time is 14.73281172577473, in steps is 1650
+2026-10-09 16:30:30) Info: Next lattice write time is 1672
+2026-10-09 16:30:30) Info: Time is 14.92924921545172
+2026-10-09 16:30:30) Info: Lattice write time is 14.92924921545172, in steps is 1672
+2026-10-09 16:30:30) Info: Next lattice write time is 1694
+2026-10-09 16:30:30) Info: Time is 15.12568670512870
+2026-10-09 16:30:30) Info: Lattice write time is 15.12568670512870, in steps is 1694
+2026-10-09 16:30:30) Info: Next lattice write time is 1716
+2026-10-09 16:30:30) Info: Time is 15.32212419480569
+2026-10-09 16:30:30) Info: Lattice write time is 15.32212419480569, in steps is 1716
+2026-10-09 16:30:30) Info: Next lattice write time is 1738
+2026-10-09 16:30:30) Info: Time is 15.51856168448268
+2026-10-09 16:30:30) Info: Lattice write time is 15.51856168448268, in steps is 1738
+2026-10-09 16:30:30) Info: Next lattice write time is 1760
+2026-10-09 16:30:30) Info: Time is 15.71499917415967
+2026-10-09 16:30:30) Info: Lattice write time is 15.71499917415967, in steps is 1760
+2026-10-09 16:30:30) Info: Next lattice write time is 1782
+2026-10-09 16:30:30) Info: Time is 15.91143666383666
+2026-10-09 16:30:30) Info: Lattice write time is 15.91143666383666, in steps is 1782
+2026-10-09 16:30:30) Info: Next lattice write time is 1804
+2026-10-09 16:30:30) Info: Time is 16.10787415351365
+2026-10-09 16:30:30) Info: Lattice write time is 16.10787415351365, in steps is 1804
+2026-10-09 16:30:30) Info: Next lattice write time is 1826
+2026-10-09 16:30:30) Info: Time is 16.30431164319063
+2026-10-09 16:30:30) Info: Lattice write time is 16.30431164319063, in steps is 1826
+2026-10-09 16:30:30) Info: Next lattice write time is 1848
+2026-10-09 16:30:30) Info: Time is 16.50074913286762
+2026-10-09 16:30:30) Info: Lattice write time is 16.50074913286762, in steps is 1848
+2026-10-09 16:30:30) Info: Next lattice write time is 1870
+2026-10-09 16:30:30) Info: Time is 16.69718662254461
+2026-10-09 16:30:30) Info: Lattice write time is 16.69718662254461, in steps is 1870
+2026-10-09 16:30:30) Info: Next lattice write time is 1892
+2026-10-09 16:30:30) Info: Time is 16.89362411222160
+2026-10-09 16:30:30) Info: Lattice write time is 16.89362411222160, in steps is 1892
+2026-10-09 16:30:30) Info: Next lattice write time is 1914
+2026-10-09 16:30:30) Info: Time is 17.09006160189859
+2026-10-09 16:30:30) Info: Lattice write time is 17.09006160189859, in steps is 1914
+2026-10-09 16:30:30) Info: Next lattice write time is 1936
+2026-10-09 16:30:30) Info: Time is 17.28649909157557
+2026-10-09 16:30:30) Info: Lattice write time is 17.28649909157557, in steps is 1936
+2026-10-09 16:30:30) Info: Next lattice write time is 1958
+2026-10-09 16:30:30) Info: Time is 17.48293658125256
+2026-10-09 16:30:30) Info: Lattice write time is 17.48293658125256, in steps is 1958
+2026-10-09 16:30:30) Info: Next lattice write time is 1980
+2026-10-09 16:30:30) Info: Time is 17.67937407092955
+2026-10-09 16:30:30) Info: Lattice write time is 17.67937407092955, in steps is 1980
+2026-10-09 16:30:30) Info: Next lattice write time is 2002
+2026-10-09 16:30:30) Info: Time is 17.87581156060654
+2026-10-09 16:30:30) Info: Lattice write time is 17.87581156060654, in steps is 2002
+2026-10-09 16:30:30) Info: Next lattice write time is 2024
+2026-10-09 16:30:30) Info: Time is 18.07224905028353
+2026-10-09 16:30:30) Info: Lattice write time is 18.07224905028353, in steps is 2024
+2026-10-09 16:30:30) Info: Next lattice write time is 2046
+2026-10-09 16:30:30) Info: Time is 18.26868653996052
+2026-10-09 16:30:30) Info: Lattice write time is 18.26868653996052, in steps is 2046
+2026-10-09 16:30:30) Info: Next lattice write time is 2068
+2026-10-09 16:30:30) Info: Time is 18.46512402963750
+2026-10-09 16:30:30) Info: Lattice write time is 18.46512402963750, in steps is 2068
+2026-10-09 16:30:30) Info: Next lattice write time is 2090
+2026-10-09 16:30:30) Info: Time is 18.66156151931449
+2026-10-09 16:30:30) Info: Lattice write time is 18.66156151931449, in steps is 2090
+2026-10-09 16:30:30) Info: Next lattice write time is 2112
+2026-10-09 16:30:30) Info: Time is 18.85799900899148
+2026-10-09 16:30:30) Info: Lattice write time is 18.85799900899148, in steps is 2112
+2026-10-09 16:30:30) Info: Next lattice write time is 2134
+2026-10-09 16:30:30) Info: Time is 19.05443649866847
+2026-10-09 16:30:30) Info: Lattice write time is 19.05443649866847, in steps is 2134
+2026-10-09 16:30:30) Info: Next lattice write time is 2156
+2026-10-09 16:30:30) Info: Time is 19.25087398834546
+2026-10-09 16:30:30) Info: Lattice write time is 19.25087398834546, in steps is 2156
+2026-10-09 16:30:30) Info: Next lattice write time is 2178
+2026-10-09 16:30:30) Info: Time is 19.44731147802245
+2026-10-09 16:30:30) Info: Lattice write time is 19.44731147802245, in steps is 2178
+2026-10-09 16:30:30) Info: Next lattice write time is 2200
+2026-10-09 16:30:30) Info: Time is 19.64374896769943
+2026-10-09 16:30:30) Info: Lattice write time is 19.64374896769943, in steps is 2200
+2026-10-09 16:30:30) Info: Next lattice write time is 2222
+2026-10-09 16:30:30) Info: Time is 19.84018645737642
+2026-10-09 16:30:30) Info: Lattice write time is 19.84018645737642, in steps is 2222
+2026-10-09 16:30:30) Info: Next lattice write time is 2244
+2026-10-09 16:30:30) Info: Time is 20.03662394705341
+2026-10-09 16:30:30) Info: Lattice write time is 20.03662394705341, in steps is 2244
+2026-10-09 16:30:30) Info: Next lattice write time is 2266
+2026-10-09 16:30:30) Info: Time is 20.23306143673040
+2026-10-09 16:30:30) Info: Lattice write time is 20.23306143673040, in steps is 2266
+2026-10-09 16:30:30) Info: Next lattice write time is 2288
+2026-10-09 16:30:30) Info: Time is 20.42949892640739
+2026-10-09 16:30:30) Info: Lattice write time is 20.42949892640739, in steps is 2288
+2026-10-09 16:30:30) Info: Next lattice write time is 2310
+2026-10-09 16:30:30) Info: Time is 20.62593641608438
+2026-10-09 16:30:30) Info: Lattice write time is 20.62593641608438, in steps is 2310
+2026-10-09 16:30:30) Info: Next lattice write time is 2332
+2026-10-09 16:30:30) Info: Time is 20.82237390576136
+2026-10-09 16:30:30) Info: Lattice write time is 20.82237390576136, in steps is 2332
+2026-10-09 16:30:30) Info: Next lattice write time is 2354
+2026-10-09 16:30:30) Info: Time is 21.01881139543835
+2026-10-09 16:30:30) Info: Lattice write time is 21.01881139543835, in steps is 2354
+2026-10-09 16:30:30) Info: Next lattice write time is 2376
+2026-10-09 16:30:30) Info: Time is 21.21524888511534
+2026-10-09 16:30:30) Info: Lattice write time is 21.21524888511534, in steps is 2376
+2026-10-09 16:30:30) Info: Next lattice write time is 2398
+2026-10-09 16:30:30) Info: Time is 21.41168637479233
+2026-10-09 16:30:30) Info: Lattice write time is 21.41168637479233, in steps is 2398
+2026-10-09 16:30:30) Info: Next lattice write time is 2420
+2026-10-09 16:30:30) Info: Time is 21.60812386446932
+2026-10-09 16:30:30) Info: Lattice write time is 21.60812386446932, in steps is 2420
+2026-10-09 16:30:30) Info: Next lattice write time is 2442
+2026-10-09 16:30:30) Info: Time is 21.80456135414630
+2026-10-09 16:30:30) Info: Lattice write time is 21.80456135414630, in steps is 2442
+2026-10-09 16:30:30) Info: Next lattice write time is 2464
+2026-10-09 16:30:30) Info: Time is 22.00099884382329
+2026-10-09 16:30:30) Info: Lattice write time is 22.00099884382329, in steps is 2464
+2026-10-09 16:30:30) Info: Next lattice write time is 2486
+2026-10-09 16:30:31) Info: Time is 22.19743633350028
+2026-10-09 16:30:31) Info: Lattice write time is 22.19743633350028, in steps is 2486
+2026-10-09 16:30:31) Info: Next lattice write time is 2508
+2026-10-09 16:30:31) Info: Time is 22.39387382317727
+2026-10-09 16:30:31) Info: Lattice write time is 22.39387382317727, in steps is 2508
+2026-10-09 16:30:31) Info: Next lattice write time is 2530
+2026-10-09 16:30:31) Info: Time is 22.59031131285426
+2026-10-09 16:30:31) Info: Lattice write time is 22.59031131285426, in steps is 2530
+2026-10-09 16:30:31) Info: Next lattice write time is 2552
+2026-10-09 16:30:31) Info: Time is 22.78674880253125
+2026-10-09 16:30:31) Info: Lattice write time is 22.78674880253125, in steps is 2552
+2026-10-09 16:30:31) Info: Next lattice write time is 2574
+2026-10-09 16:30:31) Info: Time is 22.98318629220823
+2026-10-09 16:30:31) Info: Lattice write time is 22.98318629220823, in steps is 2574
+2026-10-09 16:30:31) Info: Next lattice write time is 2596
+2026-10-09 16:30:31) Info: Time is 23.17962378188522
+2026-10-09 16:30:31) Info: Lattice write time is 23.17962378188522, in steps is 2596
+2026-10-09 16:30:31) Info: Next lattice write time is 2618
+2026-10-09 16:30:31) Info: Time is 23.37606127156221
+2026-10-09 16:30:31) Info: Lattice write time is 23.37606127156221, in steps is 2618
+2026-10-09 16:30:31) Info: Next lattice write time is 2640
+2026-10-09 16:30:31) Info: Time is 23.57249876123920
+2026-10-09 16:30:31) Info: Lattice write time is 23.57249876123920, in steps is 2640
+2026-10-09 16:30:31) Info: Next lattice write time is 2662
+2026-10-09 16:30:31) Info: Time is 23.76893625091619
+2026-10-09 16:30:31) Info: Lattice write time is 23.76893625091619, in steps is 2662
+2026-10-09 16:30:31) Info: Next lattice write time is 2684
+2026-10-09 16:30:31) Info: Time is 23.96537374059318
+2026-10-09 16:30:31) Info: Lattice write time is 23.96537374059318, in steps is 2684
+2026-10-09 16:30:31) Info: Next lattice write time is 2706
+2026-10-09 16:30:31) Info: Time is 24.16181123027016
+2026-10-09 16:30:31) Info: Lattice write time is 24.16181123027016, in steps is 2706
+2026-10-09 16:30:31) Info: Next lattice write time is 2728
+2026-10-09 16:30:31) Info: Time is 24.35824871994715
+2026-10-09 16:30:31) Info: Lattice write time is 24.35824871994715, in steps is 2728
+2026-10-09 16:30:31) Info: Next lattice write time is 2750
+2026-10-09 16:30:31) Info: Time is 24.55468620962414
+2026-10-09 16:30:31) Info: Lattice write time is 24.55468620962414, in steps is 2750
+2026-10-09 16:30:31) Info: Next lattice write time is 2772
+2026-10-09 16:30:31) Info: Time is 24.75112369930113
+2026-10-09 16:30:31) Info: Lattice write time is 24.75112369930113, in steps is 2772
+2026-10-09 16:30:31) Info: Next lattice write time is 2794
+2026-10-09 16:30:31) Info: Time is 24.94756118897812
+2026-10-09 16:30:31) Info: Lattice write time is 24.94756118897812, in steps is 2794
+2026-10-09 16:30:31) Info: Next lattice write time is 2816
+2026-10-09 16:30:31) Info: Time is 25.14399867865511
+2026-10-09 16:30:31) Info: Lattice write time is 25.14399867865511, in steps is 2816
+2026-10-09 16:30:31) Info: Next lattice write time is 2838
+2026-10-09 16:30:31) Info: Time is 25.34043616833209
+2026-10-09 16:30:31) Info: Lattice write time is 25.34043616833209, in steps is 2838
+2026-10-09 16:30:31) Info: Next lattice write time is 2860
+2026-10-09 16:30:31) Info: Time is 25.53687365800908
+2026-10-09 16:30:31) Info: Lattice write time is 25.53687365800908, in steps is 2860
+2026-10-09 16:30:31) Info: Next lattice write time is 2882
+2026-10-09 16:30:31) Info: Time is 25.73331114768607
+2026-10-09 16:30:31) Info: Lattice write time is 25.73331114768607, in steps is 2882
+2026-10-09 16:30:31) Info: Next lattice write time is 2904
+2026-10-09 16:30:31) Info: Time is 25.92974863736306
+2026-10-09 16:30:31) Info: Lattice write time is 25.92974863736306, in steps is 2904
+2026-10-09 16:30:31) Info: Next lattice write time is 2926
+2026-10-09 16:30:31) Info: Time is 26.12618612704005
+2026-10-09 16:30:31) Info: Lattice write time is 26.12618612704005, in steps is 2926
+2026-10-09 16:30:31) Info: Next lattice write time is 2948
+2026-10-09 16:30:31) Info: Time is 26.32262361671703
+2026-10-09 16:30:31) Info: Lattice write time is 26.32262361671703, in steps is 2948
+2026-10-09 16:30:31) Info: Next lattice write time is 2970
+2026-10-09 16:30:31) Info: Time is 26.51906110639402
+2026-10-09 16:30:31) Info: Lattice write time is 26.51906110639402, in steps is 2970
+2026-10-09 16:30:31) Info: Next lattice write time is 2992
+2026-10-09 16:30:31) Info: Time is 26.71549859607101
+2026-10-09 16:30:31) Info: Lattice write time is 26.71549859607101, in steps is 2992
+2026-10-09 16:30:31) Info: Next lattice write time is 3014
+2026-10-09 16:30:31) Info: Time is 26.91193608574800
+2026-10-09 16:30:31) Info: Lattice write time is 26.91193608574800, in steps is 3014
+2026-10-09 16:30:31) Info: Next lattice write time is 3036
+2026-10-09 16:30:31) Info: Time is 27.10837357542499
+2026-10-09 16:30:31) Info: Lattice write time is 27.10837357542499, in steps is 3036
+2026-10-09 16:30:31) Info: Next lattice write time is 3058
+2026-10-09 16:30:31) Info: Time is 27.30481106510198
+2026-10-09 16:30:31) Info: Lattice write time is 27.30481106510198, in steps is 3058
+2026-10-09 16:30:31) Info: Next lattice write time is 3080
+2026-10-09 16:30:31) Info: Time is 27.50124855477896
+2026-10-09 16:30:31) Info: Lattice write time is 27.50124855477896, in steps is 3080
+2026-10-09 16:30:31) Info: Next lattice write time is 3102
+2026-10-09 16:30:31) Info: Time is 27.69768604445595
+2026-10-09 16:30:31) Info: Lattice write time is 27.69768604445595, in steps is 3102
+2026-10-09 16:30:31) Info: Next lattice write time is 3124
+2026-10-09 16:30:31) Info: Time is 27.89412353413294
+2026-10-09 16:30:31) Info: Lattice write time is 27.89412353413294, in steps is 3124
+2026-10-09 16:30:31) Info: Next lattice write time is 3146
+2026-10-09 16:30:31) Info: Time is 28.09056102380993
+2026-10-09 16:30:31) Info: Lattice write time is 28.09056102380993, in steps is 3146
+2026-10-09 16:30:31) Info: Next lattice write time is 3168
+2026-10-09 16:30:31) Info: Time is 28.28699851348692
+2026-10-09 16:30:31) Info: Lattice write time is 28.28699851348692, in steps is 3168
+2026-10-09 16:30:31) Info: Next lattice write time is 3190
+2026-10-09 16:30:31) Info: Time is 28.48343600316391
+2026-10-09 16:30:31) Info: Lattice write time is 28.48343600316391, in steps is 3190
+2026-10-09 16:30:31) Info: Next lattice write time is 3212
+2026-10-09 16:30:31) Info: Time is 28.67987349284089
+2026-10-09 16:30:31) Info: Lattice write time is 28.67987349284089, in steps is 3212
+2026-10-09 16:30:31) Info: Next lattice write time is 3234
+2026-10-09 16:30:31) Info: Time is 28.87631098251788
+2026-10-09 16:30:31) Info: Lattice write time is 28.87631098251788, in steps is 3234
+2026-10-09 16:30:31) Info: Next lattice write time is 3256
+2026-10-09 16:30:31) Info: Time is 29.07274847219487
+2026-10-09 16:30:31) Info: Lattice write time is 29.07274847219487, in steps is 3256
+2026-10-09 16:30:31) Info: Next lattice write time is 3278
+2026-10-09 16:30:31) Info: Time is 29.26918596187186
+2026-10-09 16:30:31) Info: Lattice write time is 29.26918596187186, in steps is 3278
+2026-10-09 16:30:31) Info: Next lattice write time is 3300
+2026-10-09 16:30:31) Info: Time is 29.46562345154885
+2026-10-09 16:30:31) Info: Lattice write time is 29.46562345154885, in steps is 3300
+2026-10-09 16:30:31) Info: Next lattice write time is 3322
+2026-10-09 16:30:31) Info: Time is 29.66206094122584
+2026-10-09 16:30:31) Info: Lattice write time is 29.66206094122584, in steps is 3322
+2026-10-09 16:30:31) Info: Next lattice write time is 3344
+2026-10-09 16:30:31) Info: Time is 29.85849843090282
+2026-10-09 16:30:31) Info: Lattice write time is 29.85849843090282, in steps is 3344
+2026-10-09 16:30:31) Info: Next lattice write time is 3366
+2026-10-09 16:30:31) Info: Time is 30.05493592057981
+2026-10-09 16:30:31) Info: Lattice write time is 30.05493592057981, in steps is 3366
+2026-10-09 16:30:31) Info: Next lattice write time is 3388
+2026-10-09 16:30:31) Info: Time is 30.25137341025680
+2026-10-09 16:30:31) Info: Lattice write time is 30.25137341025680, in steps is 3388
+2026-10-09 16:30:31) Info: Next lattice write time is 3410
+2026-10-09 16:30:31) Info: Time is 30.44781089993379
+2026-10-09 16:30:31) Info: Lattice write time is 30.44781089993379, in steps is 3410
+2026-10-09 16:30:31) Info: Next lattice write time is 3432
+2026-10-09 16:30:31) Info: Time is 30.64424838961078
+2026-10-09 16:30:31) Info: Lattice write time is 30.64424838961078, in steps is 3432
+2026-10-09 16:30:31) Info: Next lattice write time is 3454
+2026-10-09 16:30:31) Info: Time is 30.84068587928776
+2026-10-09 16:30:31) Info: Lattice write time is 30.84068587928776, in steps is 3454
+2026-10-09 16:30:31) Info: Next lattice write time is 3476
+2026-10-09 16:30:31) Info: Time is 31.03712336896475
+2026-10-09 16:30:31) Info: Lattice write time is 31.03712336896475, in steps is 3476
+2026-10-09 16:30:31) Info: Next lattice write time is 3498
+2026-10-09 16:30:31) Info: Time is 31.23356085864174
+2026-10-09 16:30:31) Info: Lattice write time is 31.23356085864174, in steps is 3498
+2026-10-09 16:30:31) Info: Next lattice write time is 3520
+2026-10-09 16:30:31) Info: Time is 31.42999834831873
+2026-10-09 16:30:31) Info: Lattice write time is 31.42999834831873, in steps is 3520
+2026-10-09 16:30:31) Info: Next lattice write time is 3542
+2026-10-09 16:30:31) Info: Time is 31.62643583799572
+2026-10-09 16:30:31) Info: Lattice write time is 31.62643583799572, in steps is 3542
+2026-10-09 16:30:31) Info: Next lattice write time is 3564
+2026-10-09 16:30:31) Info: Time is 31.82287332767271
+2026-10-09 16:30:31) Info: Lattice write time is 31.82287332767271, in steps is 3564
+2026-10-09 16:30:31) Info: Next lattice write time is 3586
+2026-10-09 16:30:31) Info: Time is 32.01931081734971
+2026-10-09 16:30:31) Info: Lattice write time is 32.01931081734971, in steps is 3586
+2026-10-09 16:30:31) Info: Next lattice write time is 3608
+2026-10-09 16:30:31) Info: Time is 32.21574830702677
+2026-10-09 16:30:31) Info: Lattice write time is 32.21574830702677, in steps is 3608
+2026-10-09 16:30:31) Info: Next lattice write time is 3630
+2026-10-09 16:30:31) Info: Time is 32.41218579670384
+2026-10-09 16:30:31) Info: Lattice write time is 32.41218579670384, in steps is 3630
+2026-10-09 16:30:31) Info: Next lattice write time is 3652
+2026-10-09 16:30:31) Info: Time is 32.60862328638090
+2026-10-09 16:30:31) Info: Lattice write time is 32.60862328638090, in steps is 3652
+2026-10-09 16:30:31) Info: Next lattice write time is 3674
+2026-10-09 16:30:31) Info: Time is 32.80506077605797
+2026-10-09 16:30:31) Info: Lattice write time is 32.80506077605797, in steps is 3674
+2026-10-09 16:30:31) Info: Next lattice write time is 3696
+2026-10-09 16:30:31) Info: Time is 33.00149826573504
+2026-10-09 16:30:31) Info: Lattice write time is 33.00149826573504, in steps is 3696
+2026-10-09 16:30:31) Info: Next lattice write time is 3718
+2026-10-09 16:30:31) Info: Time is 33.19793575541210
+2026-10-09 16:30:31) Info: Lattice write time is 33.19793575541210, in steps is 3718
+2026-10-09 16:30:31) Info: Next lattice write time is 3740
+2026-10-09 16:30:31) Info: Time is 33.39437324508917
+2026-10-09 16:30:31) Info: Lattice write time is 33.39437324508917, in steps is 3740
+2026-10-09 16:30:31) Info: Next lattice write time is 3762
+2026-10-09 16:30:31) Info: Time is 33.59081073476624
+2026-10-09 16:30:31) Info: Lattice write time is 33.59081073476624, in steps is 3762
+2026-10-09 16:30:31) Info: Next lattice write time is 3784
+2026-10-09 16:30:31) Info: Time is 33.78724822444330
+2026-10-09 16:30:31) Info: Lattice write time is 33.78724822444330, in steps is 3784
+2026-10-09 16:30:31) Info: Next lattice write time is 3806
+2026-10-09 16:30:31) Info: Time is 33.98368571412037
+2026-10-09 16:30:31) Info: Lattice write time is 33.98368571412037, in steps is 3806
+2026-10-09 16:30:31) Info: Next lattice write time is 3828
+2026-10-09 16:30:31) Info: Time is 34.18012320379744
+2026-10-09 16:30:31) Info: Lattice write time is 34.18012320379744, in steps is 3828
+2026-10-09 16:30:31) Info: Next lattice write time is 3850
+2026-10-09 16:30:31) Info: Time is 34.37656069347450
+2026-10-09 16:30:31) Info: Lattice write time is 34.37656069347450, in steps is 3850
+2026-10-09 16:30:31) Info: Next lattice write time is 3872
+2026-10-09 16:30:31) Info: Time is 34.57299818315157
+2026-10-09 16:30:31) Info: Lattice write time is 34.57299818315157, in steps is 3872
+2026-10-09 16:30:31) Info: Next lattice write time is 3894
+2026-10-09 16:30:31) Info: Time is 34.76943567282864
+2026-10-09 16:30:31) Info: Lattice write time is 34.76943567282864, in steps is 3894
+2026-10-09 16:30:31) Info: Next lattice write time is 3916
+2026-10-09 16:30:31) Info: Time is 34.96587316250570
+2026-10-09 16:30:31) Info: Lattice write time is 34.96587316250570, in steps is 3916
+2026-10-09 16:30:31) Info: Next lattice write time is 3938
+2026-10-09 16:30:31) Info: Time is 35.16231065218277
+2026-10-09 16:30:31) Info: Lattice write time is 35.16231065218277, in steps is 3938
+2026-10-09 16:30:31) Info: Next lattice write time is 3960
+2026-10-09 16:30:31) Info: Time is 35.35874814185983
+2026-10-09 16:30:31) Info: Lattice write time is 35.35874814185983, in steps is 3960
+2026-10-09 16:30:31) Info: Next lattice write time is 3982
+2026-10-09 16:30:31) Info: Time is 35.55518563153690
+2026-10-09 16:30:31) Info: Lattice write time is 35.55518563153690, in steps is 3982
+2026-10-09 16:30:31) Info: Next lattice write time is 4004
+2026-10-09 16:30:31) Info: Time is 35.75162312121397
+2026-10-09 16:30:31) Info: Lattice write time is 35.75162312121397, in steps is 4004
+2026-10-09 16:30:31) Info: Next lattice write time is 4026
+2026-10-09 16:30:31) Info: Time is 35.94806061089103
+2026-10-09 16:30:31) Info: Lattice write time is 35.94806061089103, in steps is 4026
+2026-10-09 16:30:31) Info: Next lattice write time is 4048
+2026-10-09 16:30:31) Info: Time is 36.14449810056810
+2026-10-09 16:30:31) Info: Lattice write time is 36.14449810056810, in steps is 4048
+2026-10-09 16:30:31) Info: Next lattice write time is 4070
+2026-10-09 16:30:31) Info: Time is 36.34093559024517
+2026-10-09 16:30:31) Info: Lattice write time is 36.34093559024517, in steps is 4070
+2026-10-09 16:30:31) Info: Next lattice write time is 4092
+2026-10-09 16:30:31) Info: Time is 36.53737307992223
+2026-10-09 16:30:31) Info: Lattice write time is 36.53737307992223, in steps is 4092
+2026-10-09 16:30:31) Info: Next lattice write time is 4114
+2026-10-09 16:30:31) Info: Time is 36.73381056959930
+2026-10-09 16:30:31) Info: Lattice write time is 36.73381056959930, in steps is 4114
+2026-10-09 16:30:31) Info: Next lattice write time is 4136
+2026-10-09 16:30:31) Info: Time is 36.93024805927637
+2026-10-09 16:30:31) Info: Lattice write time is 36.93024805927637, in steps is 4136
+2026-10-09 16:30:31) Info: Next lattice write time is 4158
+2026-10-09 16:30:31) Info: Time is 37.12668554895343
+2026-10-09 16:30:31) Info: Lattice write time is 37.12668554895343, in steps is 4158
+2026-10-09 16:30:31) Info: Next lattice write time is 4180
+2026-10-09 16:30:31) Info: Time is 37.32312303863050
+2026-10-09 16:30:31) Info: Lattice write time is 37.32312303863050, in steps is 4180
+2026-10-09 16:30:31) Info: Next lattice write time is 4202
+2026-10-09 16:30:31) Info: Time is 37.51956052830757
+2026-10-09 16:30:31) Info: Lattice write time is 37.51956052830757, in steps is 4202
+2026-10-09 16:30:31) Info: Next lattice write time is 4224
+2026-10-09 16:30:31) Info: Time is 37.71599801798463
+2026-10-09 16:30:31) Info: Lattice write time is 37.71599801798463, in steps is 4224
+2026-10-09 16:30:31) Info: Next lattice write time is 4246
+2026-10-09 16:30:31) Info: Time is 37.91243550766170
+2026-10-09 16:30:31) Info: Lattice write time is 37.91243550766170, in steps is 4246
+2026-10-09 16:30:31) Info: Next lattice write time is 4268
+2026-10-09 16:30:31) Info: Time is 38.10887299733876
+2026-10-09 16:30:31) Info: Lattice write time is 38.10887299733876, in steps is 4268
+2026-10-09 16:30:31) Info: Next lattice write time is 4290
+2026-10-09 16:30:31) Info: Time is 38.30531048701583
+2026-10-09 16:30:31) Info: Lattice write time is 38.30531048701583, in steps is 4290
+2026-10-09 16:30:31) Info: Next lattice write time is 4312
+2026-10-09 16:30:31) Info: Time is 38.50174797669290
+2026-10-09 16:30:31) Info: Lattice write time is 38.50174797669290, in steps is 4312
+2026-10-09 16:30:31) Info: Next lattice write time is 4334
+2026-10-09 16:30:31) Info: Time is 38.69818546636996
+2026-10-09 16:30:31) Info: Lattice write time is 38.69818546636996, in steps is 4334
+2026-10-09 16:30:31) Info: Next lattice write time is 4356
+2026-10-09 16:30:31) Info: Time is 38.89462295604703
+2026-10-09 16:30:31) Info: Lattice write time is 38.89462295604703, in steps is 4356
+2026-10-09 16:30:31) Info: Next lattice write time is 4378
+2026-10-09 16:30:31) Info: Time is 39.09106044572410
+2026-10-09 16:30:31) Info: Lattice write time is 39.09106044572410, in steps is 4378
+2026-10-09 16:30:31) Info: Next lattice write time is 4400
+2026-10-09 16:30:31) Info: Time is 39.28749793540116
+2026-10-09 16:30:31) Info: Lattice write time is 39.28749793540116, in steps is 4400
+2026-10-09 16:30:31) Info: Next lattice write time is 4422
+2026-10-09 16:30:31) Info: Time is 39.48393542507823
+2026-10-09 16:30:31) Info: Lattice write time is 39.48393542507823, in steps is 4422
+2026-10-09 16:30:31) Info: Next lattice write time is 4444
+2026-10-09 16:30:31) Info: Time is 39.68037291475530
+2026-10-09 16:30:31) Info: Lattice write time is 39.68037291475530, in steps is 4444
+2026-10-09 16:30:31) Info: Next lattice write time is 4466
+2026-10-09 16:30:31) Info: Time is 39.87681040443236
+2026-10-09 16:30:31) Info: Lattice write time is 39.87681040443236, in steps is 4466
+2026-10-09 16:30:31) Info: Next lattice write time is 4488
+2026-10-09 16:30:31) Info: Time is 40.07324789410943
+2026-10-09 16:30:31) Info: Lattice write time is 40.07324789410943, in steps is 4488
+2026-10-09 16:30:31) Info: Next lattice write time is 4510
+2026-10-09 16:30:31) Info: Time is 40.26968538378649
+2026-10-09 16:30:31) Info: Lattice write time is 40.26968538378649, in steps is 4510
+2026-10-09 16:30:31) Info: Next lattice write time is 4532
+2026-10-09 16:30:31) Info: Time is 40.46612287346356
+2026-10-09 16:30:31) Info: Lattice write time is 40.46612287346356, in steps is 4532
+2026-10-09 16:30:31) Info: Next lattice write time is 4554
+2026-10-09 16:30:32) Info: Time is 40.66256036314063
+2026-10-09 16:30:32) Info: Lattice write time is 40.66256036314063, in steps is 4554
+2026-10-09 16:30:32) Info: Next lattice write time is 4576
+2026-10-09 16:30:32) Info: Time is 40.85899785281769
+2026-10-09 16:30:32) Info: Lattice write time is 40.85899785281769, in steps is 4576
+2026-10-09 16:30:32) Info: Next lattice write time is 4598
+2026-10-09 16:30:32) Info: Time is 41.05543534249476
+2026-10-09 16:30:32) Info: Lattice write time is 41.05543534249476, in steps is 4598
+2026-10-09 16:30:32) Info: Next lattice write time is 4620
+2026-10-09 16:30:32) Info: Time is 41.25187283217183
+2026-10-09 16:30:32) Info: Lattice write time is 41.25187283217183, in steps is 4620
+2026-10-09 16:30:32) Info: Next lattice write time is 4642
+2026-10-09 16:30:32) Info: Time is 41.44831032184889
+2026-10-09 16:30:32) Info: Lattice write time is 41.44831032184889, in steps is 4642
+2026-10-09 16:30:32) Info: Next lattice write time is 4664
+2026-10-09 16:30:32) Info: Time is 41.64474781152596
+2026-10-09 16:30:32) Info: Lattice write time is 41.64474781152596, in steps is 4664
+2026-10-09 16:30:32) Info: Next lattice write time is 4686
+2026-10-09 16:30:32) Info: Time is 41.84118530120303
+2026-10-09 16:30:32) Info: Lattice write time is 41.84118530120303, in steps is 4686
+2026-10-09 16:30:32) Info: Next lattice write time is 4708
+2026-10-09 16:30:32) Info: Time is 42.03762279088009
+2026-10-09 16:30:32) Info: Lattice write time is 42.03762279088009, in steps is 4708
+2026-10-09 16:30:32) Info: Next lattice write time is 4730
+2026-10-09 16:30:32) Info: Time is 42.23406028055716
+2026-10-09 16:30:32) Info: Lattice write time is 42.23406028055716, in steps is 4730
+2026-10-09 16:30:32) Info: Next lattice write time is 4752
+2026-10-09 16:30:32) Info: Time is 42.43049777023423
+2026-10-09 16:30:32) Info: Lattice write time is 42.43049777023423, in steps is 4752
+2026-10-09 16:30:32) Info: Next lattice write time is 4774
+2026-10-09 16:30:32) Info: Time is 42.62693525991129
+2026-10-09 16:30:32) Info: Lattice write time is 42.62693525991129, in steps is 4774
+2026-10-09 16:30:32) Info: Next lattice write time is 4796
+2026-10-09 16:30:32) Info: Time is 42.82337274958836
+2026-10-09 16:30:32) Info: Lattice write time is 42.82337274958836, in steps is 4796
+2026-10-09 16:30:32) Info: Next lattice write time is 4818
+2026-10-09 16:30:32) Info: Time is 43.01981023926542
+2026-10-09 16:30:32) Info: Lattice write time is 43.01981023926542, in steps is 4818
+2026-10-09 16:30:32) Info: Next lattice write time is 4840
+2026-10-09 16:30:32) Info: Time is 43.21624772894249
+2026-10-09 16:30:32) Info: Lattice write time is 43.21624772894249, in steps is 4840
+2026-10-09 16:30:32) Info: Next lattice write time is 4862
+2026-10-09 16:30:32) Info: Time is 43.41268521861956
+2026-10-09 16:30:32) Info: Lattice write time is 43.41268521861956, in steps is 4862
+2026-10-09 16:30:32) Info: Next lattice write time is 4884
+2026-10-09 16:30:32) Info: Time is 43.60912270829662
+2026-10-09 16:30:32) Info: Lattice write time is 43.60912270829662, in steps is 4884
+2026-10-09 16:30:32) Info: Next lattice write time is 4906
+2026-10-09 16:30:32) Info: Time is 43.80556019797369
+2026-10-09 16:30:32) Info: Lattice write time is 43.80556019797369, in steps is 4906
+2026-10-09 16:30:32) Info: Next lattice write time is 4928
+2026-10-09 16:30:32) Info: Time is 44.00199768765076
+2026-10-09 16:30:32) Info: Lattice write time is 44.00199768765076, in steps is 4928
+2026-10-09 16:30:32) Info: Next lattice write time is 4950
+2026-10-09 16:30:32) Info: Time is 44.19843517732782
+2026-10-09 16:30:32) Info: Lattice write time is 44.19843517732782, in steps is 4950
+2026-10-09 16:30:32) Info: Next lattice write time is 4972
+2026-10-09 16:30:32) Info: Time is 44.39487266700489
+2026-10-09 16:30:32) Info: Lattice write time is 44.39487266700489, in steps is 4972
+2026-10-09 16:30:32) Info: Next lattice write time is 4994
+2026-10-09 16:30:32) Info: Time is 44.59131015668196
+2026-10-09 16:30:32) Info: Lattice write time is 44.59131015668196, in steps is 4994
+2026-10-09 16:30:32) Info: Next lattice write time is 5016
+2026-10-09 16:30:32) Info: Time is 44.78774764635902
+2026-10-09 16:30:32) Info: Lattice write time is 44.78774764635902, in steps is 5016
+2026-10-09 16:30:32) Info: Next lattice write time is 5038
+2026-10-09 16:30:32) Info: Time is 44.98418513603609
+2026-10-09 16:30:32) Info: Lattice write time is 44.98418513603609, in steps is 5038
+2026-10-09 16:30:32) Info: Next lattice write time is 5060
+2026-10-09 16:30:32) Info: Time is 45.18062262571316
+2026-10-09 16:30:32) Info: Lattice write time is 45.18062262571316, in steps is 5060
+2026-10-09 16:30:32) Info: Next lattice write time is 5082
+2026-10-09 16:30:32) Info: Time is 45.37706011539022
+2026-10-09 16:30:32) Info: Lattice write time is 45.37706011539022, in steps is 5082
+2026-10-09 16:30:32) Info: Next lattice write time is 5104
+2026-10-09 16:30:32) Info: Time is 45.57349760506729
+2026-10-09 16:30:32) Info: Lattice write time is 45.57349760506729, in steps is 5104
+2026-10-09 16:30:32) Info: Next lattice write time is 5126
+2026-10-09 16:30:32) Info: Time is 45.76993509474435
+2026-10-09 16:30:32) Info: Lattice write time is 45.76993509474435, in steps is 5126
+2026-10-09 16:30:32) Info: Next lattice write time is 5148
+2026-10-09 16:30:32) Info: Time is 45.96637258442142
+2026-10-09 16:30:32) Info: Lattice write time is 45.96637258442142, in steps is 5148
+2026-10-09 16:30:32) Info: Next lattice write time is 5170
+2026-10-09 16:30:32) Info: Time is 46.16281007409849
+2026-10-09 16:30:32) Info: Lattice write time is 46.16281007409849, in steps is 5170
+2026-10-09 16:30:32) Info: Next lattice write time is 5192
+2026-10-09 16:30:32) Info: Time is 46.35924756377555
+2026-10-09 16:30:32) Info: Lattice write time is 46.35924756377555, in steps is 5192
+2026-10-09 16:30:32) Info: Next lattice write time is 5214
+2026-10-09 16:30:32) Info: Time is 46.55568505345262
+2026-10-09 16:30:32) Info: Lattice write time is 46.55568505345262, in steps is 5214
+2026-10-09 16:30:32) Info: Next lattice write time is 5236
+2026-10-09 16:30:32) Info: Time is 46.75212254312969
+2026-10-09 16:30:32) Info: Lattice write time is 46.75212254312969, in steps is 5236
+2026-10-09 16:30:32) Info: Next lattice write time is 5258
+2026-10-09 16:30:32) Info: Time is 46.94856003280675
+2026-10-09 16:30:32) Info: Lattice write time is 46.94856003280675, in steps is 5258
+2026-10-09 16:30:32) Info: Next lattice write time is 5280
+2026-10-09 16:30:32) Info: Time is 47.14499752248382
+2026-10-09 16:30:32) Info: Lattice write time is 47.14499752248382, in steps is 5280
+2026-10-09 16:30:32) Info: Next lattice write time is 5302
+2026-10-09 16:30:32) Info: Time is 47.34143501216089
+2026-10-09 16:30:32) Info: Lattice write time is 47.34143501216089, in steps is 5302
+2026-10-09 16:30:32) Info: Next lattice write time is 5324
+2026-10-09 16:30:32) Info: Time is 47.53787250183795
+2026-10-09 16:30:32) Info: Lattice write time is 47.53787250183795, in steps is 5324
+2026-10-09 16:30:32) Info: Next lattice write time is 5346
+2026-10-09 16:30:32) Info: Time is 47.73430999151502
+2026-10-09 16:30:32) Info: Lattice write time is 47.73430999151502, in steps is 5346
+2026-10-09 16:30:32) Info: Next lattice write time is 5368
+2026-10-09 16:30:32) Info: Time is 47.93074748119209
+2026-10-09 16:30:32) Info: Lattice write time is 47.93074748119209, in steps is 5368
+2026-10-09 16:30:32) Info: Next lattice write time is 5390
+2026-10-09 16:30:32) Info: Time is 48.12718497086915
+2026-10-09 16:30:32) Info: Lattice write time is 48.12718497086915, in steps is 5390
+2026-10-09 16:30:32) Info: Next lattice write time is 5412
+2026-10-09 16:30:32) Info: Time is 48.32362246054622
+2026-10-09 16:30:32) Info: Lattice write time is 48.32362246054622, in steps is 5412
+2026-10-09 16:30:32) Info: Next lattice write time is 5434
+2026-10-09 16:30:32) Info: Time is 48.52005995022328
+2026-10-09 16:30:32) Info: Lattice write time is 48.52005995022328, in steps is 5434
+2026-10-09 16:30:32) Info: Next lattice write time is 5456
+2026-10-09 16:30:32) Info: Time is 48.71649743990035
+2026-10-09 16:30:32) Info: Lattice write time is 48.71649743990035, in steps is 5456
+2026-10-09 16:30:32) Info: Next lattice write time is 5478
+2026-10-09 16:30:32) Info: Time is 48.91293492957742
+2026-10-09 16:30:32) Info: Lattice write time is 48.91293492957742, in steps is 5478
+2026-10-09 16:30:32) Info: Next lattice write time is 5500
+2026-10-09 16:30:32) Info: Time is 49.10937241925448
+2026-10-09 16:30:32) Info: Lattice write time is 49.10937241925448, in steps is 5500
+2026-10-09 16:30:32) Info: Next lattice write time is 5522
+2026-10-09 16:30:32) Info: Time is 49.30580990893155
+2026-10-09 16:30:32) Info: Lattice write time is 49.30580990893155, in steps is 5522
+2026-10-09 16:30:32) Info: Next lattice write time is 5544
+2026-10-09 16:30:32) Info: Time is 49.50224739860862
+2026-10-09 16:30:32) Info: Lattice write time is 49.50224739860862, in steps is 5544
+2026-10-09 16:30:32) Info: Next lattice write time is 5566
+2026-10-09 16:30:32) Info: Time is 49.69868488828568
+2026-10-09 16:30:32) Info: Lattice write time is 49.69868488828568, in steps is 5566
+2026-10-09 16:30:32) Info: Next lattice write time is 5588
+2026-10-09 16:30:32) Info: Time is 49.89512237796275
+2026-10-09 16:30:32) Info: Lattice write time is 49.89512237796275, in steps is 5588
+2026-10-09 16:30:32) Info: Next lattice write time is 5610
+2026-10-09 16:30:32) Info: Time is 50.09155986763982
+2026-10-09 16:30:32) Info: Lattice write time is 50.09155986763982, in steps is 5610
+2026-10-09 16:30:32) Info: Next lattice write time is 5632
+2026-10-09 16:30:32) Info: Time is 50.28799735731688
+2026-10-09 16:30:32) Info: Lattice write time is 50.28799735731688, in steps is 5632
+2026-10-09 16:30:32) Info: Next lattice write time is 5654
+2026-10-09 16:30:32) Info: Time is 50.48443484699395
+2026-10-09 16:30:32) Info: Lattice write time is 50.48443484699395, in steps is 5654
+2026-10-09 16:30:32) Info: Next lattice write time is 5676
+2026-10-09 16:30:32) Info: Time is 50.68087233667102
+2026-10-09 16:30:32) Info: Lattice write time is 50.68087233667102, in steps is 5676
+2026-10-09 16:30:32) Info: Next lattice write time is 5698
+2026-10-09 16:30:32) Info: Time is 50.87730982634808
+2026-10-09 16:30:32) Info: Lattice write time is 50.87730982634808, in steps is 5698
+2026-10-09 16:30:32) Info: Next lattice write time is 5720
+2026-10-09 16:30:32) Info: Time is 51.07374731602515
+2026-10-09 16:30:32) Info: Lattice write time is 51.07374731602515, in steps is 5720
+2026-10-09 16:30:32) Info: Next lattice write time is 5742
+2026-10-09 16:30:32) Info: Time is 51.27018480570221
+2026-10-09 16:30:32) Info: Lattice write time is 51.27018480570221, in steps is 5742
+2026-10-09 16:30:32) Info: Next lattice write time is 5764
+2026-10-09 16:30:32) Info: Time is 51.46662229537928
+2026-10-09 16:30:32) Info: Lattice write time is 51.46662229537928, in steps is 5764
+2026-10-09 16:30:32) Info: Next lattice write time is 5786
+2026-10-09 16:30:32) Info: Time is 51.66305978505635
+2026-10-09 16:30:32) Info: Lattice write time is 51.66305978505635, in steps is 5786
+2026-10-09 16:30:32) Info: Next lattice write time is 5808
+2026-10-09 16:30:32) Info: Time is 51.85949727473341
+2026-10-09 16:30:32) Info: Lattice write time is 51.85949727473341, in steps is 5808
+2026-10-09 16:30:32) Info: Next lattice write time is 5830
+2026-10-09 16:30:32) Info: Time is 52.05593476441048
+2026-10-09 16:30:32) Info: Lattice write time is 52.05593476441048, in steps is 5830
+2026-10-09 16:30:32) Info: Next lattice write time is 5852
+2026-10-09 16:30:32) Info: Time is 52.25237225408755
+2026-10-09 16:30:32) Info: Lattice write time is 52.25237225408755, in steps is 5852
+2026-10-09 16:30:32) Info: Next lattice write time is 5874
+2026-10-09 16:30:32) Info: Time is 52.44880974376461
+2026-10-09 16:30:32) Info: Lattice write time is 52.44880974376461, in steps is 5874
+2026-10-09 16:30:32) Info: Next lattice write time is 5896
+2026-10-09 16:30:32) Info: Time is 52.64524723344168
+2026-10-09 16:30:32) Info: Lattice write time is 52.64524723344168, in steps is 5896
+2026-10-09 16:30:32) Info: Next lattice write time is 5918
+2026-10-09 16:30:32) Info: Time is 52.84168472311875
+2026-10-09 16:30:32) Info: Lattice write time is 52.84168472311875, in steps is 5918
+2026-10-09 16:30:32) Info: Next lattice write time is 5940
+2026-10-09 16:30:32) Info: Time is 53.03812221279581
+2026-10-09 16:30:32) Info: Lattice write time is 53.03812221279581, in steps is 5940
+2026-10-09 16:30:32) Info: Next lattice write time is 5962
+2026-10-09 16:30:32) Info: Time is 53.23455970247288
+2026-10-09 16:30:32) Info: Lattice write time is 53.23455970247288, in steps is 5962
+2026-10-09 16:30:32) Info: Next lattice write time is 5984
+2026-10-09 16:30:32) Info: Time is 53.43099719214995
+2026-10-09 16:30:32) Info: Lattice write time is 53.43099719214995, in steps is 5984
+2026-10-09 16:30:32) Info: Next lattice write time is 6006
+2026-10-09 16:30:32) Info: Time is 53.62743468182701
+2026-10-09 16:30:32) Info: Lattice write time is 53.62743468182701, in steps is 6006
+2026-10-09 16:30:32) Info: Next lattice write time is 6028
+2026-10-09 16:30:32) Info: Time is 53.82387217150408
+2026-10-09 16:30:32) Info: Lattice write time is 53.82387217150408, in steps is 6028
+2026-10-09 16:30:32) Info: Next lattice write time is 6050
+2026-10-09 16:30:32) Info: Time is 54.02030966118114
+2026-10-09 16:30:32) Info: Lattice write time is 54.02030966118114, in steps is 6050
+2026-10-09 16:30:32) Info: Next lattice write time is 6072
+2026-10-09 16:30:32) Info: Time is 54.21674715085821
+2026-10-09 16:30:32) Info: Lattice write time is 54.21674715085821, in steps is 6072
+2026-10-09 16:30:32) Info: Next lattice write time is 6094
+2026-10-09 16:30:32) Info: Time is 54.41318464053528
+2026-10-09 16:30:32) Info: Lattice write time is 54.41318464053528, in steps is 6094
+2026-10-09 16:30:32) Info: Next lattice write time is 6116
+2026-10-09 16:30:32) Info: Time is 54.60962213021234
+2026-10-09 16:30:32) Info: Lattice write time is 54.60962213021234, in steps is 6116
+2026-10-09 16:30:32) Info: Next lattice write time is 6138
+2026-10-09 16:30:32) Info: Time is 54.80605961988941
+2026-10-09 16:30:32) Info: Lattice write time is 54.80605961988941, in steps is 6138
+2026-10-09 16:30:32) Info: Next lattice write time is 6160
+2026-10-09 16:30:32) Info: Time is 55.00249710956648
+2026-10-09 16:30:32) Info: Lattice write time is 55.00249710956648, in steps is 6160
+2026-10-09 16:30:32) Info: Next lattice write time is 6182
+2026-10-09 16:30:32) Info: Time is 55.19893459924354
+2026-10-09 16:30:32) Info: Lattice write time is 55.19893459924354, in steps is 6182
+2026-10-09 16:30:32) Info: Next lattice write time is 6204
+2026-10-09 16:30:32) Info: Time is 55.39537208892061
+2026-10-09 16:30:32) Info: Lattice write time is 55.39537208892061, in steps is 6204
+2026-10-09 16:30:32) Info: Next lattice write time is 6226
+2026-10-09 16:30:32) Info: Time is 55.59180957859768
+2026-10-09 16:30:32) Info: Lattice write time is 55.59180957859768, in steps is 6226
+2026-10-09 16:30:32) Info: Next lattice write time is 6248
+2026-10-09 16:30:32) Info: Time is 55.78824706827474
+2026-10-09 16:30:32) Info: Lattice write time is 55.78824706827474, in steps is 6248
+2026-10-09 16:30:32) Info: Next lattice write time is 6270
+2026-10-09 16:30:32) Info: Time is 55.98468455795181
+2026-10-09 16:30:32) Info: Lattice write time is 55.98468455795181, in steps is 6270
+2026-10-09 16:30:32) Info: Next lattice write time is 6292
+2026-10-09 16:30:32) Info: Time is 56.18112204762888
+2026-10-09 16:30:32) Info: Lattice write time is 56.18112204762888, in steps is 6292
+2026-10-09 16:30:32) Info: Next lattice write time is 6314
+2026-10-09 16:30:32) Info: Time is 56.37755953730594
+2026-10-09 16:30:32) Info: Lattice write time is 56.37755953730594, in steps is 6314
+2026-10-09 16:30:32) Info: Next lattice write time is 6336
+2026-10-09 16:30:32) Info: Time is 56.57399702698301
+2026-10-09 16:30:32) Info: Lattice write time is 56.57399702698301, in steps is 6336
+2026-10-09 16:30:32) Info: Next lattice write time is 6358
+2026-10-09 16:30:32) Info: Time is 56.77043451666007
+2026-10-09 16:30:32) Info: Lattice write time is 56.77043451666007, in steps is 6358
+2026-10-09 16:30:32) Info: Next lattice write time is 6380
+2026-10-09 16:30:32) Info: Time is 56.96687200633714
+2026-10-09 16:30:32) Info: Lattice write time is 56.96687200633714, in steps is 6380
+2026-10-09 16:30:32) Info: Next lattice write time is 6402
+2026-10-09 16:30:32) Info: Time is 57.16330949601421
+2026-10-09 16:30:32) Info: Lattice write time is 57.16330949601421, in steps is 6402
+2026-10-09 16:30:32) Info: Next lattice write time is 6424
+2026-10-09 16:30:32) Info: Time is 57.35974698569127
+2026-10-09 16:30:32) Info: Lattice write time is 57.35974698569127, in steps is 6424
+2026-10-09 16:30:32) Info: Next lattice write time is 6446
+2026-10-09 16:30:32) Info: Time is 57.55618447536834
+2026-10-09 16:30:32) Info: Lattice write time is 57.55618447536834, in steps is 6446
+2026-10-09 16:30:32) Info: Next lattice write time is 6468
+2026-10-09 16:30:32) Info: Time is 57.75262196504541
+2026-10-09 16:30:32) Info: Lattice write time is 57.75262196504541, in steps is 6468
+2026-10-09 16:30:32) Info: Next lattice write time is 6490
+2026-10-09 16:30:32) Info: Time is 57.94905945472247
+2026-10-09 16:30:32) Info: Lattice write time is 57.94905945472247, in steps is 6490
+2026-10-09 16:30:32) Info: Next lattice write time is 6512
+2026-10-09 16:30:32) Info: Time is 58.14549694439954
+2026-10-09 16:30:32) Info: Lattice write time is 58.14549694439954, in steps is 6512
+2026-10-09 16:30:32) Info: Next lattice write time is 6534
+2026-10-09 16:30:32) Info: Time is 58.34193443407661
+2026-10-09 16:30:32) Info: Lattice write time is 58.34193443407661, in steps is 6534
+2026-10-09 16:30:32) Info: Next lattice write time is 6556
+2026-10-09 16:30:32) Info: Time is 58.53837192375367
+2026-10-09 16:30:32) Info: Lattice write time is 58.53837192375367, in steps is 6556
+2026-10-09 16:30:32) Info: Next lattice write time is 6578
+2026-10-09 16:30:32) Info: Time is 58.73480941343074
+2026-10-09 16:30:32) Info: Lattice write time is 58.73480941343074, in steps is 6578
+2026-10-09 16:30:32) Info: Next lattice write time is 6600
+2026-10-09 16:30:32) Info: Time is 58.93124690310781
+2026-10-09 16:30:32) Info: Lattice write time is 58.93124690310781, in steps is 6600
+2026-10-09 16:30:32) Info: Next lattice write time is 6622
+2026-10-09 16:30:32) Info: Time is 59.12768439278487
+2026-10-09 16:30:32) Info: Lattice write time is 59.12768439278487, in steps is 6622
+2026-10-09 16:30:32) Info: Next lattice write time is 6644
+2026-10-09 16:30:33) Info: Time is 59.32412188246194
+2026-10-09 16:30:33) Info: Lattice write time is 59.32412188246194, in steps is 6644
+2026-10-09 16:30:33) Info: Next lattice write time is 6666
+2026-10-09 16:30:33) Info: Time is 59.52055937213900
+2026-10-09 16:30:33) Info: Lattice write time is 59.52055937213900, in steps is 6666
+2026-10-09 16:30:33) Info: Next lattice write time is 6688
+2026-10-09 16:30:33) Info: Time is 59.71699686181607
+2026-10-09 16:30:33) Info: Lattice write time is 59.71699686181607, in steps is 6688
+2026-10-09 16:30:33) Info: Next lattice write time is 6710
+2026-10-09 16:30:33) Info: Time is 59.91343435149314
+2026-10-09 16:30:33) Info: Lattice write time is 59.91343435149314, in steps is 6710
+2026-10-09 16:30:33) Info: Next lattice write time is 6732
+2026-10-09 16:30:33) Info: Data output thread finished.
+2026-10-09 16:30:33) Info: Simulation file closed.
+run 3.5 s wall  (517.7 us/step); word mark 1
+wrote out/oct09/gate_dilute_sw.npz  (total 8.4 s)  max motors in a voxel 1  final totals M,T,C = [0, 160, 0]

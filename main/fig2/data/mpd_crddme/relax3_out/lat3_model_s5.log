@@ -1,0 +1,467 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[bath_species] B2 = type 3: sigma 4.0 nm, eta 0.07, D 0.05 um^2/s, 68449 particles (2.09 per voxel)
+[ternary_relax] arm=model N=32^3 h=10 sig={'A': 2.0, 'B': 4.0, 'C': 20.0} eta=(0.07,0.07) NA=547595 NB=68449 C=64 D_um2={'A': 0.1, 'B': 0.05, 'C': 0.01} tau_max=4.0 -> 80 nominal steps, hook every 2
+[ternary_relax] stripe start: filled-voxel mean A 33.41 B 4.17, max total 55 (cap 64), source joint hist
+2026-09-11 16:53:33) Warning: White Bear: MAX_OCC=64 of the largest species reaches eta=4.189 > 0.64 (geometric packing). The lattice cap, not the BMCSL functional, will limit occupancy in crowded voxels; raise MPD_LATTICE_MAX_OCCUPANCY or reduce diameters.
+[struct] size-diffusion: 6*p = 2.7 > 1 at tau with NO adaptive-tau controller armed (D1=9e+05 nm^2/s, tau/lam2=5e-07) — the in-kernel guard will clamp the total hop probability at 1, so small-N complexes WILL be rate-limited.
+2026-09-11 16:53:33) Info: [struct] free-volume functional ARMED: bath excess = V(1-w) f_WB(xi/(1-w)) + confinement -ln(1-w) per particle; w from smear channel 3; lambda_hc 1.000
+2026-09-11 16:53:33) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-09-11 16:53:33) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-09-11 16:53:33) Info: Data output thread running.
+2026-09-11 16:53:33) Info: MPDRDME: Rng seed: top word 327675, bottom word 1
+2026-09-11 16:53:33) Info: Running mpd rdme simulation with 3 species, 0 reactions, 1 site types for 4.000000e-03 s with tau 5.000000e-05. Writing species at 0.000000e+00 and lattice at 6.926434e-310 intervals
+2026-09-11 16:53:33) Info: [struct] free-volume functional ARMED: bath excess = V(1-w) f_WB(xi/(1-w)) + confinement -ln(1-w) per particle; w from smear channel 3; lambda_hc 1.000
+2026-09-11 16:53:33) Info: MPD_RNG_ORIGIN_SHIFT disarmed (env unset or != 1): RNG keys use the bare lattice index.
+2026-09-11 16:53:33) Info: ERA_FUSE_RXN_Z on: the FN reaction step runs inside the z drift kernel when no structure/field/CRDME pass intervenes.
+2026-09-11 16:53:33) Info: [struct] collisional friction AUTO: type 1 sigma 2.00 nm (lambda 0.100), q/pT 10 => c = 60.554
+2026-09-11 16:53:33) Info: [struct] collisional friction AUTO: type 2 sigma 5.00 nm (lambda 0.250), q/pT 10 => c = 5.686
+2026-09-11 16:53:33) Info: [struct] collisional friction AUTO: type 3 sigma 4.00 nm (lambda 0.200), q/pT 5 => c = 18.015
+2026-09-11 16:53:33) Info: [struct] collisional friction AUTO: sigma_T 20.01 nm, body p_T 5.000e-03 per direction per step, 3 species
+2026-09-11 16:53:33) Info: [struct] chain friction AUTO: type 1 sigma 2.00 nm (lambda 1.000), q_t/q_F 1 => c = 2.000 (rate-coupled, out of the move energy)
+2026-09-11 16:53:33) Info: [struct] chain friction AUTO: type 2 sigma 5.00 nm (lambda 2.500), q_t/q_F 1 => c = 0.686 (rate-coupled, out of the move energy)
+2026-09-11 16:53:33) Info: [struct] chain friction AUTO: type 3 sigma 4.00 nm (lambda 2.000), q_t/q_F 0.5 => c = 1.125 (rate-coupled, out of the move energy)
+2026-09-11 16:53:33) Info: [struct] chain friction AUTO: fill species 1 sigma_F 2.00 nm, q_F 5.000e-02 per direction per step, 3 rate-coupled species
+2026-09-11 16:53:33) Info: [struct] body pair exclusion ON: depositing species 2, hard-core diameter 20.01 nm = 2.001 voxels; cell side 5 voxels (p_T 0.005, 4 repetitions, d_max 0.500 voxels); the bodies move in the cell kernel and their smear energy reads the static baseline only
+2026-09-11 16:53:33) Info: Time is 0.00000577500034
+2026-09-11 16:53:33) Info: Hook time is 0.00000577500034, in steps is 2
+2026-09-11 16:53:33) Info: Next hook time is 4
+2026-09-11 16:53:33) Info: Time is 0.00001276275050
+2026-09-11 16:53:33) Info: Hook time is 0.00001276275050, in steps is 4
+2026-09-11 16:53:33) Info: Next hook time is 6
+2026-09-11 16:53:33) Info: Time is 0.00002121792827
+2026-09-11 16:53:33) Info: Hook time is 0.00002121792827, in steps is 6
+2026-09-11 16:53:33) Info: Next hook time is 8
+2026-09-11 16:53:33) Info: Time is 0.00003144869376
+2026-09-11 16:53:33) Info: Hook time is 0.00003144869376, in steps is 8
+2026-09-11 16:53:33) Info: Next hook time is 10
+2026-09-11 16:53:33) Info: Time is 0.00004382792097
+2026-09-11 16:53:33) Info: Hook time is 0.00004382792097, in steps is 10
+2026-09-11 16:53:33) Info: Next hook time is 12
+2026-09-11 16:53:33) Info: Time is 0.00005880678724
+2026-09-11 16:53:33) Info: Hook time is 0.00005880678724, in steps is 12
+2026-09-11 16:53:33) Info: Next hook time is 14
+2026-09-11 16:53:33) Info: Time is 0.00007693121638
+2026-09-11 16:53:33) Info: Hook time is 0.00007693121638, in steps is 14
+2026-09-11 16:53:33) Info: Next hook time is 16
+2026-09-11 16:53:33) Info: Time is 0.00009886177760
+2026-09-11 16:53:33) Info: Hook time is 0.00009886177760, in steps is 16
+2026-09-11 16:53:33) Info: Next hook time is 18
+2026-09-11 16:53:33) Info: Time is 0.00012539775949
+2026-09-11 16:53:33) Info: Hook time is 0.00012539775949, in steps is 18
+2026-09-11 16:53:33) Info: Next hook time is 20
+2026-09-11 16:53:33) Info: Time is 0.00015750629883
+2026-09-11 16:53:33) Info: Hook time is 0.00015750629883, in steps is 20
+2026-09-11 16:53:33) Info: Next hook time is 22
+2026-09-11 16:53:33) Info: Time is 0.00016170629878
+2026-09-11 16:53:33) Info: Hook time is 0.00016170629878, in steps is 22
+2026-09-11 16:53:33) Info: Next hook time is 24
+2026-09-11 16:53:33) Info: Time is 0.00016678829882
+2026-09-11 16:53:33) Info: Hook time is 0.00016678829882, in steps is 24
+2026-09-11 16:53:33) Info: Next hook time is 26
+2026-09-11 16:53:33) Info: Time is 0.00017293751910
+2026-09-11 16:53:33) Info: Hook time is 0.00017293751910, in steps is 26
+2026-09-11 16:53:33) Info: Next hook time is 28
+2026-09-11 16:53:33) Info: Time is 0.00018037807569
+2026-09-11 16:53:33) Info: Hook time is 0.00018037807569, in steps is 28
+2026-09-11 16:53:33) Info: Next hook time is 30
+2026-09-11 16:53:33) Info: Time is 0.00018938114978
+2026-09-11 16:53:33) Info: Hook time is 0.00018938114978, in steps is 30
+2026-09-11 16:53:33) Info: Next hook time is 32
+2026-09-11 16:53:33) Info: Time is 0.00020027486980
+2026-09-11 16:53:33) Info: Hook time is 0.00020027486980, in steps is 32
+2026-09-11 16:53:33) Info: Next hook time is 34
+2026-09-11 16:53:33) Info: Time is 0.00021345627159
+2026-09-11 16:53:33) Info: Hook time is 0.00021345627159, in steps is 34
+2026-09-11 16:53:33) Info: Next hook time is 36
+2026-09-11 16:53:33) Info: Time is 0.00022940576822
+2026-09-11 16:53:33) Info: Hook time is 0.00022940576822, in steps is 36
+2026-09-11 16:53:33) Info: Next hook time is 38
+2026-09-11 16:53:33) Info: Time is 0.00024870465994
+2026-09-11 16:53:33) Info: Hook time is 0.00024870465994, in steps is 38
+2026-09-11 16:53:33) Info: Next hook time is 40
+2026-09-11 16:53:33) Info: Time is 0.00027205632031
+2026-09-11 16:53:33) Info: Hook time is 0.00027205632031, in steps is 40
+2026-09-11 16:53:33) Info: Next hook time is 42
+2026-09-11 16:53:33) Info: Time is 0.00030031183064
+2026-09-11 16:53:33) Info: Hook time is 0.00030031183064, in steps is 42
+2026-09-11 16:53:33) Info: Next hook time is 44
+2026-09-11 16:53:33) Info: Time is 0.00033450099826
+2026-09-11 16:53:33) Info: Hook time is 0.00033450099826, in steps is 44
+2026-09-11 16:53:33) Info: Next hook time is 46
+2026-09-11 16:53:33) Info: Time is 0.00037586989403
+2026-09-11 16:53:33) Info: Hook time is 0.00037586989403, in steps is 46
+2026-09-11 16:53:33) Info: Next hook time is 48
+2026-09-11 16:53:33) Info: Time is 0.00042592626214
+2026-09-11 16:53:33) Info: Hook time is 0.00042592626214, in steps is 48
+2026-09-11 16:53:33) Info: Next hook time is 50
+2026-09-11 16:53:33) Info: Time is 0.00047481404692
+2026-09-11 16:53:33) Info: Hook time is 0.00047481404692, in steps is 50
+2026-09-11 16:53:34) Info: Next hook time is 52
+2026-09-11 16:53:34) Info: Time is 0.00052859060913
+2026-09-11 16:53:34) Info: Hook time is 0.00052859060913, in steps is 52
+2026-09-11 16:53:34) Info: Next hook time is 54
+2026-09-11 16:53:34) Info: Time is 0.00058492795974
+2026-09-11 16:53:34) Info: Hook time is 0.00058492795974, in steps is 54
+2026-09-11 16:53:34) Info: Next hook time is 56
+2026-09-11 16:53:34) Info: Time is 0.00064126531035
+2026-09-11 16:53:34) Info: Hook time is 0.00064126531035, in steps is 56
+2026-09-11 16:53:34) Info: Next hook time is 58
+2026-09-11 16:53:34) Info: Time is 0.00070041952878
+2026-09-11 16:53:34) Info: Hook time is 0.00070041952878, in steps is 58
+2026-09-11 16:53:34) Info: Next hook time is 60
+2026-09-11 16:53:34) Info: Time is 0.00075293391049
+2026-09-11 16:53:34) Info: Hook time is 0.00075293391049, in steps is 60
+2026-09-11 16:53:34) Info: Next hook time is 62
+2026-09-11 16:53:34) Info: Time is 0.00080266552716
+2026-09-11 16:53:34) Info: Hook time is 0.00080266552716, in steps is 62
+2026-09-11 16:53:34) Info: Next hook time is 64
+2026-09-11 16:53:34) Info: Time is 0.00085737030655
+2026-09-11 16:53:34) Info: Hook time is 0.00085737030655, in steps is 64
+2026-09-11 16:53:34) Info: Next hook time is 66
+2026-09-11 16:53:34) Info: Time is 0.00091468007714
+2026-09-11 16:53:34) Info: Hook time is 0.00091468007714, in steps is 66
+2026-09-11 16:53:34) Info: Next hook time is 68
+2026-09-11 16:53:34) Info: Time is 0.00096880100816
+2026-09-11 16:53:34) Info: Hook time is 0.00096880100816, in steps is 68
+2026-09-11 16:53:34) Info: Next hook time is 70
+2026-09-11 16:53:34) Info: Time is 0.00097300100811
+2026-09-11 16:53:34) Info: Hook time is 0.00097300100811, in steps is 70
+2026-09-11 16:53:34) Info: Next hook time is 72
+2026-09-11 16:53:34) Info: Time is 0.00097808300816
+2026-09-11 16:53:34) Info: Hook time is 0.00097808300816, in steps is 72
+2026-09-11 16:53:34) Info: Next hook time is 74
+2026-09-11 16:53:34) Info: Time is 0.00098423222844
+2026-09-11 16:53:34) Info: Hook time is 0.00098423222844, in steps is 74
+2026-09-11 16:53:34) Info: Next hook time is 76
+2026-09-11 16:53:34) Info: Time is 0.00099167278502
+2026-09-11 16:53:34) Info: Hook time is 0.00099167278502, in steps is 76
+2026-09-11 16:53:34) Info: Next hook time is 78
+2026-09-11 16:53:34) Info: Time is 0.00100067585912
+2026-09-11 16:53:34) Info: Hook time is 0.00100067585912, in steps is 78
+2026-09-11 16:53:34) Info: Next hook time is 80
+2026-09-11 16:53:34) Info: Time is 0.00101156957913
+2026-09-11 16:53:34) Info: Hook time is 0.00101156957913, in steps is 80
+2026-09-11 16:53:34) Info: Next hook time is 82
+2026-09-11 16:53:34) Info: Time is 0.00102475098092
+2026-09-11 16:53:34) Info: Hook time is 0.00102475098092, in steps is 82
+2026-09-11 16:53:34) Info: Next hook time is 84
+2026-09-11 16:53:34) Info: Time is 0.00104070047755
+2026-09-11 16:53:34) Info: Hook time is 0.00104070047755, in steps is 84
+2026-09-11 16:53:34) Info: Next hook time is 86
+2026-09-11 16:53:34) Info: Time is 0.00105999936927
+2026-09-11 16:53:34) Info: Hook time is 0.00105999936927, in steps is 86
+2026-09-11 16:53:34) Info: Next hook time is 88
+2026-09-11 16:53:34) Info: Time is 0.00108335102964
+2026-09-11 16:53:34) Info: Hook time is 0.00108335102964, in steps is 88
+2026-09-11 16:53:34) Info: Next hook time is 90
+2026-09-11 16:53:34) Info: Time is 0.00111160653997
+2026-09-11 16:53:34) Info: Hook time is 0.00111160653997, in steps is 90
+2026-09-11 16:53:34) Info: Next hook time is 92
+2026-09-11 16:53:34) Info: Time is 0.00114579570759
+2026-09-11 16:53:34) Info: Hook time is 0.00114579570759, in steps is 92
+2026-09-11 16:53:34) Info: Next hook time is 94
+2026-09-11 16:53:34) Info: Time is 0.00118716460336
+2026-09-11 16:53:34) Info: Hook time is 0.00118716460336, in steps is 94
+2026-09-11 16:53:34) Info: Next hook time is 96
+2026-09-11 16:53:34) Info: Time is 0.00123722097147
+2026-09-11 16:53:34) Info: Hook time is 0.00123722097147, in steps is 96
+2026-09-11 16:53:34) Info: Next hook time is 98
+2026-09-11 16:53:34) Info: Time is 0.00129228297938
+2026-09-11 16:53:34) Info: Hook time is 0.00129228297938, in steps is 98
+2026-09-11 16:53:34) Info: Next hook time is 100
+2026-09-11 16:53:34) Info: Time is 0.00132555212993
+2026-09-11 16:53:34) Info: Hook time is 0.00132555212993, in steps is 100
+2026-09-11 16:53:34) Info: Next hook time is 102
+2026-09-11 16:53:34) Info: Time is 0.00136580780316
+2026-09-11 16:53:34) Info: Hook time is 0.00136580780316, in steps is 102
+2026-09-11 16:53:34) Info: Next hook time is 104
+2026-09-11 16:53:34) Info: Time is 0.00141451716889
+2026-09-11 16:53:34) Info: Hook time is 0.00141451716889, in steps is 104
+2026-09-11 16:53:34) Info: Next hook time is 106
+2026-09-11 16:53:34) Info: Time is 0.00146308586020
+2026-09-11 16:53:34) Info: Hook time is 0.00146308586020, in steps is 106
+2026-09-11 16:53:34) Info: Next hook time is 108
+2026-09-11 16:53:34) Info: Time is 0.00151044737268
+2026-09-11 16:53:34) Info: Hook time is 0.00151044737268, in steps is 108
+2026-09-11 16:53:34) Info: Next hook time is 110
+2026-09-11 16:53:34) Info: Time is 0.00156775480676
+2026-09-11 16:53:34) Info: Hook time is 0.00156775480676, in steps is 110
+2026-09-11 16:53:34) Info: Next hook time is 112
+2026-09-11 16:53:34) Info: Time is 0.00162165100891
+2026-09-11 16:53:34) Info: Hook time is 0.00162165100891, in steps is 112
+2026-09-11 16:53:34) Info: Next hook time is 114
+2026-09-11 16:53:34) Info: Time is 0.00162585100923
+2026-09-11 16:53:34) Info: Hook time is 0.00162585100923, in steps is 114
+2026-09-11 16:53:34) Info: Next hook time is 116
+2026-09-11 16:53:34) Info: Time is 0.00163093300965
+2026-09-11 16:53:34) Info: Hook time is 0.00163093300965, in steps is 116
+2026-09-11 16:53:34) Info: Next hook time is 118
+2026-09-11 16:53:34) Info: Time is 0.00163708223049
+2026-09-11 16:53:34) Info: Hook time is 0.00163708223049, in steps is 118
+2026-09-11 16:53:34) Info: Next hook time is 120
+2026-09-11 16:53:34) Info: Time is 0.00164452278782
+2026-09-11 16:53:34) Info: Hook time is 0.00164452278782, in steps is 120
+2026-09-11 16:53:34) Info: Next hook time is 122
+2026-09-11 16:53:34) Info: Time is 0.00165352586266
+2026-09-11 16:53:34) Info: Hook time is 0.00165352586266, in steps is 122
+2026-09-11 16:53:34) Info: Next hook time is 124
+2026-09-11 16:53:34) Info: Time is 0.00166441958379
+2026-09-11 16:53:34) Info: Hook time is 0.00166441958379, in steps is 124
+2026-09-11 16:53:34) Info: Next hook time is 126
+2026-09-11 16:53:34) Info: Time is 0.00167760098707
+2026-09-11 16:53:34) Info: Hook time is 0.00167760098707, in steps is 126
+2026-09-11 16:53:34) Info: Next hook time is 128
+2026-09-11 16:53:34) Info: Time is 0.00168719598670
+2026-09-11 16:53:34) Info: Hook time is 0.00168719598670, in steps is 128
+2026-09-11 16:53:34) Info: Next hook time is 130
+2026-09-11 16:53:34) Info: Time is 0.00169119598661
+2026-09-11 16:53:34) Info: Hook time is 0.00169119598661, in steps is 130
+2026-09-11 16:53:34) Info: Next hook time is 132
+2026-09-11 16:53:34) Info: Time is 0.00169519598652
+2026-09-11 16:53:34) Info: Hook time is 0.00169519598652, in steps is 132
+2026-09-11 16:53:34) Info: Next hook time is 134
+2026-09-11 16:53:34) Info: Time is 0.00169919598643
+2026-09-11 16:53:34) Info: Hook time is 0.00169919598643, in steps is 134
+2026-09-11 16:53:34) Info: Next hook time is 136
+2026-09-11 16:53:34) Info: Time is 0.00170319598634
+2026-09-11 16:53:34) Info: Hook time is 0.00170319598634, in steps is 136
+2026-09-11 16:53:34) Info: Next hook time is 138
+2026-09-11 16:53:34) Info: Time is 0.00170719598625
+2026-09-11 16:53:34) Info: Hook time is 0.00170719598625, in steps is 138
+2026-09-11 16:53:34) Info: Next hook time is 140
+2026-09-11 16:53:34) Info: Time is 0.00171119598616
+2026-09-11 16:53:34) Info: Hook time is 0.00171119598616, in steps is 140
+2026-09-11 16:53:34) Info: Next hook time is 142
+2026-09-11 16:53:34) Info: Time is 0.00171519598607
+2026-09-11 16:53:34) Info: Hook time is 0.00171519598607, in steps is 142
+2026-09-11 16:53:34) Info: Next hook time is 144
+2026-09-11 16:53:34) Info: Time is 0.00171939598601
+2026-09-11 16:53:34) Info: Hook time is 0.00171939598601, in steps is 144
+2026-09-11 16:53:34) Info: Next hook time is 146
+2026-09-11 16:53:34) Info: Time is 0.00172447798606
+2026-09-11 16:53:34) Info: Hook time is 0.00172447798606, in steps is 146
+2026-09-11 16:53:34) Info: Next hook time is 148
+2026-09-11 16:53:34) Info: Time is 0.00173062720634
+2026-09-11 16:53:34) Info: Hook time is 0.00173062720634, in steps is 148
+2026-09-11 16:53:34) Info: Next hook time is 150
+2026-09-11 16:53:34) Info: Time is 0.00173806776293
+2026-09-11 16:53:34) Info: Hook time is 0.00173806776293, in steps is 150
+2026-09-11 16:53:34) Info: Next hook time is 152
+2026-09-11 16:53:34) Info: Time is 0.00174707083702
+2026-09-11 16:53:34) Info: Hook time is 0.00174707083702, in steps is 152
+2026-09-11 16:53:34) Info: Next hook time is 154
+2026-09-11 16:53:34) Info: Time is 0.00175796455704
+2026-09-11 16:53:34) Info: Hook time is 0.00175796455704, in steps is 154
+2026-09-11 16:53:34) Info: Next hook time is 156
+2026-09-11 16:53:34) Info: Time is 0.00177114595883
+2026-09-11 16:53:34) Info: Hook time is 0.00177114595883, in steps is 156
+2026-09-11 16:53:34) Info: Next hook time is 158
+2026-09-11 16:53:34) Info: Time is 0.00178709545545
+2026-09-11 16:53:34) Info: Hook time is 0.00178709545545, in steps is 158
+2026-09-11 16:53:34) Info: Next hook time is 160
+2026-09-11 16:53:34) Info: Time is 0.00180639434718
+2026-09-11 16:53:34) Info: Hook time is 0.00180639434718, in steps is 160
+2026-09-11 16:53:34) Info: Next hook time is 162
+2026-09-11 16:53:34) Info: Time is 0.00182974600755
+2026-09-11 16:53:34) Info: Hook time is 0.00182974600755, in steps is 162
+2026-09-11 16:53:34) Info: Next hook time is 164
+2026-09-11 16:53:34) Info: Time is 0.00185800151788
+2026-09-11 16:53:34) Info: Hook time is 0.00185800151788, in steps is 164
+2026-09-11 16:53:34) Info: Next hook time is 166
+2026-09-11 16:53:34) Info: Time is 0.00189219068550
+2026-09-11 16:53:34) Info: Hook time is 0.00189219068550, in steps is 166
+2026-09-11 16:53:35) Info: Next hook time is 168
+2026-09-11 16:53:35) Info: Time is 0.00193355958126
+2026-09-11 16:53:35) Info: Hook time is 0.00193355958126, in steps is 168
+2026-09-11 16:53:35) Info: Next hook time is 170
+2026-09-11 16:53:35) Info: Time is 0.00198361594938
+2026-09-11 16:53:35) Info: Hook time is 0.00198361594938, in steps is 170
+2026-09-11 16:53:35) Info: Next hook time is 172
+2026-09-11 16:53:35) Info: Time is 0.00204418415986
+2026-09-11 16:53:35) Info: Hook time is 0.00204418415986, in steps is 172
+2026-09-11 16:53:35) Info: Next hook time is 174
+2026-09-11 16:53:35) Info: Time is 0.00210712873302
+2026-09-11 16:53:35) Info: Hook time is 0.00210712873302, in steps is 174
+2026-09-11 16:53:35) Info: Next hook time is 176
+2026-09-11 16:53:35) Info: Time is 0.00216882937513
+2026-09-11 16:53:35) Info: Hook time is 0.00216882937513, in steps is 176
+2026-09-11 16:53:35) Info: Next hook time is 178
+2026-09-11 16:53:35) Info: Time is 0.00223361504935
+2026-09-11 16:53:35) Info: Hook time is 0.00223361504935, in steps is 178
+2026-09-11 16:53:35) Info: Next hook time is 180
+2026-09-11 16:53:35) Info: Time is 0.00229389563464
+2026-09-11 16:53:35) Info: Hook time is 0.00229389563464, in steps is 180
+2026-09-11 16:53:35) Info: Next hook time is 182
+2026-09-11 16:53:35) Info: Time is 0.00234922062419
+2026-09-11 16:53:35) Info: Hook time is 0.00234922062419, in steps is 182
+2026-09-11 16:53:35) Info: Next hook time is 184
+2026-09-11 16:53:35) Info: Time is 0.00241007811688
+2026-09-11 16:53:35) Info: Hook time is 0.00241007811688, in steps is 184
+2026-09-11 16:53:35) Info: Next hook time is 186
+2026-09-11 16:53:35) Info: Time is 0.00247702136301
+2026-09-11 16:53:35) Info: Hook time is 0.00247702136301, in steps is 186
+2026-09-11 16:53:35) Info: Next hook time is 188
+2026-09-11 16:53:35) Info: Time is 0.00253291217349
+2026-09-11 16:53:35) Info: Hook time is 0.00253291217349, in steps is 188
+2026-09-11 16:53:35) Info: Next hook time is 190
+2026-09-11 16:53:35) Info: Time is 0.00257975549512
+2026-09-11 16:53:35) Info: Hook time is 0.00257975549512, in steps is 190
+2026-09-11 16:53:35) Info: Next hook time is 192
+2026-09-11 16:53:35) Info: Time is 0.00260339807160
+2026-09-11 16:53:35) Info: Hook time is 0.00260339807160, in steps is 192
+2026-09-11 16:53:35) Info: Next hook time is 194
+2026-09-11 16:53:35) Info: Time is 0.00263200559057
+2026-09-11 16:53:35) Info: Hook time is 0.00263200559057, in steps is 194
+2026-09-11 16:53:35) Info: Next hook time is 196
+2026-09-11 16:53:35) Info: Time is 0.00266662068851
+2026-09-11 16:53:35) Info: Hook time is 0.00266662068851, in steps is 196
+2026-09-11 16:53:35) Info: Next hook time is 198
+2026-09-11 16:53:35) Info: Time is 0.00270850495733
+2026-09-11 16:53:35) Info: Hook time is 0.00270850495733, in steps is 198
+2026-09-11 16:53:35) Info: Next hook time is 200
+2026-09-11 16:53:35) Info: Time is 0.00275677159168
+2026-09-11 16:53:35) Info: Hook time is 0.00275677159168, in steps is 200
+2026-09-11 16:53:35) Info: Next hook time is 202
+2026-09-11 16:53:35) Info: Time is 0.00280745155700
+2026-09-11 16:53:35) Info: Hook time is 0.00280745155700, in steps is 202
+2026-09-11 16:53:35) Info: Next hook time is 204
+2026-09-11 16:53:35) Info: Time is 0.00286585418470
+2026-09-11 16:53:35) Info: Hook time is 0.00286585418470, in steps is 204
+2026-09-11 16:53:35) Info: Next hook time is 206
+2026-09-11 16:53:35) Info: Time is 0.00293330922313
+2026-09-11 16:53:35) Info: Hook time is 0.00293330922313, in steps is 206
+2026-09-11 16:53:35) Info: Next hook time is 208
+2026-09-11 16:53:35) Info: Time is 0.00300397640653
+2026-09-11 16:53:35) Info: Hook time is 0.00300397640653, in steps is 208
+2026-09-11 16:53:35) Info: Next hook time is 210
+2026-09-11 16:53:35) Info: Time is 0.00300817640647
+2026-09-11 16:53:35) Info: Hook time is 0.00300817640647, in steps is 210
+2026-09-11 16:53:35) Info: Next hook time is 212
+2026-09-11 16:53:35) Info: Time is 0.00301325840652
+2026-09-11 16:53:35) Info: Hook time is 0.00301325840652, in steps is 212
+2026-09-11 16:53:35) Info: Next hook time is 214
+2026-09-11 16:53:35) Info: Time is 0.00301940762680
+2026-09-11 16:53:35) Info: Hook time is 0.00301940762680, in steps is 214
+2026-09-11 16:53:35) Info: Next hook time is 216
+2026-09-11 16:53:35) Info: Time is 0.00302684818339
+2026-09-11 16:53:35) Info: Hook time is 0.00302684818339, in steps is 216
+2026-09-11 16:53:35) Info: Next hook time is 218
+2026-09-11 16:53:35) Info: Time is 0.00303585125748
+2026-09-11 16:53:35) Info: Hook time is 0.00303585125748, in steps is 218
+2026-09-11 16:53:35) Info: Next hook time is 220
+2026-09-11 16:53:35) Info: Time is 0.00304674497750
+2026-09-11 16:53:35) Info: Hook time is 0.00304674497750, in steps is 220
+2026-09-11 16:53:35) Info: Next hook time is 222
+2026-09-11 16:53:35) Info: Time is 0.00305992637929
+2026-09-11 16:53:35) Info: Hook time is 0.00305992637929, in steps is 222
+2026-09-11 16:53:35) Info: Next hook time is 224
+2026-09-11 16:53:35) Info: Time is 0.00307587587591
+2026-09-11 16:53:35) Info: Hook time is 0.00307587587591, in steps is 224
+2026-09-11 16:53:35) Info: Next hook time is 226
+2026-09-11 16:53:35) Info: Time is 0.00309517476764
+2026-09-11 16:53:35) Info: Hook time is 0.00309517476764, in steps is 226
+2026-09-11 16:53:35) Info: Next hook time is 228
+2026-09-11 16:53:35) Info: Time is 0.00311852642801
+2026-09-11 16:53:35) Info: Hook time is 0.00311852642801, in steps is 228
+2026-09-11 16:53:35) Info: Next hook time is 230
+2026-09-11 16:53:35) Info: Time is 0.00314678193834
+2026-09-11 16:53:35) Info: Hook time is 0.00314678193834, in steps is 230
+2026-09-11 16:53:35) Info: Next hook time is 232
+2026-09-11 16:53:35) Info: Time is 0.00318097110596
+2026-09-11 16:53:35) Info: Hook time is 0.00318097110596, in steps is 232
+2026-09-11 16:53:35) Info: Next hook time is 234
+2026-09-11 16:53:35) Info: Time is 0.00322234000172
+2026-09-11 16:53:35) Info: Hook time is 0.00322234000172, in steps is 234
+2026-09-11 16:53:35) Info: Next hook time is 236
+2026-09-11 16:53:35) Info: Time is 0.00327239636984
+2026-09-11 16:53:35) Info: Hook time is 0.00327239636984, in steps is 236
+2026-09-11 16:53:35) Info: Next hook time is 238
+2026-09-11 16:53:35) Info: Time is 0.00333296458032
+2026-09-11 16:53:35) Info: Hook time is 0.00333296458032, in steps is 238
+2026-09-11 16:53:35) Info: Next hook time is 240
+2026-09-11 16:53:35) Info: Time is 0.00339099152293
+2026-09-11 16:53:35) Info: Hook time is 0.00339099152293, in steps is 240
+2026-09-11 16:53:35) Info: Next hook time is 242
+2026-09-11 16:53:35) Info: Time is 0.00343111035135
+2026-09-11 16:53:35) Info: Hook time is 0.00343111035135, in steps is 242
+2026-09-11 16:53:35) Info: Next hook time is 244
+2026-09-11 16:53:35) Info: Time is 0.00345695466753
+2026-09-11 16:53:35) Info: Hook time is 0.00345695466753, in steps is 244
+2026-09-11 16:53:35) Info: Next hook time is 246
+2026-09-11 16:53:35) Info: Time is 0.00348822629061
+2026-09-11 16:53:35) Info: Hook time is 0.00348822629061, in steps is 246
+2026-09-11 16:53:35) Info: Next hook time is 248
+2026-09-11 16:53:35) Info: Time is 0.00352606495675
+2026-09-11 16:53:35) Info: Hook time is 0.00352606495675, in steps is 248
+2026-09-11 16:53:35) Info: Next hook time is 250
+2026-09-11 16:53:35) Info: Time is 0.00357184974458
+2026-09-11 16:53:35) Info: Hook time is 0.00357184974458, in steps is 250
+2026-09-11 16:53:35) Info: Next hook time is 252
+2026-09-11 16:53:35) Info: Time is 0.00362724934127
+2026-09-11 16:53:35) Info: Hook time is 0.00362724934127, in steps is 252
+2026-09-11 16:53:35) Info: Next hook time is 254
+2026-09-11 16:53:35) Info: Time is 0.00366305939164
+2026-09-11 16:53:35) Info: Hook time is 0.00366305939164, in steps is 254
+2026-09-11 16:53:35) Info: Next hook time is 256
+2026-09-11 16:53:35) Info: Time is 0.00370638955589
+2026-09-11 16:53:35) Info: Hook time is 0.00370638955589, in steps is 256
+2026-09-11 16:53:35) Info: Next hook time is 258
+2026-09-11 16:53:35) Info: Time is 0.00371058955621
+2026-09-11 16:53:35) Info: Hook time is 0.00371058955621, in steps is 258
+2026-09-11 16:53:35) Info: Next hook time is 260
+2026-09-11 16:53:35) Info: Time is 0.00371567155663
+2026-09-11 16:53:35) Info: Hook time is 0.00371567155663, in steps is 260
+2026-09-11 16:53:35) Info: Next hook time is 262
+2026-09-11 16:53:35) Info: Time is 0.00372182077747
+2026-09-11 16:53:35) Info: Hook time is 0.00372182077747, in steps is 262
+2026-09-11 16:53:35) Info: Next hook time is 264
+2026-09-11 16:53:35) Info: Time is 0.00372926133480
+2026-09-11 16:53:35) Info: Hook time is 0.00372926133480, in steps is 264
+2026-09-11 16:53:35) Info: Next hook time is 266
+2026-09-11 16:53:35) Info: Time is 0.00373826440964
+2026-09-11 16:53:35) Info: Hook time is 0.00373826440964, in steps is 266
+2026-09-11 16:53:35) Info: Next hook time is 268
+2026-09-11 16:53:35) Info: Time is 0.00374915813077
+2026-09-11 16:53:35) Info: Hook time is 0.00374915813077, in steps is 268
+2026-09-11 16:53:35) Info: Next hook time is 270
+2026-09-11 16:53:35) Info: Time is 0.00376233953405
+2026-09-11 16:53:35) Info: Hook time is 0.00376233953405, in steps is 270
+2026-09-11 16:53:35) Info: Next hook time is 272
+2026-09-11 16:53:35) Info: Time is 0.00377828903366
+2026-09-11 16:53:35) Info: Hook time is 0.00377828903366, in steps is 272
+2026-09-11 16:53:35) Info: Next hook time is 274
+2026-09-11 16:53:35) Info: Time is 0.00379758792836
+2026-09-11 16:53:35) Info: Hook time is 0.00379758792836, in steps is 274
+2026-09-11 16:53:35) Info: Next hook time is 276
+2026-09-11 16:53:35) Info: Time is 0.00382093959171
+2026-09-11 16:53:35) Info: Hook time is 0.00382093959171, in steps is 276
+2026-09-11 16:53:36) Info: Next hook time is 278
+2026-09-11 16:53:36) Info: Time is 0.00384919510502
+2026-09-11 16:53:36) Info: Hook time is 0.00384919510502, in steps is 278
+2026-09-11 16:53:36) Info: Next hook time is 280
+2026-09-11 16:53:36) Info: Time is 0.00388338427562
+2026-09-11 16:53:36) Info: Hook time is 0.00388338427562, in steps is 280
+2026-09-11 16:53:36) Info: Next hook time is 282
+2026-09-11 16:53:36) Info: Time is 0.00392475317437
+2026-09-11 16:53:36) Info: Hook time is 0.00392475317437, in steps is 282
+2026-09-11 16:53:36) Info: Next hook time is 284
+2026-09-11 16:53:36) Info: Time is 0.00397480954397
+2026-09-11 16:53:36) Info: Hook time is 0.00397480954397, in steps is 284
+2026-09-11 16:53:36) Info: Next hook time is 286
+2026-09-11 16:53:36) Info: Data output thread finished.
+2026-09-11 16:53:36) Info: Simulation file closed.
+[ternary_relax] -> /raid/racda/campaigns/lmrddme_validation/mpd_crddme/relax3_out/lat3_model_s5.npz: 142 frames, tau 0.00578..3.97, tau_scale 0.577, struct_err 0, overlap reads 0, final Fano A 0.849 B 0.649, 5 s

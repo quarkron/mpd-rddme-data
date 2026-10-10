@@ -1,0 +1,832 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+build site width 16; n_part from PPS = 16
+2026-10-01 21:46:26) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 21:46:26) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 21:46:26) Info: Data output thread running.
+2026-10-01 21:46:26) Info: MPDRDME: Rng seed: top word 3558419430, bottom word 1
+2026-10-01 21:46:26) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 1.920000e+00 s with tau 6.400000e-04. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 21:46:26) Info: MPD_RNG_ORIGIN_SHIFT disarmed (env unset or != 1): RNG keys use the bare lattice index.
+2026-10-01 21:46:26) Info: ERA_FUSE_RXN_Z on: the FN reaction step runs inside the z drift kernel when no structure/field/CRDME pass intervenes.
+2026-10-01 21:46:26) Info: Time is 0.06400000000000
+2026-10-01 21:46:26) Info: Lattice write time is 0.06400000000000, in steps is 100
+2026-10-01 21:46:26) Info: Next lattice write time is 200
+2026-10-01 21:46:26) Info: Time is 0.12800000000000
+2026-10-01 21:46:26) Info: Lattice write time is 0.12800000000000, in steps is 200
+2026-10-01 21:46:26) Info: Next lattice write time is 300
+2026-10-01 21:46:26) Info: Time is 0.19200000000000
+2026-10-01 21:46:26) Info: Lattice write time is 0.19200000000000, in steps is 300
+2026-10-01 21:46:26) Info: Next lattice write time is 400
+2026-10-01 21:46:26) Info: Time is 0.25600000000000
+2026-10-01 21:46:26) Info: Lattice write time is 0.25600000000000, in steps is 400
+2026-10-01 21:46:26) Info: Next lattice write time is 500
+2026-10-01 21:46:26) Info: Time is 0.32000000000000
+2026-10-01 21:46:26) Info: Lattice write time is 0.32000000000000, in steps is 500
+2026-10-01 21:46:26) Info: Next lattice write time is 600
+2026-10-01 21:46:26) Info: Time is 0.38400000000000
+2026-10-01 21:46:26) Info: Lattice write time is 0.38400000000000, in steps is 600
+2026-10-01 21:46:26) Info: Next lattice write time is 700
+2026-10-01 21:46:26) Info: Time is 0.44799999999999
+2026-10-01 21:46:26) Info: Lattice write time is 0.44799999999999, in steps is 700
+2026-10-01 21:46:26) Info: Next lattice write time is 800
+2026-10-01 21:46:26) Info: Time is 0.51199999999999
+2026-10-01 21:46:26) Info: Lattice write time is 0.51199999999999, in steps is 800
+2026-10-01 21:46:26) Info: Next lattice write time is 900
+2026-10-01 21:46:26) Info: Time is 0.57599999999999
+2026-10-01 21:46:26) Info: Lattice write time is 0.57599999999999, in steps is 900
+2026-10-01 21:46:26) Info: Next lattice write time is 1000
+2026-10-01 21:46:26) Info: Time is 0.63999999999998
+2026-10-01 21:46:26) Info: Lattice write time is 0.63999999999998, in steps is 1000
+2026-10-01 21:46:26) Info: Next lattice write time is 1100
+2026-10-01 21:46:26) Info: Time is 0.70399999999998
+2026-10-01 21:46:26) Info: Lattice write time is 0.70399999999998, in steps is 1100
+2026-10-01 21:46:26) Info: Next lattice write time is 1200
+2026-10-01 21:46:26) Info: Time is 0.76799999999998
+2026-10-01 21:46:26) Info: Lattice write time is 0.76799999999998, in steps is 1200
+2026-10-01 21:46:26) Info: Next lattice write time is 1300
+2026-10-01 21:46:26) Info: Time is 0.83199999999998
+2026-10-01 21:46:26) Info: Lattice write time is 0.83199999999998, in steps is 1300
+2026-10-01 21:46:26) Info: Next lattice write time is 1400
+2026-10-01 21:46:26) Info: Time is 0.89599999999997
+2026-10-01 21:46:26) Info: Lattice write time is 0.89599999999997, in steps is 1400
+2026-10-01 21:46:26) Info: Next lattice write time is 1500
+2026-10-01 21:46:26) Info: Time is 0.95999999999997
+2026-10-01 21:46:26) Info: Lattice write time is 0.95999999999997, in steps is 1500
+2026-10-01 21:46:26) Info: Next lattice write time is 1600
+2026-10-01 21:46:26) Info: Time is 1.02399999999997
+2026-10-01 21:46:26) Info: Lattice write time is 1.02399999999997, in steps is 1600
+2026-10-01 21:46:26) Info: Next lattice write time is 1700
+2026-10-01 21:46:26) Info: Time is 1.08799999999997
+2026-10-01 21:46:26) Info: Lattice write time is 1.08799999999997, in steps is 1700
+2026-10-01 21:46:26) Info: Next lattice write time is 1800
+2026-10-01 21:46:26) Info: Time is 1.15199999999996
+2026-10-01 21:46:26) Info: Lattice write time is 1.15199999999996, in steps is 1800
+2026-10-01 21:46:26) Info: Next lattice write time is 1900
+2026-10-01 21:46:26) Info: Time is 1.21599999999996
+2026-10-01 21:46:26) Info: Lattice write time is 1.21599999999996, in steps is 1900
+2026-10-01 21:46:26) Info: Next lattice write time is 2000
+2026-10-01 21:46:26) Info: Time is 1.27999999999996
+2026-10-01 21:46:26) Info: Lattice write time is 1.27999999999996, in steps is 2000
+2026-10-01 21:46:26) Info: Next lattice write time is 2100
+2026-10-01 21:46:26) Info: Time is 1.34399999999996
+2026-10-01 21:46:26) Info: Lattice write time is 1.34399999999996, in steps is 2100
+2026-10-01 21:46:26) Info: Next lattice write time is 2200
+2026-10-01 21:46:26) Info: Time is 1.40799999999995
+2026-10-01 21:46:26) Info: Lattice write time is 1.40799999999995, in steps is 2200
+2026-10-01 21:46:26) Info: Next lattice write time is 2300
+2026-10-01 21:46:26) Info: Time is 1.47199999999995
+2026-10-01 21:46:26) Info: Lattice write time is 1.47199999999995, in steps is 2300
+2026-10-01 21:46:26) Info: Next lattice write time is 2400
+2026-10-01 21:46:26) Info: Time is 1.53599999999995
+2026-10-01 21:46:26) Info: Lattice write time is 1.53599999999995, in steps is 2400
+2026-10-01 21:46:26) Info: Next lattice write time is 2500
+2026-10-01 21:46:26) Info: Time is 1.59999999999995
+2026-10-01 21:46:26) Info: Lattice write time is 1.59999999999995, in steps is 2500
+2026-10-01 21:46:26) Info: Next lattice write time is 2600
+2026-10-01 21:46:26) Info: Time is 1.66399999999994
+2026-10-01 21:46:26) Info: Lattice write time is 1.66399999999994, in steps is 2600
+2026-10-01 21:46:26) Info: Next lattice write time is 2700
+2026-10-01 21:46:26) Info: Time is 1.72799999999994
+2026-10-01 21:46:26) Info: Lattice write time is 1.72799999999994, in steps is 2700
+2026-10-01 21:46:26) Info: Next lattice write time is 2800
+2026-10-01 21:46:26) Info: Time is 1.79199999999994
+2026-10-01 21:46:26) Info: Lattice write time is 1.79199999999994, in steps is 2800
+2026-10-01 21:46:26) Info: Next lattice write time is 2900
+2026-10-01 21:46:26) Info: Time is 1.85599999999994
+2026-10-01 21:46:26) Info: Lattice write time is 1.85599999999994, in steps is 2900
+2026-10-01 21:46:26) Info: Next lattice write time is 3000
+2026-10-01 21:46:26) Info: Time is 1.91999999999993
+2026-10-01 21:46:26) Info: Lattice write time is 1.91999999999993, in steps is 3000
+2026-10-01 21:46:26) Info: Next lattice write time is 3100
+2026-10-01 21:46:26) Info: Data output thread finished.
+2026-10-01 21:46:26) Info: Simulation file closed.
+partA N=  32 n_part=200 placed=200 max_occ=12 1.0s
+2026-10-01 21:46:27) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 21:46:27) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 21:46:27) Info: Data output thread running.
+2026-10-01 21:46:27) Info: MPDRDME: Rng seed: top word 2079491085, bottom word 1
+2026-10-01 21:46:27) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 4.800000e-01 s with tau 1.600000e-04. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 21:46:27) Info: Time is 0.01600000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.01600000000000, in steps is 100
+2026-10-01 21:46:27) Info: Next lattice write time is 200
+2026-10-01 21:46:27) Info: Time is 0.03200000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.03200000000000, in steps is 200
+2026-10-01 21:46:27) Info: Next lattice write time is 300
+2026-10-01 21:46:27) Info: Time is 0.04800000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.04800000000000, in steps is 300
+2026-10-01 21:46:27) Info: Next lattice write time is 400
+2026-10-01 21:46:27) Info: Time is 0.06400000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.06400000000000, in steps is 400
+2026-10-01 21:46:27) Info: Next lattice write time is 500
+2026-10-01 21:46:27) Info: Time is 0.08000000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.08000000000000, in steps is 500
+2026-10-01 21:46:27) Info: Next lattice write time is 600
+2026-10-01 21:46:27) Info: Time is 0.09600000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.09600000000000, in steps is 600
+2026-10-01 21:46:27) Info: Next lattice write time is 700
+2026-10-01 21:46:27) Info: Time is 0.11200000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.11200000000000, in steps is 700
+2026-10-01 21:46:27) Info: Next lattice write time is 800
+2026-10-01 21:46:27) Info: Time is 0.12800000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.12800000000000, in steps is 800
+2026-10-01 21:46:27) Info: Next lattice write time is 900
+2026-10-01 21:46:27) Info: Time is 0.14400000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.14400000000000, in steps is 900
+2026-10-01 21:46:27) Info: Next lattice write time is 1000
+2026-10-01 21:46:27) Info: Time is 0.16000000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.16000000000000, in steps is 1000
+2026-10-01 21:46:27) Info: Next lattice write time is 1100
+2026-10-01 21:46:27) Info: Time is 0.17600000000000
+2026-10-01 21:46:27) Info: Lattice write time is 0.17600000000000, in steps is 1100
+2026-10-01 21:46:27) Info: Next lattice write time is 1200
+2026-10-01 21:46:27) Info: Time is 0.19199999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.19199999999999, in steps is 1200
+2026-10-01 21:46:27) Info: Next lattice write time is 1300
+2026-10-01 21:46:27) Info: Time is 0.20799999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.20799999999999, in steps is 1300
+2026-10-01 21:46:27) Info: Next lattice write time is 1400
+2026-10-01 21:46:27) Info: Time is 0.22399999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.22399999999999, in steps is 1400
+2026-10-01 21:46:27) Info: Next lattice write time is 1500
+2026-10-01 21:46:27) Info: Time is 0.23999999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.23999999999999, in steps is 1500
+2026-10-01 21:46:27) Info: Next lattice write time is 1600
+2026-10-01 21:46:27) Info: Time is 0.25599999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.25599999999999, in steps is 1600
+2026-10-01 21:46:27) Info: Next lattice write time is 1700
+2026-10-01 21:46:27) Info: Time is 0.27199999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.27199999999999, in steps is 1700
+2026-10-01 21:46:27) Info: Next lattice write time is 1800
+2026-10-01 21:46:27) Info: Time is 0.28799999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.28799999999999, in steps is 1800
+2026-10-01 21:46:27) Info: Next lattice write time is 1900
+2026-10-01 21:46:27) Info: Time is 0.30399999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.30399999999999, in steps is 1900
+2026-10-01 21:46:27) Info: Next lattice write time is 2000
+2026-10-01 21:46:27) Info: Time is 0.31999999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.31999999999999, in steps is 2000
+2026-10-01 21:46:27) Info: Next lattice write time is 2100
+2026-10-01 21:46:27) Info: Time is 0.33599999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.33599999999999, in steps is 2100
+2026-10-01 21:46:27) Info: Next lattice write time is 2200
+2026-10-01 21:46:27) Info: Time is 0.35199999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.35199999999999, in steps is 2200
+2026-10-01 21:46:27) Info: Next lattice write time is 2300
+2026-10-01 21:46:27) Info: Time is 0.36799999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.36799999999999, in steps is 2300
+2026-10-01 21:46:27) Info: Next lattice write time is 2400
+2026-10-01 21:46:27) Info: Time is 0.38399999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.38399999999999, in steps is 2400
+2026-10-01 21:46:27) Info: Next lattice write time is 2500
+2026-10-01 21:46:27) Info: Time is 0.39999999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.39999999999999, in steps is 2500
+2026-10-01 21:46:27) Info: Next lattice write time is 2600
+2026-10-01 21:46:27) Info: Time is 0.41599999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.41599999999999, in steps is 2600
+2026-10-01 21:46:27) Info: Next lattice write time is 2700
+2026-10-01 21:46:27) Info: Time is 0.43199999999999
+2026-10-01 21:46:27) Info: Lattice write time is 0.43199999999999, in steps is 2700
+2026-10-01 21:46:27) Info: Next lattice write time is 2800
+2026-10-01 21:46:27) Info: Time is 0.44799999999998
+2026-10-01 21:46:27) Info: Lattice write time is 0.44799999999998, in steps is 2800
+2026-10-01 21:46:27) Info: Next lattice write time is 2900
+2026-10-01 21:46:27) Info: Time is 0.46399999999998
+2026-10-01 21:46:27) Info: Lattice write time is 0.46399999999998, in steps is 2900
+2026-10-01 21:46:27) Info: Next lattice write time is 3000
+2026-10-01 21:46:27) Info: Time is 0.47999999999998
+2026-10-01 21:46:27) Info: Lattice write time is 0.47999999999998, in steps is 3000
+2026-10-01 21:46:27) Info: Next lattice write time is 3100
+2026-10-01 21:46:27) Info: Data output thread finished.
+2026-10-01 21:46:27) Info: Simulation file closed.
+partA N=  64 n_part=984 placed=984 max_occ=10 0.7s
+2026-10-01 21:46:28) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 21:46:28) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 21:46:28) Info: Data output thread running.
+2026-10-01 21:46:28) Info: MPDRDME: Rng seed: top word 1997048055, bottom word 1
+2026-10-01 21:46:28) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 1.200000e-01 s with tau 4.000000e-05. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 21:46:28) Info: Time is 0.00400000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.00400000000000, in steps is 100
+2026-10-01 21:46:28) Info: Next lattice write time is 200
+2026-10-01 21:46:28) Info: Time is 0.00800000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.00800000000000, in steps is 200
+2026-10-01 21:46:28) Info: Next lattice write time is 300
+2026-10-01 21:46:28) Info: Time is 0.01200000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.01200000000000, in steps is 300
+2026-10-01 21:46:28) Info: Next lattice write time is 400
+2026-10-01 21:46:28) Info: Time is 0.01600000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.01600000000000, in steps is 400
+2026-10-01 21:46:28) Info: Next lattice write time is 500
+2026-10-01 21:46:28) Info: Time is 0.02000000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.02000000000000, in steps is 500
+2026-10-01 21:46:28) Info: Next lattice write time is 600
+2026-10-01 21:46:28) Info: Time is 0.02400000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.02400000000000, in steps is 600
+2026-10-01 21:46:28) Info: Next lattice write time is 700
+2026-10-01 21:46:28) Info: Time is 0.02800000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.02800000000000, in steps is 700
+2026-10-01 21:46:28) Info: Next lattice write time is 800
+2026-10-01 21:46:28) Info: Time is 0.03200000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.03200000000000, in steps is 800
+2026-10-01 21:46:28) Info: Next lattice write time is 900
+2026-10-01 21:46:28) Info: Time is 0.03600000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.03600000000000, in steps is 900
+2026-10-01 21:46:28) Info: Next lattice write time is 1000
+2026-10-01 21:46:28) Info: Time is 0.04000000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.04000000000000, in steps is 1000
+2026-10-01 21:46:28) Info: Next lattice write time is 1100
+2026-10-01 21:46:28) Info: Time is 0.04400000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.04400000000000, in steps is 1100
+2026-10-01 21:46:28) Info: Next lattice write time is 1200
+2026-10-01 21:46:28) Info: Time is 0.04800000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.04800000000000, in steps is 1200
+2026-10-01 21:46:28) Info: Next lattice write time is 1300
+2026-10-01 21:46:28) Info: Time is 0.05200000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.05200000000000, in steps is 1300
+2026-10-01 21:46:28) Info: Next lattice write time is 1400
+2026-10-01 21:46:28) Info: Time is 0.05600000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.05600000000000, in steps is 1400
+2026-10-01 21:46:28) Info: Next lattice write time is 1500
+2026-10-01 21:46:28) Info: Time is 0.06000000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.06000000000000, in steps is 1500
+2026-10-01 21:46:28) Info: Next lattice write time is 1600
+2026-10-01 21:46:28) Info: Time is 0.06400000000000
+2026-10-01 21:46:28) Info: Lattice write time is 0.06400000000000, in steps is 1600
+2026-10-01 21:46:28) Info: Next lattice write time is 1700
+2026-10-01 21:46:29) Info: Time is 0.06800000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.06800000000000, in steps is 1700
+2026-10-01 21:46:29) Info: Next lattice write time is 1800
+2026-10-01 21:46:29) Info: Time is 0.07200000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.07200000000000, in steps is 1800
+2026-10-01 21:46:29) Info: Next lattice write time is 1900
+2026-10-01 21:46:29) Info: Time is 0.07600000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.07600000000000, in steps is 1900
+2026-10-01 21:46:29) Info: Next lattice write time is 2000
+2026-10-01 21:46:29) Info: Time is 0.08000000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.08000000000000, in steps is 2000
+2026-10-01 21:46:29) Info: Next lattice write time is 2100
+2026-10-01 21:46:29) Info: Time is 0.08400000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.08400000000000, in steps is 2100
+2026-10-01 21:46:29) Info: Next lattice write time is 2200
+2026-10-01 21:46:29) Info: Time is 0.08800000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.08800000000000, in steps is 2200
+2026-10-01 21:46:29) Info: Next lattice write time is 2300
+2026-10-01 21:46:29) Info: Time is 0.09200000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.09200000000000, in steps is 2300
+2026-10-01 21:46:29) Info: Next lattice write time is 2400
+2026-10-01 21:46:29) Info: Time is 0.09600000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.09600000000000, in steps is 2400
+2026-10-01 21:46:29) Info: Next lattice write time is 2500
+2026-10-01 21:46:29) Info: Time is 0.10000000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.10000000000000, in steps is 2500
+2026-10-01 21:46:29) Info: Next lattice write time is 2600
+2026-10-01 21:46:29) Info: Time is 0.10400000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.10400000000000, in steps is 2600
+2026-10-01 21:46:29) Info: Next lattice write time is 2700
+2026-10-01 21:46:29) Info: Time is 0.10800000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.10800000000000, in steps is 2700
+2026-10-01 21:46:29) Info: Next lattice write time is 2800
+2026-10-01 21:46:29) Info: Time is 0.11200000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.11200000000000, in steps is 2800
+2026-10-01 21:46:29) Info: Next lattice write time is 2900
+2026-10-01 21:46:29) Info: Time is 0.11600000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.11600000000000, in steps is 2900
+2026-10-01 21:46:29) Info: Next lattice write time is 3000
+2026-10-01 21:46:29) Info: Time is 0.12000000000000
+2026-10-01 21:46:29) Info: Lattice write time is 0.12000000000000, in steps is 3000
+2026-10-01 21:46:29) Info: Next lattice write time is 3100
+2026-10-01 21:46:31) Info: Data output thread finished.
+2026-10-01 21:46:31) Info: Simulation file closed.
+partA N= 128 n_part=7874 placed=7874 max_occ=12 6.5s
+2026-10-01 21:46:40) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 21:46:40) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 21:46:40) Info: Data output thread running.
+2026-10-01 21:46:40) Info: MPDRDME: Rng seed: top word 2300278500, bottom word 1
+2026-10-01 21:46:40) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 3.000000e-02 s with tau 1.000000e-05. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 21:46:41) Info: Time is 0.00100000000000
+2026-10-01 21:46:41) Info: Lattice write time is 0.00100000000000, in steps is 100
+2026-10-01 21:46:41) Info: Next lattice write time is 200
+2026-10-01 21:46:41) Info: Time is 0.00200000000000
+2026-10-01 21:46:41) Info: Lattice write time is 0.00200000000000, in steps is 200
+2026-10-01 21:46:41) Info: Next lattice write time is 300
+2026-10-01 21:46:41) Info: Time is 0.00300000000000
+2026-10-01 21:46:41) Info: Lattice write time is 0.00300000000000, in steps is 300
+2026-10-01 21:46:41) Info: Next lattice write time is 400
+2026-10-01 21:46:41) Info: Time is 0.00400000000000
+2026-10-01 21:46:41) Info: Lattice write time is 0.00400000000000, in steps is 400
+2026-10-01 21:46:42) Info: Next lattice write time is 500
+2026-10-01 21:46:42) Info: Time is 0.00500000000000
+2026-10-01 21:46:42) Info: Lattice write time is 0.00500000000000, in steps is 500
+2026-10-01 21:46:42) Info: Next lattice write time is 600
+2026-10-01 21:46:42) Info: Time is 0.00600000000000
+2026-10-01 21:46:42) Info: Lattice write time is 0.00600000000000, in steps is 600
+2026-10-01 21:46:42) Info: Next lattice write time is 700
+2026-10-01 21:46:42) Info: Time is 0.00700000000000
+2026-10-01 21:46:42) Info: Lattice write time is 0.00700000000000, in steps is 700
+2026-10-01 21:46:42) Info: Next lattice write time is 800
+2026-10-01 21:46:43) Info: Time is 0.00800000000000
+2026-10-01 21:46:43) Info: Lattice write time is 0.00800000000000, in steps is 800
+2026-10-01 21:46:43) Info: Next lattice write time is 900
+2026-10-01 21:46:43) Info: Time is 0.00900000000000
+2026-10-01 21:46:43) Info: Lattice write time is 0.00900000000000, in steps is 900
+2026-10-01 21:46:43) Info: Next lattice write time is 1000
+2026-10-01 21:46:43) Info: Time is 0.01000000000000
+2026-10-01 21:46:43) Info: Lattice write time is 0.01000000000000, in steps is 1000
+2026-10-01 21:46:43) Info: Next lattice write time is 1100
+2026-10-01 21:46:43) Info: Time is 0.01100000000000
+2026-10-01 21:46:43) Info: Lattice write time is 0.01100000000000, in steps is 1100
+2026-10-01 21:46:44) Info: Next lattice write time is 1200
+2026-10-01 21:46:44) Info: Time is 0.01200000000000
+2026-10-01 21:46:44) Info: Lattice write time is 0.01200000000000, in steps is 1200
+2026-10-01 21:46:44) Info: Next lattice write time is 1300
+2026-10-01 21:46:44) Info: Time is 0.01300000000000
+2026-10-01 21:46:44) Info: Lattice write time is 0.01300000000000, in steps is 1300
+2026-10-01 21:46:44) Info: Next lattice write time is 1400
+2026-10-01 21:46:44) Info: Time is 0.01400000000000
+2026-10-01 21:46:44) Info: Lattice write time is 0.01400000000000, in steps is 1400
+2026-10-01 21:46:44) Info: Next lattice write time is 1500
+2026-10-01 21:46:44) Info: Time is 0.01500000000000
+2026-10-01 21:46:44) Info: Lattice write time is 0.01500000000000, in steps is 1500
+2026-10-01 21:46:45) Info: Next lattice write time is 1600
+2026-10-01 21:46:45) Info: Time is 0.01600000000000
+2026-10-01 21:46:45) Info: Lattice write time is 0.01600000000000, in steps is 1600
+2026-10-01 21:46:45) Info: Next lattice write time is 1700
+2026-10-01 21:46:45) Info: Time is 0.01700000000000
+2026-10-01 21:46:45) Info: Lattice write time is 0.01700000000000, in steps is 1700
+2026-10-01 21:46:45) Info: Next lattice write time is 1800
+2026-10-01 21:46:45) Info: Time is 0.01800000000000
+2026-10-01 21:46:45) Info: Lattice write time is 0.01800000000000, in steps is 1800
+2026-10-01 21:46:45) Info: Next lattice write time is 1900
+2026-10-01 21:46:46) Info: Time is 0.01900000000000
+2026-10-01 21:46:46) Info: Lattice write time is 0.01900000000000, in steps is 1900
+2026-10-01 21:46:46) Info: Next lattice write time is 2000
+2026-10-01 21:46:46) Info: Time is 0.02000000000000
+2026-10-01 21:46:46) Info: Lattice write time is 0.02000000000000, in steps is 2000
+2026-10-01 21:46:46) Info: Next lattice write time is 2100
+2026-10-01 21:46:46) Info: Time is 0.02100000000000
+2026-10-01 21:46:46) Info: Lattice write time is 0.02100000000000, in steps is 2100
+2026-10-01 21:46:46) Info: Next lattice write time is 2200
+2026-10-01 21:46:46) Info: Time is 0.02200000000000
+2026-10-01 21:46:46) Info: Lattice write time is 0.02200000000000, in steps is 2200
+2026-10-01 21:46:47) Info: Next lattice write time is 2300
+2026-10-01 21:46:47) Info: Time is 0.02300000000000
+2026-10-01 21:46:47) Info: Lattice write time is 0.02300000000000, in steps is 2300
+2026-10-01 21:46:47) Info: Next lattice write time is 2400
+2026-10-01 21:46:47) Info: Time is 0.02400000000000
+2026-10-01 21:46:47) Info: Lattice write time is 0.02400000000000, in steps is 2400
+2026-10-01 21:46:47) Info: Next lattice write time is 2500
+2026-10-01 21:46:47) Info: Time is 0.02500000000000
+2026-10-01 21:46:47) Info: Lattice write time is 0.02500000000000, in steps is 2500
+2026-10-01 21:46:47) Info: Next lattice write time is 2600
+2026-10-01 21:46:47) Info: Time is 0.02600000000000
+2026-10-01 21:46:47) Info: Lattice write time is 0.02600000000000, in steps is 2600
+2026-10-01 21:46:48) Info: Next lattice write time is 2700
+2026-10-01 21:46:48) Info: Time is 0.02700000000000
+2026-10-01 21:46:48) Info: Lattice write time is 0.02700000000000, in steps is 2700
+2026-10-01 21:46:48) Info: Next lattice write time is 2800
+2026-10-01 21:46:48) Info: Time is 0.02800000000000
+2026-10-01 21:46:48) Info: Lattice write time is 0.02800000000000, in steps is 2800
+2026-10-01 21:46:48) Info: Next lattice write time is 2900
+2026-10-01 21:46:48) Info: Time is 0.02900000000000
+2026-10-01 21:46:48) Info: Lattice write time is 0.02900000000000, in steps is 2900
+2026-10-01 21:46:48) Info: Next lattice write time is 3000
+2026-10-01 21:46:49) Info: Time is 0.03000000000000
+2026-10-01 21:46:49) Info: Lattice write time is 0.03000000000000, in steps is 3000
+2026-10-01 21:46:49) Info: Next lattice write time is 3100
+2026-10-01 21:47:17) Info: Data output thread finished.
+2026-10-01 21:47:17) Info: Simulation file closed.
+partA N= 256 n_part=62998 placed=62998 max_occ=15 67.4s
+2026-10-01 21:48:58) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 21:48:58) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 21:48:58) Info: Data output thread running.
+2026-10-01 21:49:01) Info: MPDRDME: Rng seed: top word 3204202755, bottom word 1
+2026-10-01 21:49:03) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 7.500000e-03 s with tau 2.500000e-06. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 21:49:05) Info: Time is 0.00025000000000
+2026-10-01 21:49:05) Info: Lattice write time is 0.00025000000000, in steps is 100
+2026-10-01 21:49:06) Info: Next lattice write time is 200
+2026-10-01 21:49:07) Info: Time is 0.00050000000000
+2026-10-01 21:49:07) Info: Lattice write time is 0.00050000000000, in steps is 200
+2026-10-01 21:49:08) Info: Next lattice write time is 300
+2026-10-01 21:49:10) Info: Time is 0.00075000000000
+2026-10-01 21:49:10) Info: Lattice write time is 0.00075000000000, in steps is 300
+2026-10-01 21:49:11) Info: Next lattice write time is 400
+2026-10-01 21:49:12) Info: Time is 0.00100000000000
+2026-10-01 21:49:12) Info: Lattice write time is 0.00100000000000, in steps is 400
+2026-10-01 21:49:13) Info: Next lattice write time is 500
+2026-10-01 21:49:14) Info: Time is 0.00125000000000
+2026-10-01 21:49:14) Info: Lattice write time is 0.00125000000000, in steps is 500
+2026-10-01 21:49:15) Info: Next lattice write time is 600
+2026-10-01 21:49:16) Info: Time is 0.00150000000000
+2026-10-01 21:49:16) Info: Lattice write time is 0.00150000000000, in steps is 600
+2026-10-01 21:49:17) Info: Next lattice write time is 700
+2026-10-01 21:49:18) Info: Time is 0.00175000000000
+2026-10-01 21:49:18) Info: Lattice write time is 0.00175000000000, in steps is 700
+2026-10-01 21:49:19) Info: Next lattice write time is 800
+2026-10-01 21:49:20) Info: Time is 0.00200000000000
+2026-10-01 21:49:20) Info: Lattice write time is 0.00200000000000, in steps is 800
+2026-10-01 21:49:21) Info: Next lattice write time is 900
+2026-10-01 21:49:22) Info: Time is 0.00225000000000
+2026-10-01 21:49:22) Info: Lattice write time is 0.00225000000000, in steps is 900
+2026-10-01 21:49:23) Info: Next lattice write time is 1000
+2026-10-01 21:49:24) Info: Time is 0.00250000000000
+2026-10-01 21:49:24) Info: Lattice write time is 0.00250000000000, in steps is 1000
+2026-10-01 21:49:25) Info: Next lattice write time is 1100
+2026-10-01 21:49:27) Info: Time is 0.00275000000000
+2026-10-01 21:49:27) Info: Lattice write time is 0.00275000000000, in steps is 1100
+2026-10-01 21:49:28) Info: Next lattice write time is 1200
+2026-10-01 21:49:29) Info: Time is 0.00300000000000
+2026-10-01 21:49:29) Info: Lattice write time is 0.00300000000000, in steps is 1200
+2026-10-01 21:49:30) Info: Next lattice write time is 1300
+2026-10-01 21:49:31) Info: Time is 0.00325000000000
+2026-10-01 21:49:31) Info: Lattice write time is 0.00325000000000, in steps is 1300
+2026-10-01 21:49:32) Info: Next lattice write time is 1400
+2026-10-01 21:49:33) Info: Time is 0.00350000000000
+2026-10-01 21:49:33) Info: Lattice write time is 0.00350000000000, in steps is 1400
+2026-10-01 21:49:34) Info: Next lattice write time is 1500
+2026-10-01 21:49:35) Info: Time is 0.00375000000000
+2026-10-01 21:49:35) Info: Lattice write time is 0.00375000000000, in steps is 1500
+2026-10-01 21:49:37) Info: Next lattice write time is 1600
+2026-10-01 21:49:38) Info: Time is 0.00400000000000
+2026-10-01 21:49:38) Info: Lattice write time is 0.00400000000000, in steps is 1600
+2026-10-01 21:49:39) Info: Next lattice write time is 1700
+2026-10-01 21:49:40) Info: Time is 0.00425000000000
+2026-10-01 21:49:40) Info: Lattice write time is 0.00425000000000, in steps is 1700
+2026-10-01 21:49:41) Info: Next lattice write time is 1800
+2026-10-01 21:49:42) Info: Time is 0.00450000000000
+2026-10-01 21:49:42) Info: Lattice write time is 0.00450000000000, in steps is 1800
+2026-10-01 21:49:43) Info: Next lattice write time is 1900
+2026-10-01 21:49:45) Info: Time is 0.00475000000000
+2026-10-01 21:49:45) Info: Lattice write time is 0.00475000000000, in steps is 1900
+2026-10-01 21:49:46) Info: Next lattice write time is 2000
+2026-10-01 21:49:47) Info: Time is 0.00500000000000
+2026-10-01 21:49:47) Info: Lattice write time is 0.00500000000000, in steps is 2000
+2026-10-01 21:49:48) Info: Next lattice write time is 2100
+2026-10-01 21:49:49) Info: Time is 0.00525000000000
+2026-10-01 21:49:49) Info: Lattice write time is 0.00525000000000, in steps is 2100
+2026-10-01 21:49:50) Info: Next lattice write time is 2200
+2026-10-01 21:49:51) Info: Time is 0.00550000000000
+2026-10-01 21:49:51) Info: Lattice write time is 0.00550000000000, in steps is 2200
+2026-10-01 21:49:52) Info: Next lattice write time is 2300
+2026-10-01 21:49:53) Info: Time is 0.00575000000000
+2026-10-01 21:49:53) Info: Lattice write time is 0.00575000000000, in steps is 2300
+2026-10-01 21:49:54) Info: Next lattice write time is 2400
+2026-10-01 21:49:55) Info: Time is 0.00600000000000
+2026-10-01 21:49:55) Info: Lattice write time is 0.00600000000000, in steps is 2400
+2026-10-01 21:49:57) Info: Next lattice write time is 2500
+2026-10-01 21:49:58) Info: Time is 0.00625000000000
+2026-10-01 21:49:58) Info: Lattice write time is 0.00625000000000, in steps is 2500
+2026-10-01 21:49:59) Info: Next lattice write time is 2600
+2026-10-01 21:50:00) Info: Time is 0.00650000000000
+2026-10-01 21:50:00) Info: Lattice write time is 0.00650000000000, in steps is 2600
+2026-10-01 21:50:01) Info: Next lattice write time is 2700
+2026-10-01 21:50:02) Info: Time is 0.00675000000000
+2026-10-01 21:50:02) Info: Lattice write time is 0.00675000000000, in steps is 2700
+2026-10-01 21:50:03) Info: Next lattice write time is 2800
+2026-10-01 21:50:04) Info: Time is 0.00700000000000
+2026-10-01 21:50:04) Info: Lattice write time is 0.00700000000000, in steps is 2800
+2026-10-01 21:50:05) Info: Next lattice write time is 2900
+2026-10-01 21:50:06) Info: Average walltime per timestep: 21.81 ms. Progress: 0.0070s/0.0075s ( 93.3% done / 4.4 seconds walltime remaining)
+2026-10-01 21:50:06) Info: Time is 0.00725000000000
+2026-10-01 21:50:06) Info: Lattice write time is 0.00725000000000, in steps is 2900
+2026-10-01 21:50:07) Info: Wrote 5 data sets (2147483868 bytes) in the last 68.85 seconds (14.62 seconds writing). 19 datasets queued. Flushing.
+2026-10-01 21:50:07) Info: Next lattice write time is 3000
+2026-10-01 21:50:09) Info: Time is 0.00750000000000
+2026-10-01 21:50:09) Info: Lattice write time is 0.00750000000000, in steps is 3000
+2026-10-01 21:50:10) Info: Next lattice write time is 3100
+2026-10-01 21:51:09) Info: Wrote 5 data sets (2147483868 bytes) in the last 62.15 seconds (14.59 seconds writing). 22 datasets queued. Flushing.
+2026-10-01 21:52:14) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.75 seconds (14.60 seconds writing). 17 datasets queued. Flushing.
+2026-10-01 21:53:19) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.86 seconds (14.63 seconds writing). 12 datasets queued. Flushing.
+2026-10-01 21:54:23) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.38 seconds (14.65 seconds writing). 7 datasets queued. Flushing.
+2026-10-01 21:55:28) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.28 seconds (14.68 seconds writing). 2 datasets queued. Flushing.
+2026-10-01 21:55:40) Info: Data output thread finished.
+2026-10-01 21:55:40) Info: Simulation file closed.
+partA N= 512 n_part=300000 placed=300000 max_occ=12 690.8s
+wrote /raid/racda/campaigns/lmrddme_validation/mpd_crddme/wm_sim/partA.npz
+2026-10-01 22:00:29) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 22:00:29) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 22:00:29) Info: Data output thread running.
+2026-10-01 22:00:31) Info: MPDRDME: Rng seed: top word 277540725, bottom word 1
+2026-10-01 22:00:33) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 7.500000e-03 s with tau 2.500000e-06. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 22:00:36) Info: Time is 0.00025000000000
+2026-10-01 22:00:36) Info: Lattice write time is 0.00025000000000, in steps is 100
+2026-10-01 22:00:37) Info: Next lattice write time is 200
+2026-10-01 22:00:38) Info: Time is 0.00050000000000
+2026-10-01 22:00:38) Info: Lattice write time is 0.00050000000000, in steps is 200
+2026-10-01 22:00:39) Info: Next lattice write time is 300
+2026-10-01 22:00:40) Info: Time is 0.00075000000000
+2026-10-01 22:00:40) Info: Lattice write time is 0.00075000000000, in steps is 300
+2026-10-01 22:00:41) Info: Next lattice write time is 400
+2026-10-01 22:00:42) Info: Time is 0.00100000000000
+2026-10-01 22:00:42) Info: Lattice write time is 0.00100000000000, in steps is 400
+2026-10-01 22:00:43) Info: Next lattice write time is 500
+2026-10-01 22:00:44) Info: Time is 0.00125000000000
+2026-10-01 22:00:44) Info: Lattice write time is 0.00125000000000, in steps is 500
+2026-10-01 22:00:45) Info: Next lattice write time is 600
+2026-10-01 22:00:46) Info: Time is 0.00150000000000
+2026-10-01 22:00:46) Info: Lattice write time is 0.00150000000000, in steps is 600
+2026-10-01 22:00:47) Info: Next lattice write time is 700
+2026-10-01 22:00:49) Info: Time is 0.00175000000000
+2026-10-01 22:00:49) Info: Lattice write time is 0.00175000000000, in steps is 700
+2026-10-01 22:00:50) Info: Next lattice write time is 800
+2026-10-01 22:00:51) Info: Time is 0.00200000000000
+2026-10-01 22:00:51) Info: Lattice write time is 0.00200000000000, in steps is 800
+2026-10-01 22:00:52) Info: Next lattice write time is 900
+2026-10-01 22:00:53) Info: Time is 0.00225000000000
+2026-10-01 22:00:53) Info: Lattice write time is 0.00225000000000, in steps is 900
+2026-10-01 22:00:54) Info: Next lattice write time is 1000
+2026-10-01 22:00:55) Info: Time is 0.00250000000000
+2026-10-01 22:00:55) Info: Lattice write time is 0.00250000000000, in steps is 1000
+2026-10-01 22:00:56) Info: Next lattice write time is 1100
+2026-10-01 22:00:57) Info: Time is 0.00275000000000
+2026-10-01 22:00:57) Info: Lattice write time is 0.00275000000000, in steps is 1100
+2026-10-01 22:00:58) Info: Next lattice write time is 1200
+2026-10-01 22:01:00) Info: Time is 0.00300000000000
+2026-10-01 22:01:00) Info: Lattice write time is 0.00300000000000, in steps is 1200
+2026-10-01 22:01:01) Info: Next lattice write time is 1300
+2026-10-01 22:01:02) Info: Time is 0.00325000000000
+2026-10-01 22:01:02) Info: Lattice write time is 0.00325000000000, in steps is 1300
+2026-10-01 22:01:03) Info: Next lattice write time is 1400
+2026-10-01 22:01:04) Info: Time is 0.00350000000000
+2026-10-01 22:01:04) Info: Lattice write time is 0.00350000000000, in steps is 1400
+2026-10-01 22:01:05) Info: Next lattice write time is 1500
+2026-10-01 22:01:06) Info: Time is 0.00375000000000
+2026-10-01 22:01:06) Info: Lattice write time is 0.00375000000000, in steps is 1500
+2026-10-01 22:01:07) Info: Next lattice write time is 1600
+2026-10-01 22:01:08) Info: Time is 0.00400000000000
+2026-10-01 22:01:08) Info: Lattice write time is 0.00400000000000, in steps is 1600
+2026-10-01 22:01:09) Info: Next lattice write time is 1700
+2026-10-01 22:01:11) Info: Time is 0.00425000000000
+2026-10-01 22:01:11) Info: Lattice write time is 0.00425000000000, in steps is 1700
+2026-10-01 22:01:12) Info: Next lattice write time is 1800
+2026-10-01 22:01:13) Info: Time is 0.00450000000000
+2026-10-01 22:01:13) Info: Lattice write time is 0.00450000000000, in steps is 1800
+2026-10-01 22:01:14) Info: Next lattice write time is 1900
+2026-10-01 22:01:15) Info: Time is 0.00475000000000
+2026-10-01 22:01:15) Info: Lattice write time is 0.00475000000000, in steps is 1900
+2026-10-01 22:01:16) Info: Next lattice write time is 2000
+2026-10-01 22:01:17) Info: Time is 0.00500000000000
+2026-10-01 22:01:17) Info: Lattice write time is 0.00500000000000, in steps is 2000
+2026-10-01 22:01:18) Info: Next lattice write time is 2100
+2026-10-01 22:01:19) Info: Time is 0.00525000000000
+2026-10-01 22:01:19) Info: Lattice write time is 0.00525000000000, in steps is 2100
+2026-10-01 22:01:20) Info: Next lattice write time is 2200
+2026-10-01 22:01:22) Info: Time is 0.00550000000000
+2026-10-01 22:01:22) Info: Lattice write time is 0.00550000000000, in steps is 2200
+2026-10-01 22:01:23) Info: Next lattice write time is 2300
+2026-10-01 22:01:24) Info: Time is 0.00575000000000
+2026-10-01 22:01:24) Info: Lattice write time is 0.00575000000000, in steps is 2300
+2026-10-01 22:01:25) Info: Next lattice write time is 2400
+2026-10-01 22:01:26) Info: Time is 0.00600000000000
+2026-10-01 22:01:26) Info: Lattice write time is 0.00600000000000, in steps is 2400
+2026-10-01 22:01:27) Info: Next lattice write time is 2500
+2026-10-01 22:01:28) Info: Time is 0.00625000000000
+2026-10-01 22:01:28) Info: Lattice write time is 0.00625000000000, in steps is 2500
+2026-10-01 22:01:29) Info: Next lattice write time is 2600
+2026-10-01 22:01:30) Info: Time is 0.00650000000000
+2026-10-01 22:01:30) Info: Lattice write time is 0.00650000000000, in steps is 2600
+2026-10-01 22:01:31) Info: Next lattice write time is 2700
+2026-10-01 22:01:33) Info: Time is 0.00675000000000
+2026-10-01 22:01:33) Info: Lattice write time is 0.00675000000000, in steps is 2700
+2026-10-01 22:01:34) Info: Next lattice write time is 2800
+2026-10-01 22:01:35) Info: Time is 0.00700000000000
+2026-10-01 22:01:35) Info: Lattice write time is 0.00700000000000, in steps is 2800
+2026-10-01 22:01:36) Info: Next lattice write time is 2900
+2026-10-01 22:01:36) Info: Average walltime per timestep: 21.79 ms. Progress: 0.0070s/0.0075s ( 93.3% done / 4.4 seconds walltime remaining)
+2026-10-01 22:01:37) Info: Time is 0.00725000000000
+2026-10-01 22:01:37) Info: Lattice write time is 0.00725000000000, in steps is 2900
+2026-10-01 22:01:37) Info: Wrote 5 data sets (2147483868 bytes) in the last 68.01 seconds (14.48 seconds writing). 18 datasets queued. Flushing.
+2026-10-01 22:01:38) Info: Next lattice write time is 3000
+2026-10-01 22:01:39) Info: Time is 0.00750000000000
+2026-10-01 22:01:39) Info: Lattice write time is 0.00750000000000, in steps is 3000
+2026-10-01 22:01:40) Info: Next lattice write time is 3100
+2026-10-01 22:02:39) Info: Wrote 5 data sets (2147483868 bytes) in the last 62.21 seconds (14.67 seconds writing). 22 datasets queued. Flushing.
+2026-10-01 22:03:44) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.85 seconds (15.14 seconds writing). 17 datasets queued. Flushing.
+2026-10-01 22:04:48) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.83 seconds (14.76 seconds writing). 12 datasets queued. Flushing.
+2026-10-01 22:05:52) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.43 seconds (14.72 seconds writing). 7 datasets queued. Flushing.
+2026-10-01 22:06:56) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.75 seconds (14.69 seconds writing). 2 datasets queued. Flushing.
+2026-10-01 22:07:09) Info: Data output thread finished.
+2026-10-01 22:07:09) Info: Simulation file closed.
+replica seed=0 n_part=300000 698.7s -> /raid/racda/campaigns/lmrddme_validation/mpd_crddme/wm_sim/rep_s0.h5
+2026-10-01 22:12:07) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 22:12:07) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 22:12:07) Info: Data output thread running.
+2026-10-01 22:12:10) Info: MPDRDME: Rng seed: top word 3307616985, bottom word 1
+2026-10-01 22:12:12) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 7.500000e-03 s with tau 2.500000e-06. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 22:12:14) Info: Time is 0.00025000000000
+2026-10-01 22:12:14) Info: Lattice write time is 0.00025000000000, in steps is 100
+2026-10-01 22:12:15) Info: Next lattice write time is 200
+2026-10-01 22:12:16) Info: Time is 0.00050000000000
+2026-10-01 22:12:16) Info: Lattice write time is 0.00050000000000, in steps is 200
+2026-10-01 22:12:17) Info: Next lattice write time is 300
+2026-10-01 22:12:19) Info: Time is 0.00075000000000
+2026-10-01 22:12:19) Info: Lattice write time is 0.00075000000000, in steps is 300
+2026-10-01 22:12:20) Info: Next lattice write time is 400
+2026-10-01 22:12:21) Info: Time is 0.00100000000000
+2026-10-01 22:12:21) Info: Lattice write time is 0.00100000000000, in steps is 400
+2026-10-01 22:12:22) Info: Next lattice write time is 500
+2026-10-01 22:12:23) Info: Time is 0.00125000000000
+2026-10-01 22:12:23) Info: Lattice write time is 0.00125000000000, in steps is 500
+2026-10-01 22:12:24) Info: Next lattice write time is 600
+2026-10-01 22:12:25) Info: Time is 0.00150000000000
+2026-10-01 22:12:25) Info: Lattice write time is 0.00150000000000, in steps is 600
+2026-10-01 22:12:26) Info: Next lattice write time is 700
+2026-10-01 22:12:27) Info: Time is 0.00175000000000
+2026-10-01 22:12:27) Info: Lattice write time is 0.00175000000000, in steps is 700
+2026-10-01 22:12:29) Info: Next lattice write time is 800
+2026-10-01 22:12:30) Info: Time is 0.00200000000000
+2026-10-01 22:12:30) Info: Lattice write time is 0.00200000000000, in steps is 800
+2026-10-01 22:12:31) Info: Next lattice write time is 900
+2026-10-01 22:12:32) Info: Time is 0.00225000000000
+2026-10-01 22:12:32) Info: Lattice write time is 0.00225000000000, in steps is 900
+2026-10-01 22:12:33) Info: Next lattice write time is 1000
+2026-10-01 22:12:34) Info: Time is 0.00250000000000
+2026-10-01 22:12:34) Info: Lattice write time is 0.00250000000000, in steps is 1000
+2026-10-01 22:12:35) Info: Next lattice write time is 1100
+2026-10-01 22:12:36) Info: Time is 0.00275000000000
+2026-10-01 22:12:36) Info: Lattice write time is 0.00275000000000, in steps is 1100
+2026-10-01 22:12:37) Info: Next lattice write time is 1200
+2026-10-01 22:12:38) Info: Time is 0.00300000000000
+2026-10-01 22:12:38) Info: Lattice write time is 0.00300000000000, in steps is 1200
+2026-10-01 22:12:39) Info: Next lattice write time is 1300
+2026-10-01 22:12:40) Info: Time is 0.00325000000000
+2026-10-01 22:12:40) Info: Lattice write time is 0.00325000000000, in steps is 1300
+2026-10-01 22:12:41) Info: Next lattice write time is 1400
+2026-10-01 22:12:42) Info: Time is 0.00350000000000
+2026-10-01 22:12:42) Info: Lattice write time is 0.00350000000000, in steps is 1400
+2026-10-01 22:12:43) Info: Next lattice write time is 1500
+2026-10-01 22:12:44) Info: Time is 0.00375000000000
+2026-10-01 22:12:44) Info: Lattice write time is 0.00375000000000, in steps is 1500
+2026-10-01 22:12:45) Info: Next lattice write time is 1600
+2026-10-01 22:12:47) Info: Time is 0.00400000000000
+2026-10-01 22:12:47) Info: Lattice write time is 0.00400000000000, in steps is 1600
+2026-10-01 22:12:48) Info: Next lattice write time is 1700
+2026-10-01 22:12:49) Info: Time is 0.00425000000000
+2026-10-01 22:12:49) Info: Lattice write time is 0.00425000000000, in steps is 1700
+2026-10-01 22:12:50) Info: Next lattice write time is 1800
+2026-10-01 22:12:51) Info: Time is 0.00450000000000
+2026-10-01 22:12:51) Info: Lattice write time is 0.00450000000000, in steps is 1800
+2026-10-01 22:12:52) Info: Next lattice write time is 1900
+2026-10-01 22:12:53) Info: Time is 0.00475000000000
+2026-10-01 22:12:53) Info: Lattice write time is 0.00475000000000, in steps is 1900
+2026-10-01 22:12:54) Info: Next lattice write time is 2000
+2026-10-01 22:12:55) Info: Time is 0.00500000000000
+2026-10-01 22:12:55) Info: Lattice write time is 0.00500000000000, in steps is 2000
+2026-10-01 22:12:56) Info: Next lattice write time is 2100
+2026-10-01 22:12:58) Info: Time is 0.00525000000000
+2026-10-01 22:12:58) Info: Lattice write time is 0.00525000000000, in steps is 2100
+2026-10-01 22:12:59) Info: Next lattice write time is 2200
+2026-10-01 22:13:00) Info: Time is 0.00550000000000
+2026-10-01 22:13:00) Info: Lattice write time is 0.00550000000000, in steps is 2200
+2026-10-01 22:13:01) Info: Next lattice write time is 2300
+2026-10-01 22:13:02) Info: Time is 0.00575000000000
+2026-10-01 22:13:02) Info: Lattice write time is 0.00575000000000, in steps is 2300
+2026-10-01 22:13:03) Info: Next lattice write time is 2400
+2026-10-01 22:13:04) Info: Time is 0.00600000000000
+2026-10-01 22:13:04) Info: Lattice write time is 0.00600000000000, in steps is 2400
+2026-10-01 22:13:05) Info: Next lattice write time is 2500
+2026-10-01 22:13:06) Info: Time is 0.00625000000000
+2026-10-01 22:13:06) Info: Lattice write time is 0.00625000000000, in steps is 2500
+2026-10-01 22:13:07) Info: Next lattice write time is 2600
+2026-10-01 22:13:09) Info: Time is 0.00650000000000
+2026-10-01 22:13:09) Info: Lattice write time is 0.00650000000000, in steps is 2600
+2026-10-01 22:13:10) Info: Next lattice write time is 2700
+2026-10-01 22:13:11) Info: Time is 0.00675000000000
+2026-10-01 22:13:11) Info: Lattice write time is 0.00675000000000, in steps is 2700
+2026-10-01 22:13:12) Info: Next lattice write time is 2800
+2026-10-01 22:13:13) Info: Time is 0.00700000000000
+2026-10-01 22:13:13) Info: Lattice write time is 0.00700000000000, in steps is 2800
+2026-10-01 22:13:14) Info: Next lattice write time is 2900
+2026-10-01 22:13:14) Info: Average walltime per timestep: 21.61 ms. Progress: 0.0070s/0.0075s ( 93.3% done / 4.3 seconds walltime remaining)
+2026-10-01 22:13:15) Info: Time is 0.00725000000000
+2026-10-01 22:13:15) Info: Lattice write time is 0.00725000000000, in steps is 2900
+2026-10-01 22:13:15) Info: Wrote 5 data sets (2147483868 bytes) in the last 67.93 seconds (14.60 seconds writing). 19 datasets queued. Flushing.
+2026-10-01 22:13:16) Info: Next lattice write time is 3000
+2026-10-01 22:13:17) Info: Time is 0.00750000000000
+2026-10-01 22:13:17) Info: Lattice write time is 0.00750000000000, in steps is 3000
+2026-10-01 22:13:18) Info: Next lattice write time is 3100
+2026-10-01 22:14:17) Info: Wrote 5 data sets (2147483868 bytes) in the last 62.11 seconds (14.63 seconds writing). 22 datasets queued. Flushing.
+2026-10-01 22:15:22) Info: Wrote 5 data sets (2147483868 bytes) in the last 64.28 seconds (14.88 seconds writing). 17 datasets queued. Flushing.
+2026-10-01 22:16:25) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.30 seconds (14.52 seconds writing). 12 datasets queued. Flushing.
+2026-10-01 22:17:29) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.69 seconds (14.76 seconds writing). 7 datasets queued. Flushing.
+2026-10-01 22:18:33) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.86 seconds (14.72 seconds writing). 2 datasets queued. Flushing.
+2026-10-01 22:18:45) Info: Data output thread finished.
+2026-10-01 22:18:45) Info: Simulation file closed.
+replica seed=1 n_part=300000 696.2s -> /raid/racda/campaigns/lmrddme_validation/mpd_crddme/wm_sim/rep_s1.h5
+2026-10-01 22:23:43) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-01 22:23:43) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-01 22:23:43) Info: Data output thread running.
+2026-10-01 22:23:46) Info: MPDRDME: Rng seed: top word 229765710, bottom word 1
+2026-10-01 22:23:48) Info: Running mpd rdme simulation with 1 species, 0 reactions, 1 site types for 7.500000e-03 s with tau 2.500000e-06. Writing species at 0.000000e+00 and lattice at 4.690473e-310 intervals
+2026-10-01 22:23:50) Info: Time is 0.00025000000000
+2026-10-01 22:23:50) Info: Lattice write time is 0.00025000000000, in steps is 100
+2026-10-01 22:23:51) Info: Next lattice write time is 200
+2026-10-01 22:23:52) Info: Time is 0.00050000000000
+2026-10-01 22:23:52) Info: Lattice write time is 0.00050000000000, in steps is 200
+2026-10-01 22:23:53) Info: Next lattice write time is 300
+2026-10-01 22:23:54) Info: Time is 0.00075000000000
+2026-10-01 22:23:54) Info: Lattice write time is 0.00075000000000, in steps is 300
+2026-10-01 22:23:55) Info: Next lattice write time is 400
+2026-10-01 22:23:56) Info: Time is 0.00100000000000
+2026-10-01 22:23:56) Info: Lattice write time is 0.00100000000000, in steps is 400
+2026-10-01 22:23:57) Info: Next lattice write time is 500
+2026-10-01 22:23:59) Info: Time is 0.00125000000000
+2026-10-01 22:23:59) Info: Lattice write time is 0.00125000000000, in steps is 500
+2026-10-01 22:24:00) Info: Next lattice write time is 600
+2026-10-01 22:24:01) Info: Time is 0.00150000000000
+2026-10-01 22:24:01) Info: Lattice write time is 0.00150000000000, in steps is 600
+2026-10-01 22:24:02) Info: Next lattice write time is 700
+2026-10-01 22:24:03) Info: Time is 0.00175000000000
+2026-10-01 22:24:03) Info: Lattice write time is 0.00175000000000, in steps is 700
+2026-10-01 22:24:04) Info: Next lattice write time is 800
+2026-10-01 22:24:05) Info: Time is 0.00200000000000
+2026-10-01 22:24:05) Info: Lattice write time is 0.00200000000000, in steps is 800
+2026-10-01 22:24:06) Info: Next lattice write time is 900
+2026-10-01 22:24:07) Info: Time is 0.00225000000000
+2026-10-01 22:24:07) Info: Lattice write time is 0.00225000000000, in steps is 900
+2026-10-01 22:24:08) Info: Next lattice write time is 1000
+2026-10-01 22:24:09) Info: Time is 0.00250000000000
+2026-10-01 22:24:09) Info: Lattice write time is 0.00250000000000, in steps is 1000
+2026-10-01 22:24:10) Info: Next lattice write time is 1100
+2026-10-01 22:24:11) Info: Time is 0.00275000000000
+2026-10-01 22:24:11) Info: Lattice write time is 0.00275000000000, in steps is 1100
+2026-10-01 22:24:12) Info: Next lattice write time is 1200
+2026-10-01 22:24:13) Info: Time is 0.00300000000000
+2026-10-01 22:24:13) Info: Lattice write time is 0.00300000000000, in steps is 1200
+2026-10-01 22:24:14) Info: Next lattice write time is 1300
+2026-10-01 22:24:16) Info: Time is 0.00325000000000
+2026-10-01 22:24:16) Info: Lattice write time is 0.00325000000000, in steps is 1300
+2026-10-01 22:24:17) Info: Next lattice write time is 1400
+2026-10-01 22:24:18) Info: Time is 0.00350000000000
+2026-10-01 22:24:18) Info: Lattice write time is 0.00350000000000, in steps is 1400
+2026-10-01 22:24:19) Info: Next lattice write time is 1500
+2026-10-01 22:24:20) Info: Time is 0.00375000000000
+2026-10-01 22:24:20) Info: Lattice write time is 0.00375000000000, in steps is 1500
+2026-10-01 22:24:21) Info: Next lattice write time is 1600
+2026-10-01 22:24:22) Info: Time is 0.00400000000000
+2026-10-01 22:24:22) Info: Lattice write time is 0.00400000000000, in steps is 1600
+2026-10-01 22:24:23) Info: Next lattice write time is 1700
+2026-10-01 22:24:24) Info: Time is 0.00425000000000
+2026-10-01 22:24:24) Info: Lattice write time is 0.00425000000000, in steps is 1700
+2026-10-01 22:24:25) Info: Next lattice write time is 1800
+2026-10-01 22:24:26) Info: Time is 0.00450000000000
+2026-10-01 22:24:26) Info: Lattice write time is 0.00450000000000, in steps is 1800
+2026-10-01 22:24:27) Info: Next lattice write time is 1900
+2026-10-01 22:24:28) Info: Time is 0.00475000000000
+2026-10-01 22:24:28) Info: Lattice write time is 0.00475000000000, in steps is 1900
+2026-10-01 22:24:29) Info: Next lattice write time is 2000
+2026-10-01 22:24:30) Info: Time is 0.00500000000000
+2026-10-01 22:24:30) Info: Lattice write time is 0.00500000000000, in steps is 2000
+2026-10-01 22:24:31) Info: Next lattice write time is 2100
+2026-10-01 22:24:33) Info: Time is 0.00525000000000
+2026-10-01 22:24:33) Info: Lattice write time is 0.00525000000000, in steps is 2100
+2026-10-01 22:24:34) Info: Next lattice write time is 2200
+2026-10-01 22:24:35) Info: Time is 0.00550000000000
+2026-10-01 22:24:35) Info: Lattice write time is 0.00550000000000, in steps is 2200
+2026-10-01 22:24:36) Info: Next lattice write time is 2300
+2026-10-01 22:24:37) Info: Time is 0.00575000000000
+2026-10-01 22:24:37) Info: Lattice write time is 0.00575000000000, in steps is 2300
+2026-10-01 22:24:38) Info: Next lattice write time is 2400
+2026-10-01 22:24:39) Info: Time is 0.00600000000000
+2026-10-01 22:24:39) Info: Lattice write time is 0.00600000000000, in steps is 2400
+2026-10-01 22:24:40) Info: Next lattice write time is 2500
+2026-10-01 22:24:41) Info: Time is 0.00625000000000
+2026-10-01 22:24:41) Info: Lattice write time is 0.00625000000000, in steps is 2500
+2026-10-01 22:24:42) Info: Next lattice write time is 2600
+2026-10-01 22:24:43) Info: Time is 0.00650000000000
+2026-10-01 22:24:43) Info: Lattice write time is 0.00650000000000, in steps is 2600
+2026-10-01 22:24:44) Info: Next lattice write time is 2700
+2026-10-01 22:24:45) Info: Time is 0.00675000000000
+2026-10-01 22:24:45) Info: Lattice write time is 0.00675000000000, in steps is 2700
+2026-10-01 22:24:46) Info: Next lattice write time is 2800
+2026-10-01 22:24:47) Info: Time is 0.00700000000000
+2026-10-01 22:24:47) Info: Lattice write time is 0.00700000000000, in steps is 2800
+2026-10-01 22:24:48) Info: Next lattice write time is 2900
+2026-10-01 22:24:49) Info: Time is 0.00725000000000
+2026-10-01 22:24:49) Info: Lattice write time is 0.00725000000000, in steps is 2900
+2026-10-01 22:24:50) Info: Wrote 5 data sets (2147483868 bytes) in the last 66.89 seconds (14.47 seconds writing). 19 datasets queued. Flushing.
+2026-10-01 22:24:50) Info: Next lattice write time is 3000
+2026-10-01 22:24:51) Info: Average walltime per timestep: 21.17 ms. Progress: 0.0072s/0.0075s ( 96.7% done / 2.1 seconds walltime remaining)
+2026-10-01 22:24:51) Info: Time is 0.00750000000000
+2026-10-01 22:24:51) Info: Lattice write time is 0.00750000000000, in steps is 3000
+2026-10-01 22:24:53) Info: Next lattice write time is 3100
+2026-10-01 22:25:50) Info: Wrote 5 data sets (2147483868 bytes) in the last 60.42 seconds (14.55 seconds writing). 22 datasets queued. Flushing.
+2026-10-01 22:26:53) Info: Wrote 5 data sets (2147483868 bytes) in the last 62.58 seconds (14.63 seconds writing). 17 datasets queued. Flushing.
+2026-10-01 22:27:57) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.58 seconds (14.70 seconds writing). 12 datasets queued. Flushing.
+2026-10-01 22:29:01) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.93 seconds (14.93 seconds writing). 7 datasets queued. Flushing.
+2026-10-01 22:30:04) Info: Wrote 5 data sets (2147483868 bytes) in the last 63.38 seconds (14.74 seconds writing). 2 datasets queued. Flushing.
+2026-10-01 22:30:17) Info: Data output thread finished.
+2026-10-01 22:30:17) Info: Simulation file closed.
+replica seed=2 n_part=300000 691.5s -> /raid/racda/campaigns/lmrddme_validation/mpd_crddme/wm_sim/rep_s2.h5
+EXIT=0

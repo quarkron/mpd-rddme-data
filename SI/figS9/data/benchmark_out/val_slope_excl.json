@@ -1,0 +1,1 @@
+{"engine":"cpu_drift_rdme","dims":[32,32,32],"M":32768,"n0":102400,"threads":48,"exclusion":1,"dt_s":5e-05,"steps1":200,"steps2":2000,"wall1_s":0.320463,"wall2_s":3.658595,"per_step_s":0.00185452,"sim_per_wall":0.0269612,"overflow":0,"seed":0}

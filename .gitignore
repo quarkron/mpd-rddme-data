@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+logs/
+tools/external_opens.log
+main/fig1/build/*.aux
+main/fig1/build/*.log
+.venv/

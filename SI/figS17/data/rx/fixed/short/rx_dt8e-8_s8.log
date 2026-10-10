@@ -1,0 +1,90 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[lm_build] resolved build: /raid/racda/campaigns/lmrddme_validation/tau_ladder/build_rand_split
+[lm_build] imported lm: /raid/racda/campaigns/lmrddme_validation/tau_ladder/build_rand_split/lm.py (2026-10-02 19:48, 127625 bytes)
+sigma=[3.0, 3.0, 3.78] nper=3.12  c_on=3.052 /s  c_off=5e+05 /s  -> K_id=200 nm^3
+2026-10-02 19:52:04) Warning: White Bear: MAX_OCC=64 of the largest species reaches eta=1.810 > 0.64 (geometric packing). The lattice cap, not the BMCSL functional, will limit occupancy in crowded voxels; raise MPD_LATTICE_MAX_OCCUPANCY or reduce diameters.
+2026-10-02 19:52:04) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-02 19:52:04) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-02 19:52:04) Info: Data output thread running.
+2026-10-02 19:52:04) Info: MPDRDME: Rng seed: top word 524280, bottom word 1
+2026-10-02 19:52:04) Info: Running mpd rdme simulation with 3 species, 2 reactions, 1 site types for 8.000000e-06 s with tau 8.000000e-08. Writing species at 0.000000e+00 and lattice at 6.192747e-310 intervals
+2026-10-02 19:52:04) Warning: [lattice] word-scan bound INVARIANT BROKEN: 24482 voxel(s) hold a particle above the high-water mark (total 24482); a write path raised occupancy without latticeNoteWordsUsed
+2026-10-02 19:52:04) Info: MPD_RNG_ORIGIN_SHIFT disarmed (env unset or != 1): RNG keys use the bare lattice index.
+2026-10-02 19:52:04) Info: ERA_FUSE_RXN_Z on: the FN reaction step runs inside the z drift kernel when no structure/field/CRDME pass intervenes.
+2026-10-02 19:52:04) Info: Time is 0.00000040000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000040000000, in steps is 5
+2026-10-02 19:52:04) Info: Next lattice write time is 10
+2026-10-02 19:52:04) Info: Time is 0.00000080000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000080000000, in steps is 10
+2026-10-02 19:52:04) Info: Next lattice write time is 15
+2026-10-02 19:52:04) Info: Time is 0.00000120000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000120000000, in steps is 15
+2026-10-02 19:52:04) Info: Next lattice write time is 20
+2026-10-02 19:52:04) Info: Time is 0.00000160000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000160000000, in steps is 20
+2026-10-02 19:52:04) Info: Next lattice write time is 25
+2026-10-02 19:52:04) Info: Time is 0.00000200000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000200000000, in steps is 25
+2026-10-02 19:52:04) Info: Next lattice write time is 30
+2026-10-02 19:52:04) Info: Time is 0.00000240000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000240000000, in steps is 30
+2026-10-02 19:52:04) Info: Next lattice write time is 35
+2026-10-02 19:52:04) Info: Time is 0.00000280000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000280000000, in steps is 35
+2026-10-02 19:52:04) Info: Next lattice write time is 40
+2026-10-02 19:52:04) Info: Time is 0.00000320000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000320000000, in steps is 40
+2026-10-02 19:52:04) Info: Next lattice write time is 45
+2026-10-02 19:52:04) Info: Time is 0.00000360000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000360000000, in steps is 45
+2026-10-02 19:52:04) Info: Next lattice write time is 50
+2026-10-02 19:52:04) Info: Time is 0.00000400000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000400000000, in steps is 50
+2026-10-02 19:52:04) Info: Next lattice write time is 55
+2026-10-02 19:52:04) Info: Time is 0.00000440000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000440000000, in steps is 55
+2026-10-02 19:52:04) Info: Next lattice write time is 60
+2026-10-02 19:52:04) Info: Time is 0.00000480000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000480000000, in steps is 60
+2026-10-02 19:52:04) Info: Next lattice write time is 65
+2026-10-02 19:52:04) Info: Time is 0.00000520000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000520000000, in steps is 65
+2026-10-02 19:52:04) Info: Next lattice write time is 70
+2026-10-02 19:52:04) Info: Time is 0.00000560000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000560000000, in steps is 70
+2026-10-02 19:52:04) Info: Next lattice write time is 75
+2026-10-02 19:52:04) Info: Time is 0.00000600000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000600000000, in steps is 75
+2026-10-02 19:52:04) Info: Next lattice write time is 80
+2026-10-02 19:52:04) Info: Time is 0.00000640000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000640000000, in steps is 80
+2026-10-02 19:52:04) Info: Next lattice write time is 85
+2026-10-02 19:52:04) Info: Time is 0.00000680000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000680000000, in steps is 85
+2026-10-02 19:52:04) Info: Next lattice write time is 90
+2026-10-02 19:52:04) Info: Time is 0.00000720000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000720000000, in steps is 90
+2026-10-02 19:52:04) Info: Next lattice write time is 95
+2026-10-02 19:52:04) Info: Time is 0.00000760000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000760000000, in steps is 95
+2026-10-02 19:52:04) Info: Next lattice write time is 100
+2026-10-02 19:52:04) Info: Time is 0.00000800000000
+2026-10-02 19:52:04) Info: Lattice write time is 0.00000800000000, in steps is 100
+2026-10-02 19:52:04) Info: Next lattice write time is 105
+2026-10-02 19:52:04) Info: Data output thread finished.
+2026-10-02 19:52:04) Info: Simulation file closed.
+  eta=0.0884  <n>=(2.028,2.028,1.097)  K_eff/K_id=1.3333  BMCSL 1.4831  (1s)

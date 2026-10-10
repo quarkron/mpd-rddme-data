@@ -1,0 +1,29 @@
+#!/bin/bash
+# SI fig:tau-ladder, structure arm: the operator-splitting tau-ladder on the ternary relaxation of Fig. 2 (2 and 4 nm bath
+# at eta 0.07 each in a stripe, 64 compact 20 nm bodies on the structure lattice, the free-volume model arm), where the
+# bath, the bodies' smeared exclusion field and the body moves are separate operators of one step. Four step schemes:
+#   fixed       the engine's order (x, y, z drift, structures [smear re-stamp, moves], reactions)
+#   perm        the step operators in a timestep-seeded random order       (setStepOrderRandomize)
+#   smear       fixed order, the smear re-stamped AFTER the body moves      (setStructureSmearAfterMoves)
+#   permsmear   both
+# at tau = 50, 25, 12.5, 6.25 us with adaptive tau OFF, 16 seeds each, on the rand-split build (era-struct 3fa3ae8 +
+# StepOrder.cu; both switches off = Tier-0 11/11 identical to 3fa3ae8).
+#   usage: tau_ladder_ternary.sh        GPU 7; output /raid/racda/campaigns/vex-rddme/SI/figS14/ternary/<scheme>/
+set -u
+R=/raid/racda/worktrees/Lattice_Microbes_2.6/rand_split
+B=/raid/racda/campaigns/lmrddme_validation/tau_ladder/build_rand_split
+H=/raid/racda/campaigns/lmrddme_validation/readdy_ref/out_three_relax/rt3_seed_joint.npy
+ROOT=/raid/racda/campaigns/vex-rddme/SI/figS14/ternary
+declare -A FLAGS=([fixed]="" [perm]="--order perm" [smear]="--smear-after" [permsmear]="--order perm --smear-after")
+for sch in fixed perm smear permsmear; do
+  OUT=$ROOT/$sch; mkdir -p $OUT; cp -p "$0" $OUT/tau_ladder_ternary.sh.provenance
+  for tu in 50 25 12.5 6.25; do for s in $(seq 0 15); do
+    f=$OUT/t3_tau${tu}_s$s.npz; [ -f $f ] && continue
+    docker run --rm --gpus device=7 -v $R:/lm -v /raid/racda:/raid/racda -w /lm/testing/engine \
+      -e PYTHONPATH=$B:$B/pylm:/lm/src/lm_diagnostics lm2.6:latest bash -lc "source /opt/conda/etc/profile.d/conda.sh && \
+      conda activate lm_2.6 && python ternary_relax.py --arm model --seed $s --seed-hist $H --tau-us $tu --fixed-tau \
+      ${FLAGS[$sch]} --out $f" > ${f%.npz}.log 2>&1
+    echo "$sch tau=$tu s=$s rc=$?"
+  done; done
+done
+echo "TAU_LADDER_TERNARY_COMPLETE $(date)"

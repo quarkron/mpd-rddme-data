@@ -1,0 +1,47 @@
+b statics len: wrote /raid/racda/lmrddme_polymer/fcc_si/statics_len.npz
+b statics kappa: wrote /raid/racda/lmrddme_polymer/fcc_si/statics_kappa.npz
+c bath eta 0 seed 1 rc=0
+c bath eta 0 seed 2 rc=0
+c bath eta 0 seed 3 rc=0
+c bath eta 0 seed 4 rc=0
+c bath eta 0 seed 5 rc=0
+c bath eta 0 seed 6 rc=0
+c bath eta 0 seed 7 rc=0
+c bath eta 0 seed 8 rc=0
+c bath eta 0.05 seed 1 rc=0
+c bath eta 0.05 seed 2 rc=0
+c bath eta 0.05 seed 3 rc=0
+c bath eta 0.05 seed 4 rc=0
+c bath eta 0.05 seed 5 rc=0
+c bath eta 0.05 seed 6 rc=0
+c bath eta 0.05 seed 7 rc=0
+c bath eta 0.05 seed 8 rc=0
+c bath eta 0.10 seed 1 rc=0
+c bath eta 0.10 seed 2 rc=0
+c bath eta 0.10 seed 3 rc=0
+c bath eta 0.10 seed 4 rc=0
+c bath eta 0.10 seed 5 rc=0
+c bath eta 0.10 seed 6 rc=0
+c bath eta 0.10 seed 7 rc=0
+c bath eta 0.10 seed 8 rc=0
+c bath eta 0.15 seed 1 rc=0
+c bath eta 0.15 seed 2 rc=0
+c bath eta 0.15 seed 3 rc=0
+c bath eta 0.15 seed 4 rc=0
+c bath eta 0.15 seed 5 rc=0
+c bath eta 0.15 seed 6 rc=0
+c bath eta 0.15 seed 7 rc=0
+c bath eta 0.15 seed 8 rc=0
+c crowd phi 0 seed 1 rc=0 done: 2001 frames, wall 458s, struct_err=0, c
+c crowd phi 0.05 seed 1 rc=0 done: 2001 frames, wall 687s, struct_err=0, c
+c crowd phi 0.10 seed 1 rc=0 done: 2001 frames, wall 764s, struct_err=0, c
+c crowd phi 0.15 seed 1 rc=0 done: 2001 frames, wall 774s, struct_err=0, c
+c crowd phi 0 seed 2 rc=0 done: 2001 frames, wall 444s, struct_err=0, c
+c crowd phi 0.05 seed 2 rc=0 done: 2001 frames, wall 769s, struct_err=0, c
+c crowd phi 0.10 seed 2 rc=0 done: 2001 frames, wall 823s, struct_err=0, c
+c crowd phi 0 seed 3 rc=0 done: 2001 frames, wall 494s, struct_err=0, c
+c crowd phi 0.15 seed 2 rc=0 done: 2001 frames, wall 790s, struct_err=0, c
+c crowd phi 0.10 seed 3 rc=0 done: 2001 frames, wall 864s, struct_err=0, c
+c crowd phi 0.05 seed 3 rc=0 done: 2001 frames, wall 842s, struct_err=0, c
+c crowd phi 0.15 seed 3 rc=0 done: 2001 frames, wall 715s, struct_err=0, c
+FCC_SI_CAMPAIGN_COMPLETE Wed Sep 30 18:10:48 CDT 2026

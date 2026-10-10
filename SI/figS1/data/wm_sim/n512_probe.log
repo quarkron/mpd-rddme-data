@@ -1,0 +1,29 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+Fatal Python error: Segmentation fault
+
+Current thread 0x00006ffe1a34a740 (most recent call first):
+  File "/lm/build_container/lm.py", line 2521 in setDiffusionModelLattice
+  File "/opt/conda/envs/lm_2.6/lib/python3.7/site-packages/jLM-2.6.0-py3.7-linux-x86_64.egg/jLM/LmInteract.py", line 77 in finalize
+  File "/ftsz/studies/lmrddme_validation/mpd_crddme/wm_sim_campaign.py", line 77 in run
+  File "<string>", line 5 in <module>
+bash: line 6:   733 Segmentation fault      (core dumped) python3 -X faulthandler -c "
+import wm_sim_campaign as W, tempfile, time
+t=time.time()
+with tempfile.TemporaryDirectory(dir='/raid/racda/campaigns/lmrddme_validation/mpd_crddme/wm_sim') as wd:
+    fr,ti,n=W.run(512, wd, 0); print('N512 ok', fr.shape, n, time.time()-t)
+"
+EXIT=139

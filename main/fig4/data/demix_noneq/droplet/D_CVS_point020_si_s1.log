@@ -1,0 +1,20 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[gradient] well A=0.000 kT, phi 0.2->0.2 at r=250.0 nm; crowder q=0.008/dir, 6q(1+8phi_core)=0.12 (must be < 1: the bath transport runs away above)
+[gradient] box 64^3, tau 20.0 us, monomers 60000 (phi_M 0.120), crowders 12516 (expected phi_core 0.2); chain friction closure c=3.53 against the crowders => m(core)=0.586, m(edge)=0.586; chemistry=on seed chains=0
+[gradient] mode=point bodies=0 (sigma 10.0 nm, D 0.04 um^2/s, free_volume=False); attempts/step=4 kappa=4.0 channels: nuc 0.02 poly 20.0 depoly 3.0 sever 0.0
+[gradient] t=0.000s chains=0 subunits=0 free M=60000 bodies=0 wall=0s
+[gradient] done: 41 frames, wall 6532s, struct_err=0, chains=3156, bound=33808 (overlay fill 33808 in 33808 voxels), free M=26192 (mass 60000 / 60000), mean m=nan over 0 decisions -> /raid/racda/lmrddme_polymer/demix_noneq/droplet/D_CVS_point020_si_s1.npz

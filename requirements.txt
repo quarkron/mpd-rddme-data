@@ -1,0 +1,7 @@
+# Plotting environment the published figures were rendered with (Python 3.12). pdflatex must also be on PATH.
+numpy==2.4.2
+scipy==1.17.0
+matplotlib==3.10.8
+h5py==3.15.1
+Pillow==12.1.0
+PyMuPDF==1.27.1

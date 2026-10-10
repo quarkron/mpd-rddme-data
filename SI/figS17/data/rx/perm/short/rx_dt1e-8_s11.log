@@ -1,0 +1,91 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[lm_build] resolved build: /raid/racda/campaigns/lmrddme_validation/tau_ladder/build_rand_split
+[lm_build] imported lm: /raid/racda/campaigns/lmrddme_validation/tau_ladder/build_rand_split/lm.py (2026-10-02 19:48, 127625 bytes)
+sigma=[3.0, 3.0, 3.78] nper=3.12  c_on=3.052 /s  c_off=5e+05 /s  -> K_id=200 nm^3
+2026-10-02 20:05:17) Warning: White Bear: MAX_OCC=64 of the largest species reaches eta=1.810 > 0.64 (geometric packing). The lattice cap, not the BMCSL functional, will limit occupancy in crowded voxels; raise MPD_LATTICE_MAX_OCCUPANCY or reduce diameters.
+2026-10-02 20:05:17) Info: Step operator order: RANDOMIZED per step (x, y, z drift, structures+field, reactions; fused z+reaction off).
+2026-10-02 20:05:17) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-02 20:05:17) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-02 20:05:17) Info: Data output thread running.
+2026-10-02 20:05:17) Info: MPDRDME: Rng seed: top word 720885, bottom word 1
+2026-10-02 20:05:17) Info: Running mpd rdme simulation with 3 species, 2 reactions, 1 site types for 8.000000e-06 s with tau 1.000000e-08. Writing species at 0.000000e+00 and lattice at 6.902647e-310 intervals
+2026-10-02 20:05:17) Warning: [lattice] word-scan bound INVARIANT BROKEN: 24571 voxel(s) hold a particle above the high-water mark (total 24571); a write path raised occupancy without latticeNoteWordsUsed
+2026-10-02 20:05:17) Info: MPD_RNG_ORIGIN_SHIFT disarmed (env unset or != 1): RNG keys use the bare lattice index.
+2026-10-02 20:05:17) Info: ERA_FUSE_RXN_Z on: the FN reaction step runs inside the z drift kernel when no structure/field/CRDME pass intervenes.
+2026-10-02 20:05:17) Info: Time is 0.00000040000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000040000000, in steps is 40
+2026-10-02 20:05:17) Info: Next lattice write time is 80
+2026-10-02 20:05:17) Info: Time is 0.00000080000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000080000000, in steps is 80
+2026-10-02 20:05:17) Info: Next lattice write time is 120
+2026-10-02 20:05:17) Info: Time is 0.00000120000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000120000000, in steps is 120
+2026-10-02 20:05:17) Info: Next lattice write time is 160
+2026-10-02 20:05:17) Info: Time is 0.00000160000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000160000000, in steps is 160
+2026-10-02 20:05:17) Info: Next lattice write time is 200
+2026-10-02 20:05:17) Info: Time is 0.00000200000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000200000000, in steps is 200
+2026-10-02 20:05:17) Info: Next lattice write time is 240
+2026-10-02 20:05:17) Info: Time is 0.00000240000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000240000000, in steps is 240
+2026-10-02 20:05:17) Info: Next lattice write time is 280
+2026-10-02 20:05:17) Info: Time is 0.00000280000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000280000000, in steps is 280
+2026-10-02 20:05:17) Info: Next lattice write time is 320
+2026-10-02 20:05:17) Info: Time is 0.00000320000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000320000000, in steps is 320
+2026-10-02 20:05:17) Info: Next lattice write time is 360
+2026-10-02 20:05:17) Info: Time is 0.00000360000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000360000000, in steps is 360
+2026-10-02 20:05:17) Info: Next lattice write time is 400
+2026-10-02 20:05:17) Info: Time is 0.00000400000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000400000000, in steps is 400
+2026-10-02 20:05:17) Info: Next lattice write time is 440
+2026-10-02 20:05:17) Info: Time is 0.00000440000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000440000000, in steps is 440
+2026-10-02 20:05:17) Info: Next lattice write time is 480
+2026-10-02 20:05:17) Info: Time is 0.00000480000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000480000000, in steps is 480
+2026-10-02 20:05:17) Info: Next lattice write time is 520
+2026-10-02 20:05:17) Info: Time is 0.00000520000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000520000000, in steps is 520
+2026-10-02 20:05:17) Info: Next lattice write time is 560
+2026-10-02 20:05:17) Info: Time is 0.00000560000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000560000000, in steps is 560
+2026-10-02 20:05:17) Info: Next lattice write time is 600
+2026-10-02 20:05:17) Info: Time is 0.00000600000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000600000000, in steps is 600
+2026-10-02 20:05:17) Info: Next lattice write time is 640
+2026-10-02 20:05:17) Info: Time is 0.00000640000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000640000000, in steps is 640
+2026-10-02 20:05:17) Info: Next lattice write time is 680
+2026-10-02 20:05:17) Info: Time is 0.00000680000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000680000000, in steps is 680
+2026-10-02 20:05:17) Info: Next lattice write time is 720
+2026-10-02 20:05:17) Info: Time is 0.00000720000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000720000000, in steps is 720
+2026-10-02 20:05:17) Info: Next lattice write time is 760
+2026-10-02 20:05:17) Info: Time is 0.00000760000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000760000000, in steps is 760
+2026-10-02 20:05:17) Info: Next lattice write time is 800
+2026-10-02 20:05:17) Info: Time is 0.00000800000000
+2026-10-02 20:05:17) Info: Lattice write time is 0.00000800000000, in steps is 800
+2026-10-02 20:05:17) Info: Next lattice write time is 840
+2026-10-02 20:05:17) Info: Data output thread finished.
+2026-10-02 20:05:17) Info: Simulation file closed.
+  eta=0.0884  <n>=(2.034,2.034,1.091)  K_eff/K_id=1.3174  BMCSL 1.4834  (1s)

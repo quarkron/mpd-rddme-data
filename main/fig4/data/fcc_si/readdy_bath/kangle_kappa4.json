@@ -1,0 +1,8 @@
+{
+ "kappa": 4.0,
+ "lp_over_b_target": 4.4005,
+ "k_angle": 2.3054,
+ "lp_over_b_got": 4.3855,
+ "err": 0.1192,
+ "note": "recovered from match.log (2026-09-10): coarse scan 0.25..32 -> 2.3162, refined over 8 seeds; -0.34 %, 0.1 sigma"
+}

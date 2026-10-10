@@ -1,0 +1,81 @@
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005676s sim/wall=0.0881 overflow=0
+excl 26214 s0 rc=0 K_eff 224.082716
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005668s sim/wall=0.08822 overflow=0
+excl 26214 s1 rc=0 K_eff 223.523668
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005645s sim/wall=0.08858 overflow=0
+excl 26214 s2 rc=0 K_eff 224.489372
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.000597s sim/wall=0.08376 overflow=0
+excl 26214 s3 rc=0 K_eff 223.431503
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.000564s sim/wall=0.08865 overflow=0
+excl 26214 s4 rc=0 K_eff 224.214339
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005775s sim/wall=0.08658 overflow=0
+excl 26214 s5 rc=0 K_eff 224.534298
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005636s sim/wall=0.08871 overflow=0
+excl 26214 s6 rc=0 K_eff 223.975859
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005743s sim/wall=0.08706 overflow=0
+excl 26214 s7 rc=0 K_eff 224.182230
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0005713s sim/wall=0.08752 overflow=0
+excl 26214 s8 rc=0 K_eff 224.889953
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=1 per_step=0.0006106s sim/wall=0.08189 overflow=0
+excl 26214 s9 rc=0 K_eff 224.595504
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002463s sim/wall=0.203 overflow=0
+ideal 26214 s0 rc=0 K_eff 200.631566
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.000241s sim/wall=0.2074 overflow=0
+ideal 26214 s1 rc=0 K_eff 200.655817
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002515s sim/wall=0.1988 overflow=0
+ideal 26214 s2 rc=0 K_eff 200.047526
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002405s sim/wall=0.2079 overflow=0
+ideal 26214 s3 rc=0 K_eff 200.720890
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002411s sim/wall=0.2074 overflow=0
+ideal 26214 s4 rc=0 K_eff 200.599498
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002549s sim/wall=0.1962 overflow=0
+ideal 26214 s5 rc=0 K_eff 201.186462
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002507s sim/wall=0.1995 overflow=0
+ideal 26214 s6 rc=0 K_eff 200.568758
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002521s sim/wall=0.1984 overflow=0
+ideal 26214 s7 rc=0 K_eff 199.762781
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002439s sim/wall=0.205 overflow=0
+ideal 26214 s8 rc=0 K_eff 200.218427
+BENCH cpu dims=(32,32,32) M=32768 n0=26214 threads=48 excl=0 per_step=0.0002407s sim/wall=0.2077 overflow=0
+ideal 26214 s9 rc=0 K_eff 200.557893
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001596s sim/wall=0.03132 overflow=0
+excl 101580 s0 rc=0 K_eff 303.262612
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001602s sim/wall=0.03121 overflow=0
+excl 101580 s1 rc=0 K_eff 303.802556
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001617s sim/wall=0.03093 overflow=0
+excl 101580 s2 rc=0 K_eff 303.620241
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001581s sim/wall=0.03163 overflow=0
+excl 101580 s3 rc=0 K_eff 303.844659
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001586s sim/wall=0.03153 overflow=0
+excl 101580 s4 rc=0 K_eff 303.323646
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001592s sim/wall=0.03142 overflow=0
+excl 101580 s5 rc=0 K_eff 303.353817
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001595s sim/wall=0.03135 overflow=0
+excl 101580 s6 rc=0 K_eff 303.714181
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001619s sim/wall=0.03089 overflow=0
+excl 101580 s7 rc=0 K_eff 303.325430
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001599s sim/wall=0.03127 overflow=0
+excl 101580 s8 rc=0 K_eff 303.878890
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=1 per_step=0.001616s sim/wall=0.03094 overflow=0
+excl 101580 s9 rc=0 K_eff 303.368085
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004682s sim/wall=0.1068 overflow=0
+ideal 101580 s0 rc=0 K_eff 199.904107
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004555s sim/wall=0.1098 overflow=0
+ideal 101580 s1 rc=0 K_eff 199.929798
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004559s sim/wall=0.1097 overflow=0
+ideal 101580 s2 rc=0 K_eff 199.911786
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004574s sim/wall=0.1093 overflow=0
+ideal 101580 s3 rc=0 K_eff 200.030297
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004536s sim/wall=0.1102 overflow=0
+ideal 101580 s4 rc=0 K_eff 199.982849
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004529s sim/wall=0.1104 overflow=0
+ideal 101580 s5 rc=0 K_eff 200.061190
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.000451s sim/wall=0.1109 overflow=0
+ideal 101580 s6 rc=0 K_eff 199.899225
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004533s sim/wall=0.1103 overflow=0
+ideal 101580 s7 rc=0 K_eff 199.635997
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.000459s sim/wall=0.1089 overflow=0
+ideal 101580 s8 rc=0 K_eff 200.059183
+BENCH cpu dims=(32,32,32) M=32768 n0=101580 threads=48 excl=0 per_step=0.0004538s sim/wall=0.1102 overflow=0
+ideal 101580 s9 rc=0 K_eff 200.085661
+CPU_GPU_K_SEEDS_COMPLETE

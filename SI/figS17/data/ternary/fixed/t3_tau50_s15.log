@@ -1,0 +1,163 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+[bath_species] B2 = type 3: sigma 4.0 nm, eta 0.07, D 0.05 um^2/s, 68449 particles (2.09 per voxel)
+[ternary_relax] arm=model dims=32x32x32 h=10 sig={'A': 2.0, 'B': 4.0, 'C': 20.0} eta=(0.07,0.07) NA=547595 NB=68449 C=64 D_um2={'A': 0.1, 'B': 0.05, 'C': 0.01} tau_max=4.0 -> 81 nominal steps, hook every 2
+[ternary_relax] stripe start: filled-voxel mean A 33.47 B 4.18, max total 55 (cap 64), source joint hist
+2026-10-05 16:24:53) Warning: White Bear: MAX_OCC=64 of the largest species reaches eta=4.189 > 0.64 (geometric packing). The lattice cap, not the BMCSL functional, will limit occupancy in crowded voxels; raise MPD_LATTICE_MAX_OCCUPANCY or reduce diameters.
+[struct] size-diffusion: 6*p = 2.7 > 1 at tau with NO adaptive-tau controller armed (D1=9e+05 nm^2/s, tau/lam2=5e-07) — the in-kernel guard will clamp the total hop probability at 1, so small-N complexes WILL be rate-limited.
+2026-10-05 16:24:54) Info: [struct] free-volume functional ARMED: bath excess = V(1-w) f_WB(xi/(1-w)) + confinement -ln(1-w) per particle; w from smear channel 3; lambda_hc 1.000
+2026-10-05 16:24:54) Info: Using 224 processor(s) and 1 CUDA device(s) per process.
+2026-10-05 16:24:54) Info: Assigning 1.00 processor(s) and 1.00 CUDA device(s) per replicate.
+2026-10-05 16:24:54) Info: Data output thread running.
+2026-10-05 16:24:54) Info: MPDRDME: Rng seed: top word 983025, bottom word 1
+2026-10-05 16:24:54) Info: Running mpd rdme simulation with 3 species, 0 reactions, 1 site types for 4.000000e-03 s with tau 5.000000e-05. Writing species at 0.000000e+00 and lattice at 6.857329e-310 intervals
+2026-10-05 16:24:54) Info: [struct] free-volume functional ARMED: bath excess = V(1-w) f_WB(xi/(1-w)) + confinement -ln(1-w) per particle; w from smear channel 3; lambda_hc 1.000
+2026-10-05 16:24:54) Warning: [lattice] word-scan bound INVARIANT BROKEN: 16384 voxel(s) hold a particle above the high-water mark (total 16384); a write path raised occupancy without latticeNoteWordsUsed
+2026-10-05 16:24:54) Info: MPD_RNG_ORIGIN_SHIFT disarmed (env unset or != 1): RNG keys use the bare lattice index.
+2026-10-05 16:24:54) Info: ERA_FUSE_RXN_Z on: the FN reaction step runs inside the z drift kernel when no structure/field/CRDME pass intervenes.
+2026-10-05 16:24:54) Info: [struct] collisional friction AUTO: type 1 sigma 2.00 nm (lambda 0.100), q/pT 10 => c = 60.554
+2026-10-05 16:24:54) Info: [struct] collisional friction AUTO: type 2 sigma 5.00 nm (lambda 0.250), q/pT 10 => c = 5.686
+2026-10-05 16:24:54) Info: [struct] collisional friction AUTO: type 3 sigma 4.00 nm (lambda 0.200), q/pT 5 => c = 18.015
+2026-10-05 16:24:54) Info: [struct] collisional friction AUTO: sigma_T 20.01 nm, body p_T 5.000e-03 per direction per step, 3 species
+2026-10-05 16:24:54) Info: [struct] chain friction AUTO: type 1 sigma 2.00 nm (lambda 1.000), q_t/q_F 1 => c = 2.000 (rate-coupled, out of the move energy)
+2026-10-05 16:24:54) Info: [struct] chain friction AUTO: type 2 sigma 5.00 nm (lambda 2.500), q_t/q_F 1 => c = 0.686 (rate-coupled, out of the move energy)
+2026-10-05 16:24:54) Info: [struct] chain friction AUTO: type 3 sigma 4.00 nm (lambda 2.000), q_t/q_F 0.5 => c = 1.125 (rate-coupled, out of the move energy)
+2026-10-05 16:24:54) Info: [struct] chain friction AUTO: fill species 1 sigma_F 2.00 nm, q_F 5.000e-02 per direction per step, 3 rate-coupled species
+2026-10-05 16:24:54) Info: [struct] body pair exclusion ON: depositing species 2, hard-core diameter 20.01 nm = 2.001 voxels; cell side 5 voxels (p_T 0.005, 4 repetitions, d_max 0.500 voxels); the bodies move in the cell kernel and their smear energy reads the static baseline only
+2026-10-05 16:24:54) Info: [struct] bead-body exclusion ON: body 20.01 nm (species 2) against subunit 5.00 nm => contact at 12.50 nm = 1.250 voxels, proposals scan 2 voxels each way; the subunit's smeared body term is dropped (its insertion work reads the static baseline)
+2026-10-05 16:24:54) Info: Time is 0.00010000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00010000000000, in steps is 2
+2026-10-05 16:24:54) Info: Next hook time is 4
+2026-10-05 16:24:54) Info: Time is 0.00020000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00020000000000, in steps is 4
+2026-10-05 16:24:54) Info: Next hook time is 6
+2026-10-05 16:24:54) Info: Time is 0.00030000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00030000000000, in steps is 6
+2026-10-05 16:24:54) Info: Next hook time is 8
+2026-10-05 16:24:54) Info: Time is 0.00040000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00040000000000, in steps is 8
+2026-10-05 16:24:54) Info: Next hook time is 10
+2026-10-05 16:24:54) Info: Time is 0.00050000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00050000000000, in steps is 10
+2026-10-05 16:24:54) Info: Next hook time is 12
+2026-10-05 16:24:54) Info: Time is 0.00060000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00060000000000, in steps is 12
+2026-10-05 16:24:54) Info: Next hook time is 14
+2026-10-05 16:24:54) Info: Time is 0.00070000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00070000000000, in steps is 14
+2026-10-05 16:24:54) Info: Next hook time is 16
+2026-10-05 16:24:54) Info: Time is 0.00080000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00080000000000, in steps is 16
+2026-10-05 16:24:54) Info: Next hook time is 18
+2026-10-05 16:24:54) Info: Time is 0.00090000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00090000000000, in steps is 18
+2026-10-05 16:24:54) Info: Next hook time is 20
+2026-10-05 16:24:54) Info: Time is 0.00100000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00100000000000, in steps is 20
+2026-10-05 16:24:54) Info: Next hook time is 22
+2026-10-05 16:24:54) Info: Time is 0.00110000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00110000000000, in steps is 22
+2026-10-05 16:24:54) Info: Next hook time is 24
+2026-10-05 16:24:54) Info: Time is 0.00120000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00120000000000, in steps is 24
+2026-10-05 16:24:54) Info: Next hook time is 26
+2026-10-05 16:24:54) Info: Time is 0.00130000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00130000000000, in steps is 26
+2026-10-05 16:24:54) Info: Next hook time is 28
+2026-10-05 16:24:54) Info: Time is 0.00140000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00140000000000, in steps is 28
+2026-10-05 16:24:54) Info: Next hook time is 30
+2026-10-05 16:24:54) Info: Time is 0.00150000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00150000000000, in steps is 30
+2026-10-05 16:24:54) Info: Next hook time is 32
+2026-10-05 16:24:54) Info: Time is 0.00160000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00160000000000, in steps is 32
+2026-10-05 16:24:54) Info: Next hook time is 34
+2026-10-05 16:24:54) Info: Time is 0.00170000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00170000000000, in steps is 34
+2026-10-05 16:24:54) Info: Next hook time is 36
+2026-10-05 16:24:54) Info: Time is 0.00180000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00180000000000, in steps is 36
+2026-10-05 16:24:54) Info: Next hook time is 38
+2026-10-05 16:24:54) Info: Time is 0.00190000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00190000000000, in steps is 38
+2026-10-05 16:24:54) Info: Next hook time is 40
+2026-10-05 16:24:54) Info: Time is 0.00200000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00200000000000, in steps is 40
+2026-10-05 16:24:54) Info: Next hook time is 42
+2026-10-05 16:24:54) Info: Time is 0.00210000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00210000000000, in steps is 42
+2026-10-05 16:24:54) Info: Next hook time is 44
+2026-10-05 16:24:54) Info: Time is 0.00220000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00220000000000, in steps is 44
+2026-10-05 16:24:54) Info: Next hook time is 46
+2026-10-05 16:24:54) Info: Time is 0.00230000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00230000000000, in steps is 46
+2026-10-05 16:24:54) Info: Next hook time is 48
+2026-10-05 16:24:54) Info: Time is 0.00240000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00240000000000, in steps is 48
+2026-10-05 16:24:54) Info: Next hook time is 50
+2026-10-05 16:24:54) Info: Time is 0.00250000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00250000000000, in steps is 50
+2026-10-05 16:24:54) Info: Next hook time is 52
+2026-10-05 16:24:54) Info: Time is 0.00260000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00260000000000, in steps is 52
+2026-10-05 16:24:54) Info: Next hook time is 54
+2026-10-05 16:24:54) Info: Time is 0.00270000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00270000000000, in steps is 54
+2026-10-05 16:24:54) Info: Next hook time is 56
+2026-10-05 16:24:54) Info: Time is 0.00280000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00280000000000, in steps is 56
+2026-10-05 16:24:54) Info: Next hook time is 58
+2026-10-05 16:24:54) Info: Time is 0.00290000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00290000000000, in steps is 58
+2026-10-05 16:24:54) Info: Next hook time is 60
+2026-10-05 16:24:54) Info: Time is 0.00300000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00300000000000, in steps is 60
+2026-10-05 16:24:54) Info: Next hook time is 62
+2026-10-05 16:24:54) Info: Time is 0.00310000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00310000000000, in steps is 62
+2026-10-05 16:24:54) Info: Next hook time is 64
+2026-10-05 16:24:54) Info: Time is 0.00320000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00320000000000, in steps is 64
+2026-10-05 16:24:54) Info: Next hook time is 66
+2026-10-05 16:24:54) Info: Time is 0.00330000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00330000000000, in steps is 66
+2026-10-05 16:24:54) Info: Next hook time is 68
+2026-10-05 16:24:54) Info: Time is 0.00340000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00340000000000, in steps is 68
+2026-10-05 16:24:54) Info: Next hook time is 70
+2026-10-05 16:24:54) Info: Time is 0.00350000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00350000000000, in steps is 70
+2026-10-05 16:24:54) Info: Next hook time is 72
+2026-10-05 16:24:54) Info: Time is 0.00360000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00360000000000, in steps is 72
+2026-10-05 16:24:54) Info: Next hook time is 74
+2026-10-05 16:24:54) Info: Time is 0.00370000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00370000000000, in steps is 74
+2026-10-05 16:24:54) Info: Next hook time is 76
+2026-10-05 16:24:54) Info: Time is 0.00380000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00380000000000, in steps is 76
+2026-10-05 16:24:54) Info: Next hook time is 78
+2026-10-05 16:24:54) Info: Time is 0.00390000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00390000000000, in steps is 78
+2026-10-05 16:24:54) Info: Next hook time is 80
+2026-10-05 16:24:54) Info: Time is 0.00400000000000
+2026-10-05 16:24:54) Info: Hook time is 0.00400000000000, in steps is 80
+2026-10-05 16:24:54) Info: Next hook time is 82
+2026-10-05 16:24:54) Info: Data output thread finished.
+2026-10-05 16:24:54) Info: Simulation file closed.
+[ternary_relax] -> /raid/racda/campaigns/vex-rddme/SI/figS14/ternary/fixed/t3_tau50_s15.npz: 40 frames, tau 0.1..4, tau_scale 1.000, struct_err 0, overlap reads 0, final Fano A 0.866 B 0.650, 2 s

@@ -1,0 +1,6 @@
+[demix-scene] box 640 nm, N=999661 (bath 927145, crowder 12516, polymer 60000, 45492 bound in 2650 chains from D_CS_both020_si_s1.npz at t=10.00 s, crowders from snapshot), bond 14.14 nm, dt 1.33e-08 s (tau_stab 3.33e-08 s)
+0it [00:00, ?it/s]0it [00:26, ?it/s]
+  0%|          | 0/1 [00:00<?, ?it/s]100%|██████████| 1/1 [01:46<00:00, 106.40s/it]100%|██████████| 1/1 [01:46<00:00, 106.40s/it]
+ADV_DEMIX_READDY sc N=999661 per_step=10.64s (windows 26.8/106.4 s)
+[2026-09-28 20:59:52] [info] Simulation completed
+[2026-09-28 21:01:38] [info] Simulation completed

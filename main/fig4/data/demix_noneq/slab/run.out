@@ -1,0 +1,3 @@
+D_CVS_point020_si_s1 rc=0 done: 41 frames, wall 6541s, struct_err=0, chains=3204, bound=33876 (overlay fill 33876 in
+D_CS_both020_si_s1 rc=0 done: 41 frames, wall 11838s, struct_err=0, chains=2198, bound=50593 (overlay fill 50593 i
+DEMIX_BATH_SNAPSHOTS_COMPLETE Thu Oct  8 18:41:34 CDT 2026

@@ -1,0 +1,1 @@
+{"engine":"lat_cpu","dims":[32,8,8],"M":2048,"nspec":2,"n0":13038,"threads":1,"exclusion":1,"stokes":1,"dt_s":5e-05,"steps1":124,"steps2":623,"wall1_s":0.460014,"wall2_s":1.85195,"per_step_s":0.00371131,"a_max_per_s":0,"a_mean_per_s":0,"overflow":0,"seed":0,"counts":[6519,6519],"occ_hist":[0,7,37,105,194,362,399,356,296,171,80,31,8,2]}

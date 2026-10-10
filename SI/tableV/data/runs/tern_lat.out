@@ -1,0 +1,7 @@
+ADV_TERN dims=32x8x8 NA=34225 NB=4278 C=4 per_step=0.00035448s tau_samp=53.2 us (tau_scale 0.2661 sum_max 0.1773) occ 18.80 max 29 struct_err=[0, 0, 0]
+ADV_TERN dims=32x8x8 NA=34225 NB=4278 C=4 per_step=0.00018859s tau_samp=98.5 us (tau_scale 0.4925 sum_max 0.197) occ 18.80 max 38 struct_err=[0, 0, 0]
+ADV_TERN dims=32x8x8 NA=34225 NB=4278 C=4 per_step=0.00035546s tau_samp=47 us (tau_scale 0.2348 sum_max 0.1887) occ 18.80 max 32 struct_err=[0, 0, 0]
+ADV_TERN dims=32x8x8 NA=34225 NB=4278 C=4 per_step=0.00018899s tau_samp=98.5 us (tau_scale 0.4925 sum_max 0.197) occ 18.80 max 38 struct_err=[0, 0, 0]
+ADV_TERN dims=32x8x8 NA=34225 NB=4278 C=4 per_step=0.00035277s tau_samp=57.6 us (tau_scale 0.288 sum_max 0.1807) occ 18.80 max 32 struct_err=[0, 0, 0]
+ADV_TERN dims=32x8x8 NA=34225 NB=4278 C=4 per_step=0.00018843s tau_samp=98.5 us (tau_scale 0.4925 sum_max 0.197) occ 18.80 max 34 struct_err=[0, 0, 0]
+TERNARY_LATTICE_DONE

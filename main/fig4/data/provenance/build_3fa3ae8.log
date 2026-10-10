@@ -1,0 +1,330 @@
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found Git: /opt/conda/envs/lm_2.6/bin/git (found version "2.33.1") 
+-- Inferring install prefix from '/opt/conda/envs/lm_2.6'
+-- HDF5: Using hdf5 compiler wrapper to determine CXX configuration
+-- Found HDF5: /opt/conda/envs/lm_2.6/lib/libhdf5_cpp.so;/opt/conda/envs/lm_2.6/lib/libhdf5.so;/usr/lib/x86_64-linux-gnu/librt.a;/usr/lib/x86_64-linux-gnu/libpthread.a;/opt/conda/envs/lm_2.6/lib/libz.so;/usr/lib/x86_64-linux-gnu/libdl.a;/usr/lib/x86_64-linux-gnu/libm.so (found version "1.10.4") found components:  CXX HL 
+-- Found Protobuf: /opt/conda/envs/lm_2.6/lib/libprotobuf.so (found version "3.13.0") 
+-- Found Threads: TRUE  
+-- Found PythonInterp: /opt/conda/envs/lm_2.6/bin/python (found suitable version "3.7.3", minimum required is "3.5") 
+-- Found PythonLibs: /opt/conda/envs/lm_2.6/lib/libpython3.7m.so (found suitable version "3.7.3", minimum required is "3.7") 
+-- Found SWIG: /opt/conda/envs/lm_2.6/bin/swig (found version "4.0.2") 
+-- Found NumPy: /opt/conda/envs/lm_2.6/lib/python3.7/site-packages/numpy/core/include (found version "1.21.5") 
+-- Found Cython
+-- Found Setuptools
+-- Looking for a CUDA compiler
+-- Looking for a CUDA compiler - /usr/local/cuda/bin/nvcc
+-- The CUDA compiler identification is NVIDIA 12.8.61
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc
+-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc -- works
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Using CUDA architectures from environment: 70;75;80;86;89;90;100
+-- CUDA_ARCH_LIST: 100
+-- CUDA_ARCH_LIST after sorting: 100
+-- Adding CUDA architecture: compute_100, sm_100
+-- Building for CUDA architectures: sm_100
+-- Final CUDA_ARCHITECTURES: 100
+CMake Warning (dev) at /opt/conda/envs/lm_2.6/share/cmake-3.14/Modules/UseSWIG.cmake:600 (message):
+  Policy CMP0078 is not set: UseSWIG generates standard target names.  Run
+  "cmake --help-policy CMP0078" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  swig/CMakeLists.txt:8 (swig_add_library)
+  CMakeLists.txt:112 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /opt/conda/envs/lm_2.6/share/cmake-3.14/Modules/UseSWIG.cmake:460 (message):
+  Policy CMP0086 is not set: UseSWIG honors SWIG_MODULE_NAME via -module
+  flag.  Run "cmake --help-policy CMP0086" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /opt/conda/envs/lm_2.6/share/cmake-3.14/Modules/UseSWIG.cmake:695 (SWIG_ADD_SOURCE_TO_MODULE)
+  swig/CMakeLists.txt:8 (swig_add_library)
+  CMakeLists.txt:112 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /opt/conda/envs/lm_2.6/share/cmake-3.14/Modules/UseSWIG.cmake:600 (message):
+  Policy CMP0078 is not set: UseSWIG generates standard target names.  Run
+  "cmake --help-policy CMP0078" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  swig/CMakeLists.txt:24 (swig_add_library)
+  CMakeLists.txt:112 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at /opt/conda/envs/lm_2.6/share/cmake-3.14/Modules/UseSWIG.cmake:460 (message):
+  Policy CMP0086 is not set: UseSWIG honors SWIG_MODULE_NAME via -module
+  flag.  Run "cmake --help-policy CMP0086" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+Call Stack (most recent call first):
+  /opt/conda/envs/lm_2.6/share/cmake-3.14/Modules/UseSWIG.cmake:695 (SWIG_ADD_SOURCE_TO_MODULE)
+  swig/CMakeLists.txt:24 (swig_add_library)
+  CMakeLists.txt:112 (include)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning at vmd/CMakeLists.txt:43 (message):
+  VMD not found.  Please set "VMD_PLUGIN_INCLUDE_DIR" and "VMD_PLUGIN_DIR".
+Call Stack (most recent call first):
+  CMakeLists.txt:128 (include)
+
+
+============================== Build configuration =============================
+Compiled features:
+ * C++ compiler: GNU 11.4.0
+ * HDF5 version: 1.10.4
+ * CUDA Toolkit Version: 12.8.61
+ * CUDA Target Architecture: sm_100
+ * Python version: 3.7.3
+ * NumPy version: 1.21.5
+ * Swig version: 4.0.2
+ * MPI support disabled
+Compiled options:
+ * MPD_LATTICE_MAX_OCCUPANCY=64
+ * TUNE_MPD_MAX_PARTICLE_OVERFLOWS=8192
+================================================================================
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container
+
+==========
+== CUDA ==
+==========
+
+CUDA Version 12.8.0
+
+Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+
+This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+By pulling and using the container, you accept the terms and conditions of this license:
+https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+
+A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+
+WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+   Use the NVIDIA Container Toolkit to start this container with GPU support; see
+   https://docs.nvidia.com/datacenter/cloud-native/ .
+
+gmake[1]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[2]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[  0%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/SpeciesCounts.proto
+[  1%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/DiffusionModel.proto
+[  1%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/FirstPassageTimes.proto
+[  3%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/Lattice.proto
+[  5%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/ReactionModel.proto
+[  5%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/SimulationParameters.proto
+[  5%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/ParameterValues.proto
+Scanning dependencies of target pythonlm_swig_compilation
+[  7%] Running cpp protocol buffer compiler on /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/protobuf/SpatialModel.proto
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[  7%] Swig compile /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/swig/lm.i for python
+Scanning dependencies of target lmcore
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[  8%] Building CXX object CMakeFiles/lmcore.dir/builder/Capsule.cpp.o
+[  8%] Building CXX object CMakeFiles/lmcore.dir/builder/CapsuleShell.cpp.o
+[  8%] Building CXX object CMakeFiles/lmcore.dir/builder/Cone.cpp.o
+[ 10%] Building CXX object CMakeFiles/lmcore.dir/builder/Cuboid.cpp.o
+[ 10%] Building CXX object CMakeFiles/lmcore.dir/builder/Cylinder.cpp.o
+[ 12%] Building CXX object CMakeFiles/lmcore.dir/builder/Difference.cpp.o
+[ 12%] Building CXX object CMakeFiles/lmcore.dir/builder/Ellipse.cpp.o
+[ 14%] Building CXX object CMakeFiles/lmcore.dir/builder/Intersection.cpp.o
+[ 14%] Building CXX object CMakeFiles/lmcore.dir/builder/Hemisphere.cpp.o
+[ 15%] Building CXX object CMakeFiles/lmcore.dir/builder/LatticeBuilder.cpp.o
+[ 15%] Building CXX object CMakeFiles/lmcore.dir/builder/Shape.cpp.o
+[ 17%] Building CXX object CMakeFiles/lmcore.dir/builder/Sphere.cpp.o
+[ 17%] Building CXX object CMakeFiles/lmcore.dir/builder/Torus.cpp.o
+[ 19%] Building CXX object CMakeFiles/lmcore.dir/builder/Union.cpp.o
+[ 21%] Building CXX object CMakeFiles/lmcore.dir/builder/UnionSet.cpp.o
+[ 21%] Building CXX object CMakeFiles/lmcore.dir/me/MESolver.cpp.o
+[ 21%] Building CXX object CMakeFiles/lmcore.dir/me/MESolverFactory.cpp.o
+[ 22%] Building CXX object CMakeFiles/lmcore.dir/thread/Worker.cpp.o
+[ 22%] Building CXX object CMakeFiles/lmcore.dir/thread/Thread.cpp.o
+[ 24%] Building CXX object CMakeFiles/lmcore.dir/thread/WorkerManager.cpp.o
+[ 24%] Building CXX object CMakeFiles/lmcore.dir/core/CheckpointSignaler.cpp.o
+[ 24%] Building CXX object CMakeFiles/lmcore.dir/core/DataOutputQueue.cpp.o
+[ 26%] Building CXX object CMakeFiles/lmcore.dir/core/Globals.cpp.o
+[ 26%] Building CXX object CMakeFiles/lmcore.dir/core/LocalDataOutputWorker.cpp.o
+[ 28%] Building CXX object CMakeFiles/lmcore.dir/core/MPIRemoteDataOutputQueue.cpp.o
+[ 28%] Building CXX object CMakeFiles/lmcore.dir/core/ReplicateRunner.cpp.o
+[ 29%] Building CXX object CMakeFiles/lmcore.dir/core/ResourceAllocator.cpp.o
+[ 29%] Building CXX object CMakeFiles/lmcore.dir/core/runSimulation.cpp.o
+[ 31%] Building CXX object CMakeFiles/lmcore.dir/core/SignalHandler.cpp.o
+[ 31%] Building CXX object CMakeFiles/lmcore.dir/core/Print.cpp.o
+[ 31%] Building CXX object CMakeFiles/lmcore.dir/DiffusionModel.pb.cc.o
+[ 33%] Building CXX object CMakeFiles/lmcore.dir/Lattice.pb.cc.o
+[ 33%] Building CXX object CMakeFiles/lmcore.dir/FirstPassageTimes.pb.cc.o
+[ 35%] Building CXX object CMakeFiles/lmcore.dir/core/util.cpp.o
+[ 35%] Building CXX object CMakeFiles/lmcore.dir/ParameterValues.pb.cc.o
+[ 35%] Building CXX object CMakeFiles/lmcore.dir/SimulationParameters.pb.cc.o
+[ 36%] Building CXX object CMakeFiles/lmcore.dir/ReactionModel.pb.cc.o
+[ 36%] Building CXX object CMakeFiles/lmcore.dir/SpeciesCounts.pb.cc.o
+[ 38%] Building CXX object CMakeFiles/lmcore.dir/io/SimulationFile.cpp.o
+[ 40%] Building CXX object CMakeFiles/lmcore.dir/SpatialModel.pb.cc.o
+[ 40%] Building CXX object CMakeFiles/lmcore.dir/io/SimulationFile_create.cpp.o
+[ 42%] Building CXX object CMakeFiles/lmcore.dir/io/SimulationParameters.cpp.o
+[ 42%] Building CXX object CMakeFiles/lmcore.dir/cme/CMESolver.cpp.o
+[ 43%] Building CXX object CMakeFiles/lmcore.dir/cme/FluctuatingNRSolver.cpp.o
+[ 43%] Building CXX object CMakeFiles/lmcore.dir/cme/GillespieDSolver.cpp.o
+[ 43%] Building CXX object CMakeFiles/lmcore.dir/cme/SpGillespieDSolver.cpp.o
+[ 45%] Building CXX object CMakeFiles/lmcore.dir/cme/HillSwitch.cpp.o
+[ 45%] Building CXX object CMakeFiles/lmcore.dir/cme/LacHillSwitch.cpp.o
+[ 47%] Building CXX object CMakeFiles/lmcore.dir/cme/SelfRegulatingGeneSwitch.cpp.o
+[ 47%] Building CXX object CMakeFiles/lmcore.dir/cme/OptimizedGillespieSolver.cpp.o
+[ 49%] Building CXX object CMakeFiles/lmcore.dir/cme/NextReactionSolver.cpp.o
+[ 49%] Building CXX object CMakeFiles/lmcore.dir/cme/TwoStateExpression.cpp.o
+[ 50%] Building CXX object CMakeFiles/lmcore.dir/cme/TwoStateHillLoopSwitch.cpp.o
+[ 50%] Building CXX object CMakeFiles/lmcore.dir/cme/TwoStateHillSwitch.cpp.o
+[ 52%] Building CUDA object CMakeFiles/lmcore.dir/rng/XORWow.cu.o
+[ 52%] Building CXX object CMakeFiles/lmcore.dir/rng/XORShift.cpp.o
+[ 54%] Building CXX object CMakeFiles/lmcore.dir/rng/RandomGenerator.cpp.o
+[ 54%] Building CUDA object CMakeFiles/lmcore.dir/cuda/lm_cuda.cu.o
+[ 54%] Building CXX object CMakeFiles/lmcore.dir/rdme/IntLattice.cpp.o
+[ 54%] Building CXX object CMakeFiles/lmcore.dir/rdme/ByteLattice.cpp.o
+[ 56%] Building CUDA object CMakeFiles/lmcore.dir/cuda/constant.cu.o
+[ 57%] Building CXX object CMakeFiles/lmcore.dir/rdme/RDMESolver.cpp.o
+[ 59%] Building CXX object CMakeFiles/lmcore.dir/rdme/Lattice.cpp.o
+[ 59%] Building CXX object CMakeFiles/lmcore.dir/rdme/NextSubvolumeSolver.cpp.o
+[ 59%] Building CUDA object CMakeFiles/lmcore.dir/rdme/CudaByteLattice.cu.o
+[ 61%] Building CUDA object CMakeFiles/lmcore.dir/rdme/CudaIntLattice.cu.o
+[ 63%] Building CUDA object CMakeFiles/lmcore.dir/rdme/MGPUMpdRdmeSolver.cu.o
+[ 63%] Building CUDA object CMakeFiles/lmcore.dir/rdme/IntMpdRdmeSolver.cu.o
+[ 63%] Building CUDA object CMakeFiles/lmcore.dir/rdme/MGPUIntMpdRdmeSolver.cu.o
+[ 64%] Building CUDA object CMakeFiles/lmcore.dir/rdme/MpdRdmeSolver.cu.o
+[ 64%] Building CUDA object CMakeFiles/lmcore.dir/rdme/GPUMapper/MultiGPUMapper.cu.o
+[ 66%] Building CUDA object CMakeFiles/lmcore.dir/rdme/GPUMapper/ZDivMultiGPUMapper.cu.o
+[ 66%] Building CUDA object CMakeFiles/lmcore.dir/rdme/GPUMapper/osx_barrier.cu.o
+[ 68%] Building CUDA object CMakeFiles/lmcore.dir/rddme/DriftMpdRdmeSolver.cu.o
+[ 68%] Building CUDA object CMakeFiles/lmcore.dir/rddme/rddme_constant.cu.o
+[ 68%] Building CUDA object CMakeFiles/lmcore.dir/rddme/rddme_host_profile.cu.o
+[ 68%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureHandler.cu.o
+[ 70%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureBuffers.cu.o
+[ 71%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureKernels.cu.o
+[ 73%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureKinetics.cu.o
+[ 73%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureEnergetics.cu.o
+[ 73%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureAudit.cu.o
+[ 75%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureProtocol.cu.o
+[ 75%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureTelemetry.cu.o
+[ 77%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureSteps.cu.o
+[ 77%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureAnchorLinks.cu.o
+[ 78%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureSmear.cu.o
+[ 78%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureTopology.cu.o
+[ 80%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureComplexIndex.cu.o
+[ 80%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureTopologyCommit.cu.o
+[ 82%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructurePasses.cu.o
+[ 84%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureChainFriction.cu.o
+[ 84%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureComplexIndexAudit.cu.o
+[ 85%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureBeadBody.cu.o
+[ 85%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureBeadPair.cu.o
+[ 85%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureBodyPair.cu.o
+[ 85%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureFriction.cu.o
+[ 85%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureStaticTopo.cu.o
+[ 87%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureFormationExcess.cu.o
+[ 89%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureHopSensor.cu.o
+[ 89%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureFreeVolume.cu.o
+[ 89%] Building CUDA object CMakeFiles/lmcore.dir/structure/struct_constant.cu.o
+[ 91%] Building CUDA object CMakeFiles/lmcore.dir/structure/StructureBondCrossing.cu.o
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/io/SimulationFile.cpp: In member function 'void lm::io::hdf5::SimulationFile::appendDsToGroup(H5MetaData*, byte*)':
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/io/SimulationFile.cpp:2723:44: warning: format '%zd' expects argument of type 'signed size_t', but argument 4 has type 'hsize_t' {aka 'long long unsigned int'} [-Wformat=]
+ 2723 |     snprintf(dsName, sizeof(dsName), "%010zd", nds);
+      |                                       ~~~~~^   ~~~
+      |                                            |   |
+      |                                            |   hsize_t {aka long long unsigned int}
+      |                                            long int
+      |                                       %010lld
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[ 91%] Built target pythonlm_swig_compilation
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/structure/dev/byte_structure_drift_dev.cu(406): warning #177-D: variable "XYZ" was declared but never referenced
+      const unsigned long long XYZ = latticeXYZSizeC;
+                               ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/structure/dev/byte_structure_drift_dev.cu(3212): warning #177-D: variable "kpoly" was declared but never referenced
+      const float kpoly = polyChan.rate;
+                  ^
+
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/structure/dev/byte_structure_drift_dev.cu(3221): warning #177-D: variable "zCons" was declared but never referenced
+      const unsigned char zCons = (unsigned char)(rcons != 0 ? rcons : rdep);
+                          ^
+
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/structure/StructureSteps.cu(77): warning #177-D: variable "grid" was declared but never referenced
+      const unsigned int grid = (struct_n_complexes_ + block - 1u) / block;
+                         ^
+
+Remark: The warnings can be suppressed with "-diag-suppress <warning-number>"
+
+/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/src/structure/StructureSteps.cu(218): warning #177-D: variable "grid" was declared but never referenced
+      const unsigned int grid = (struct_n_complexes_ + block - 1u) / block;
+                         ^
+
+[ 91%] Linking CXX static library liblmcore.a
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[ 91%] Built target lmcore
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+Scanning dependencies of target _pythonlm
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[ 92%] Building CXX object CMakeFiles/_pythonlm.dir/CMakeFiles/_pythonlm.dir/lmPYTHON_wrap.cxx.o
+[ 92%] Linking CUDA device code CMakeFiles/_pythonlm.dir/cmake_device_link.o
+[ 94%] Linking CXX shared library _pythonlm.so
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[100%] Built target _pythonlm
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+Scanning dependencies of target _lm.cpython-37m-x86_64-linux-gnu.so
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[100%] Built target _lm.cpython-37m-x86_64-linux-gnu.so
+gmake[2]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[1]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[1]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[2]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+Scanning dependencies of target pylm
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[3]: Entering directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[100%] Generating pylm.dep
+gmake[3]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+[100%] Built target pylm
+gmake[2]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+gmake[1]: Leaving directory '/raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container'
+BUILD_OK /raid/racda/lmrddme_polymer/fcc_si/src_3fa3ae8/build_container 92 s  10996176 bytes 2026-09-30 16:02:01.71737
