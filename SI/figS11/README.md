@@ -1,15 +1,17 @@
-# SI/figS11: `fig:two-eq-readdy`
+# SI/figS11: `fig:advantage`
 
-**Manuscript file:** two4_readdy.pdf
+**Manuscript file:** adv_metric.pdf
 
 **Re-render** (from `scripts/`):
 
 ```bash
-python two4_readdy_fig.py   # -> plots/{pdf,png}/
+python adv_fig.py   # -> plots/adv_metric.{pdf,png}
 ```
 
-**Plotting:** `two4_readdy_fig.py`
+**Plotting:** `adv_fig.py`, `adv_schemes.py`; reads only `data/runs/summary.json` (the pr0-pr6 rows at eta 0.09)
 
-**Producing the data:** ReaDDy: `readdy_two.py` (run from the directory holding `readdy_rx.py`), 16 seeds per ratio, `--na 3622 --nb {3622,1073,453,232} --sigma-b 3r`. Lattice: `vex_twospecies.py --ratio r --out vex_out2/two_r{r}.npz` (needs `lm_build.py`). **No campaign script; parameters from the npz metadata.**
+**Producing the data:** `adv_campaign.py` (GPU arm via `adv_lattice.py` in `lm2.6:latest`; CPU arm `adv_cpu`, built from `adv_cpu.cpp`; ReaDDy arm `adv_readdy.py` + `sinpot/`). The pr sweep was launched by `data/runs/pairs_gpu_after_polymer.sh`; the CPU half is logged in `campaign_pairs_cpu.out`. Summary: `adv_analyze.py`.
 
-**Data origin (copied into `data/`):** /raid/racda/campaigns/lmrddme_validation/readdy_ref/out_two, /raid/racda/campaigns/lmrddme_validation/mpd_crddme/vex_out2
+**Data origin (copied into `data/`):** /raid/racda/campaigns/lmrddme_validation/advantage/runs (summary.json + 72 pr*_eta0.090_*.json)
+
+**Note:** Re-running `adv_analyze.py` here rewrites `data/runs/summary.json` from the pr* files only, which is enough for this figure but not for Table V.

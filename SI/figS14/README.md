@@ -1,15 +1,15 @@
-# SI/figS14: `fig:rx-K-main`
+# SI/figS14: `fig:three-rho`
 
-**Manuscript file:** rx_K_main.pdf
+**Manuscript file:** rxthree_rho.pdf
 
 **Re-render** (from `scripts/`):
 
 ```bash
-python rx_K_main_fig.py   # -> plots/{pdf,png}/
+python rxthree_rho_fig.py   # -> plots/{pdf,png}/
 ```
 
-**Plotting:** `rx_K_main_fig.py`
+**Plotting:** `rxthree_rho_fig.py`, `rxthree_data.py`, `rxthree_scene3d.py`
 
-**Producing the data:** ReaDDy: `readdy_rx.py --n0 {51,96,147,198,255,319} --seed s --out outm/rd_n{n0}_s{s}.npz`. Lattice: `vex_reactive.py --nper {0.8,1.5,2.3,3.1,4.0,5.0} --seed {0..9} [--no-exclusion] --out rxK_out/sw_{excl|ideal}_n{nper}_s{s}.npz`. **No drivers saved; the commands were rebuilt from the metadata.**
+**Producing the data:** as main Fig 2 (`../../main/fig2/scripts`)
 
-**Data origin (copied into `data/`):** /raid/racda/campaigns/lmrddme_validation/readdy_ref/outm, /raid/racda/campaigns/lmrddme_validation/mpd_crddme/rxK_out
+**Data origin (copied into `data/`):** none of its own: the scripts read `main/fig2/data` (the same runs)

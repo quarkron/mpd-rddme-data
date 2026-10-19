@@ -1,15 +1,24 @@
-# SI/figS9: `fig:cpu-gpu-validation`
+# SI/figS9: `fig:lp-match`
 
-**Manuscript file:** cpu_gpu_validation.pdf
+**Manuscript file:** lp_match.pdf (section `sec:si-chain-match`)
 
-**Re-render** (from `scripts/`):
+**Re-render** (from `scripts/`, host venv, TeX Live 2026 on PATH):
 
 ```bash
-python cpu_gpu_validation_fig.py   # -> plots/
+python lp_match_fig.py   # -> plots/{pdf,png}/lp_match.*; --install copies into the manuscript
 ```
 
-**Plotting:** `cpu_gpu_validation_fig.py`
+**What it shows:** (a) the lattice and off-lattice chains; (b) lattice L_p/<b> vs kappa, closed form
+(`common/fcc_exact.lp_over_b`) and the simulated lattice chain (main/fig4 `data/fcc_si/statics_kappa.npz`, the paper's
+move set), one-step estimator -1/ln<cos>; (c) ReaDDy L_p/<b> vs k_theta from the converged scan, the kappa = 4 target
+4.4005, the matched k_theta = 2.1105, and the k_theta = 2.3054 that fig:polymer c's reference used (L_p/<b> 4.77 +- 0.05,
++8.4 %). The build prints these numbers.
 
-**Producing the data:** CPU K seeds: `cpu_gpu_K_seeds.sh` -> `cpu_drift_rdme` (`g++ -O3 -march=native -fopenmp -o cpu_drift_rdme cpu_drift_rdme.cpp`). GPU K: `vex_reactive.py` (same `rxK_out` sweep as S12). `gpubr_*.npz` (from `vex_reactive.py --nper 3.125 --seed 7 --gamma 0.3,0.3,0.3 --wavelength 80 --K 200 --steps 3600 --c-off {200,2e4,5e5}`) and `val_slope_*.txt` (from `cpu_drift_rdme`, run by hand; parameters in the matching JSONs and `VALIDATION.md`): **no driver script exists for these; the commands were rebuilt from the metadata.** `bench_campaign.py` shows the container invocation.
+**Producing the data (2026-10-09):** `lp_scan.py` (uses the copied `readdy_chain.py`, unchanged from main/fig4):
+11 beads (the fig:polymer c chain), 13 k_theta, 8 seeds, coil AND straight start each, 3.2e6 steps of 30 ns; also 32
+beads (`lp_scan_n32`, the length the Sep match used). Coil and straight starts agree within one SE at every k.
+Data: `data/lp_scan_n{11,32}.{npz,log}`.
 
-**Data origin (copied into `data/`):** studies/lmrddme_validation/benchmark/out, /raid/racda/campaigns/lmrddme_validation/cpu_gpu_val, /raid/racda/campaigns/lmrddme_validation/mpd_crddme/rxK_out
+**Why this exists:** the Sep 10 root find (4e5 steps, coil only) gave k_theta 2.3054, which fig:polymer c's ReaDDy arms
+(readdy_crowd_campaign.sh, readdy_chain_bath.py) use; converged, that stiffness is 8 % stiff. Check runs at 2.1105 (the
+dilute chain and the eta 0.15 crowder point): /raid/racda/lmrddme_polymer/fcc/readdy_kcheck (run.sh), Oct 9-10.

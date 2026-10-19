@@ -1,17 +1,18 @@
-# SI/figS19: `fig:synapse-maps`
+# SI/figS19: `fig:demix-starts`
 
-**Manuscript file:** tcrpmhc.pdf
+**Manuscript file:** demix_starts.pdf
 
-**Re-render** (from `scripts/`):
+**Re-render** (from `scripts/`, host venv, TeX Live 2026 on PATH):
 
 ```bash
-python tcr_app_fig.py --point ../data/M_react_point.npz --excluded ../data/M_react_excluded.npz --f0-point ../data/F0_react_point.npz --f0-excluded ../data/F0_react_excluded.npz --out ../plots/tcrpmhc
+python demix_starts_fig.py   # -> plots/{pdf,png}/demix_starts.*; --install copies into the manuscript
 ```
 
-**2026-10-09:** moved from main/fig5 to the SI; block a redrawn with the contact zone as a 3-D isometric slab (`tcr_scheme_fig.draw_top_iso`), the edge-on contact and the potential at reduced width beside it, and more space between blocks (figure 8.3 in tall, placed at 0.80 textheight). Re-render writes `../plots/tcrpmhc.{pdf,png}`.
+**What it shows:** polymer-crowder demixing from two starts other than the main-text slab (fig:phase c), each drawn
+as fig:phase c is (2026-10-09): the whole box in 3-D beside a two-tone slice through its middle
+(`main/fig4/scripts/demix_scene3d.snapshots`), and beneath, the chain length over time and at t = 10 s
+(`demix_lengths.panel_lengths`). (a) the uniform start (the old fig:polymer d), t = 0, 2, 10 s, data
+`main/fig4/data/demix`; (b) the droplet start, t = 0, 1, 10 s, data `main/fig4/data/demix_noneq/droplet`. No
+headlines. Placed at 0.81 textheight in SI.tex.
 
-**Plotting:** `tcr_app_fig.py`, `synapse_maps_fig.py`, `tcr_scheme_fig.py`, `synapse_model.py`
-
-**Producing the data:** `./lmrun_bg.sh {0|1} <tag>_<arm> python synapse_run.py --arm {point|excluded} --gauge db --f0 {1|0} --tsim 200 --frames 100 --density 1410 --map-times ... --out out/<tag>_<arm>.npz` (`tcr_pmhc.ipynb` cell 8). M_react was run with map times `0,2,10,30,100,200` and F0_react with `0,2,10,100,200`. Private jLM: `build_jlm.sh`; rate check: `synapse_rate_gate.py`. Logs are in `data/`.
-
-**Data origin (copied into `data/`):** /raid/racda/campaigns/tcr_pmhc/{M_react,F0_react}_{point,excluded}.{npz,log}
+**Data:** none of its own; `data` -> main/fig4's data (`data/demix` for a, `data/demix_noneq/droplet` for b).

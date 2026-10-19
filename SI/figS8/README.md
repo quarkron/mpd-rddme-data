@@ -1,24 +1,19 @@
-# SI/figS8: `fig:lp-match`
+# SI/figS8: `fig:polymer`
 
-**Manuscript file:** lp_match.pdf (section `sec:si-chain-match`)
+**Manuscript file:** polymer_r2.pdf
 
-**Re-render** (from `scripts/`, host venv, TeX Live 2026 on PATH):
+**Re-render** (from `scripts/`):
 
 ```bash
-python lp_match_fig.py   # -> plots/{pdf,png}/lp_match.*; --install copies into the manuscript
+python fig_polymer_r2.py   # -> plots/polymer_r2.{pdf,png}  (~2 min)
 ```
 
-**What it shows:** (a) the lattice and off-lattice chains; (b) lattice L_p/<b> vs kappa, closed form
-(`common/fcc_exact.lp_over_b`) and the simulated lattice chain (main/fig4 `data/fcc_si/statics_kappa.npz`, the paper's
-move set), one-step estimator -1/ln<cos>; (c) ReaDDy L_p/<b> vs k_theta from the converged scan, the kappa = 4 target
-4.4005, the matched k_theta = 2.1105, and the k_theta = 2.3054 that fig:polymer c's reference used (L_p/<b> 4.77 +- 0.05,
-+8.4 %). The build prints these numbers.
+**2026-10-09 split:** fig:polymer is now statics (a, was b) and dynamics (b, was c); the setup diagram and the demixing block below are drawn into fig:phase by `main/fig5/scripts/fig_phase.py`, from the modules and data here.
 
-**Producing the data (2026-10-09):** `lp_scan.py` (uses the copied `readdy_chain.py`, unchanged from main/fig4):
-11 beads (the fig:polymer c chain), 13 k_theta, 8 seeds, coil AND straight start each, 3.2e6 steps of 30 ns; also 32
-beads (`lp_scan_n32`, the length the Sep match used). Coil and straight starts agree within one SE at every k.
-Data: `data/lp_scan_n{11,32}.{npz,log}`.
+**Block d (2026-10-09), now fig:phase c:** the DEMIXED slab start (crowders x < L/2, monomers x >= L/2, bath uniform; `studies/polymer/gradient_growth.py --start slab` + `gradient_slab.py`, launched by `scripts/demix_slab.sh`), two-tone slices at t = 0, 1, 10 s (`demix_slab_maps.py`; t = 0 = free monomers from the .lm initial lattice), each beside a 3-D view of the whole box at the same time (`demix_scene3d.py`, which also lays out the block: <= 2600 random occupancies per species, slice plane outlined), and the chain-length panels; data in `data/demix_noneq/slab` (from /raid/racda/lmrddme_polymer/demix_noneq). The uniform start (the earlier block d) and the droplet start are SI/figS18. Experiments that led here (one-tone, four starts): `fig4d_onetone.py`, `fig4d_noneq_compare.py`, `fig4d_noneq_polymer.py`, `fig4d_slab_modes.py` -> `plots/experiments/`.
 
-**Why this exists:** the Sep 10 root find (4e5 steps, coil only) gave k_theta 2.3054, which fig:polymer c's ReaDDy arms
-(readdy_crowd_campaign.sh, readdy_chain_bath.py) use; converged, that stiffness is 8 % stiff. Check runs at 2.1105 (the
-dilute chain and the eta 0.15 crowder point): /raid/racda/lmrddme_polymer/fcc/readdy_kcheck (run.sh), Oct 9-10.
+**Plotting:** `fig_polymer_r2.py`, `chain_dynamics_campaign.py`, `chain_statics_campaign.py`, `demix_lengths.py`; common: `fcc_exact`, `chain_geometry`, `fixed_chain_harness`
+
+**Producing the data:** Statics and crowd11: `fcc_si_campaign.sh` (-> `fcc_statics_campaign.py`, `gradient_growth.py` + `gradient_hook.py`, `gradient_bench.py`) on a frozen engine snapshot, era-struct 3fa3ae8. 5 s bath transport: `fcc_si_bath5s.sh` -> `chain_bath_snapshot3fa3ae8.py` (the snapshot copy of `chain_bath.py`, which differs from the live engine). ReaDDy crowder arm: `readdy_crowd_campaign.sh` -> `readdy_chain_bath.py` / `readdy_chain.py` (RCL_, 2 s). ReaDDy bath arm RB_: launched by hand with `readdy_chain_bath.py`, k_angle from `data/fcc_si/readdy_bath/kangle_kappa4.json`. Demixing: `demix_bath_snapshots.sh` (likely `MOVES=--si-moves TAG=_si`; **exact invocation not recorded**). Run copies and logs: `data/provenance/`.
+
+**Data origin (copied into `data/`):** /raid/racda/lmrddme_polymer/fcc_si/{statics_*.npz, transport/T_e*, crowd11/C11_*, readdy_bath/RB_*, readdy_crowd/RCL_*}, /raid/racda/lmrddme_polymer/demix/D_{CS_both020,CVS_point020}_si_s1.*

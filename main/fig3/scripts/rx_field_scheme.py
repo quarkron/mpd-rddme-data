@@ -33,6 +33,7 @@ NPER = 8                      # voxels per period
 
 SIG = {'A': 3.0, 'B': 3.0, 'C': 3.78}
 COL = {'A': '#17509b', 'B': '#41c5bd', 'C': '#a3dda0'}
+FS = 10                       # pt, labels (FIGURE_STYLE.md)
 
 
 def _sphere(ax, xy, sigma, name, ink, z=3):
@@ -74,10 +75,9 @@ def draw_scheme(ax, tex=True):
             else:
                 raise RuntimeError('no room left in the voxel cartoon for a %s' % name)
     ax.annotate('', (vx, vy - 1.3), (vx + HV, vy - 1.3),
-                arrowprops=dict(arrowstyle='<->', color=dim, lw=0.7, shrinkA=0, shrinkB=0))
-    ax.text(vx + 0.5 * HV, vy - 2.3, r'$h = 10$ nm', ha='center', va='top', color=ink, fontsize=8)
-    ax.text(vx + 0.5 * HV, vy + HV + 0.8, r'$\eta = 0.088$', ha='center', va='bottom',
-            color=ink, fontsize=8)
+                arrowprops=dict(arrowstyle='<->', color=dim, lw=0.8, shrinkA=0, shrinkB=0))
+    ax.text(vx + 0.5 * HV, vy - 2.0, '10 nm', ha='center', va='top', color=ink, fontsize=FS)
+    ax.text(vx + 0.5 * HV, vy + HV + 0.8, 'subvolume', ha='center', va='bottom', color=ink, fontsize=FS)
 
     # ---- the reaction ----------------------------------------------------------------------
     # Species names sit ABOVE their spheres and the two rate constants below the whole line:
@@ -86,20 +86,13 @@ def draw_scheme(ax, tex=True):
     xs = [24.0, 31.5, 45.0]
     for name, x in zip(('A', 'B', 'C'), xs):
         _sphere(ax, (x, y0), SIG[name], name, ink)
-        ax.text(x, y0 + 0.5 * SIG[name] * NM + 0.9, r'$\mathsf{%s}$' % name, ha='center',
-                va='bottom', color=ink, fontsize=8.5)
-    ax.text(0.5 * (xs[0] + xs[1]), y0, '+', ha='center', va='center', color=ink, fontsize=9)
+        ax.text(x, y0 + 0.5 * SIG[name] * NM + 0.9, name, ha='center', va='bottom', color=ink, fontsize=FS + 1)
+    ax.text(0.5 * (xs[0] + xs[1]), y0, '+', ha='center', va='center', color=ink, fontsize=FS + 1)
     ax.annotate('', (xs[2] - 3.4, y0 + 1.1), (xs[1] + 2.6, y0 + 1.1),
                 arrowprops=dict(arrowstyle='->', color=ink, lw=0.8, shrinkA=0, shrinkB=0))
     ax.annotate('', (xs[1] + 2.6, y0 - 1.1), (xs[2] - 3.4, y0 - 1.1),
                 arrowprops=dict(arrowstyle='->', color=ink, lw=0.8, shrinkA=0, shrinkB=0))
-    ax.text(34.0, y0 - 3.8, r'$K = 200$ nm$^3$', ha='center', va='top', color=ink, fontsize=7.5)
-    ax.text(34.0, y0 - 6.0, r'$k_{\mathrm{off}} = 5\times10^{5}$ s$^{-1}$', ha='center',
-            va='top', color=ink, fontsize=7.5)
-    ax.text(34.0, y0 - 8.2, r'$D = 0.1\ \mu$m$^2$/s (each species)', ha='center', va='top', color=ink,
-            fontsize=7.5)
-    ax.text(34.0, vy + HV + 0.8, r'$\sigma_\mathsf{C}^{3} = \sigma_\mathsf{A}^{3}'
-            r' + \sigma_\mathsf{B}^{3}$', ha='center', va='bottom', color=ink, fontsize=8)
+    ax.text(34.0, y0 - 3.6, 'reversible binding', ha='center', va='top', color=ink, fontsize=FS)
 
     # ---- the field ---------------------------------------------------------------------------
     L = BOX_X1 - BOX_X0
@@ -109,8 +102,9 @@ def draw_scheme(ax, tex=True):
     for i in range(NVOX + 1):
         x = BOX_X0 + L * i / NVOX
         ax.plot([x, x], [strip_y, strip_y + strip_h], color=cage, lw=0.25, alpha=0.7, zorder=2)
-    ax.text(BOX_X0, strip_y - 0.8, '0', ha='center', va='top', color=dim, fontsize=7.5)
-    ax.text(BOX_X1, strip_y - 0.8, '320 nm', ha='center', va='top', color=dim, fontsize=7.5)
+    ax.text(BOX_X0, strip_y - 0.8, '0', ha='center', va='top', color=dim, fontsize=FS)
+    ax.text(BOX_X1, strip_y - 0.8, '320 nm', ha='right', va='top', color=dim, fontsize=FS)
+    ax.text(0.5 * (BOX_X0 + BOX_X1), strip_y - 0.8, 'simulation box', ha='center', va='top', color=dim, fontsize=FS)
 
     amp, mid = 3.5, 14.0
     xx = np.linspace(0, 1, 400)
@@ -118,19 +112,13 @@ def draw_scheme(ax, tex=True):
             color=P.ARM['exc'], lw=1.3, zorder=3)
     for i in range(NVOX + 1):
         x = BOX_X0 + L * i / NVOX
-        ax.plot([x], [mid + amp * np.sin(2 * np.pi * i / NPER)], marker='o', ms=1.7,
+        ax.plot([x], [mid + amp * np.sin(2 * np.pi * i / NPER)], marker='o', ms=2.4,
                 color=P.ARM['exc'], zorder=4)
     # gamma above the first crest, lambda below between two troughs: the two annotations never
     # share a band of the cartoon, and neither crosses the curve.
-    xc = BOX_X0 + L * 2.0 / NVOX
-    ax.annotate('', (xc, mid), (xc, mid + amp),
-                arrowprops=dict(arrowstyle='<->', color=dim, lw=0.7, shrinkA=0, shrinkB=0))
-    ax.text(xc, mid + amp + 0.7, r'$\gamma = 0.3$ kT', ha='center', va='bottom', color=ink,
-            fontsize=7.5)
     yl = mid - amp - 0.9
     ax.annotate('', (BOX_X0 + L * 6.0 / NVOX, yl), (BOX_X0 + L * 14.0 / NVOX, yl),
                 arrowprops=dict(arrowstyle='<->', color=dim, lw=0.7, shrinkA=0, shrinkB=0))
-    ax.text(BOX_X0 + L * 10.0 / NVOX, yl - 0.6, r'$\lambda = 80$ nm $= 8h$', ha='center',
-            va='top', color=ink, fontsize=7.5)
-    ax.text(BOX_X1, H - 0.3, r'$\Phi_s(x) = \gamma\sin(2\pi x/\lambda)$', ha='right',
-            va='top', color=ink, fontsize=8.5)
+    ax.text(BOX_X0 + L * 10.0 / NVOX, yl - 0.6, 'one period', ha='center', va='top', color=ink, fontsize=FS)
+    ax.text(0.5 * (BOX_X0 + BOX_X1), H - 0.3, 'external potential along x', ha='center', va='top', color=ink,
+            fontsize=FS + 1)

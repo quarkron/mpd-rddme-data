@@ -1,17 +1,15 @@
-# SI/figS10: `fig:advantage`
+# SI/figS10: `fig:cpu-gpu-validation`
 
-**Manuscript file:** adv_metric.pdf
+**Manuscript file:** cpu_gpu_validation.pdf
 
 **Re-render** (from `scripts/`):
 
 ```bash
-python adv_fig.py   # -> plots/adv_metric.{pdf,png}
+python cpu_gpu_validation_fig.py   # -> plots/
 ```
 
-**Plotting:** `adv_fig.py`, `adv_schemes.py`; reads only `data/runs/summary.json` (the pr0-pr6 rows at eta 0.09)
+**Plotting:** `cpu_gpu_validation_fig.py`
 
-**Producing the data:** `adv_campaign.py` (GPU arm via `adv_lattice.py` in `lm2.6:latest`; CPU arm `adv_cpu`, built from `adv_cpu.cpp`; ReaDDy arm `adv_readdy.py` + `sinpot/`). The pr sweep was launched by `data/runs/pairs_gpu_after_polymer.sh`; the CPU half is logged in `campaign_pairs_cpu.out`. Summary: `adv_analyze.py`.
+**Producing the data:** CPU K seeds: `cpu_gpu_K_seeds.sh` -> `cpu_drift_rdme` (`g++ -O3 -march=native -fopenmp -o cpu_drift_rdme cpu_drift_rdme.cpp`). GPU K: `vex_reactive.py` (same `rxK_out` sweep as S12). `gpubr_*.npz` (from `vex_reactive.py --nper 3.125 --seed 7 --gamma 0.3,0.3,0.3 --wavelength 80 --K 200 --steps 3600 --c-off {200,2e4,5e5}`) and `val_slope_*.txt` (from `cpu_drift_rdme`, run by hand; parameters in the matching JSONs and `VALIDATION.md`): **no driver script exists for these; the commands were rebuilt from the metadata.** `bench_campaign.py` shows the container invocation.
 
-**Data origin (copied into `data/`):** /raid/racda/campaigns/lmrddme_validation/advantage/runs (summary.json + 72 pr*_eta0.090_*.json)
-
-**Note:** Re-running `adv_analyze.py` here rewrites `data/runs/summary.json` from the pr* files only, which is enough for this figure but not for Table V.
+**Data origin (copied into `data/`):** studies/lmrddme_validation/benchmark/out, /raid/racda/campaigns/lmrddme_validation/cpu_gpu_val, /raid/racda/campaigns/lmrddme_validation/mpd_crddme/rxK_out

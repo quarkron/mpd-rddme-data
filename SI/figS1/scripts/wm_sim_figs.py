@@ -1,17 +1,30 @@
-"""SI Figs. S1 (wm1_l2_convergence) and S4 (wm4_intravoxel_shape_h8, and _h4) from the SAVED runs of
-wm_sim_campaign.py. Extracted 2026-10-01 from harmonic_trap.ipynb (cells 6, 8 and 13, unchanged except the
-colours, the S4 key position, the output paths, and reading partA.npz / rep_s*.h5 in place of notebook
-memory). Main-text palette (kip3_palette): data navy, guides INK_DIM; S4 the ordered ramp of WM3.
+"""SI Figs. S1 (wm1_l2_convergence) and S4b (wm4_intravoxel_shape_h8, and the extra _h4) from the SAVED runs of
+wm_sim_campaign.py. Extracted 2026-10-01 from harmonic_trap.ipynb (cells 6, 8 and 13, reading partA.npz /
+rep_s*.h5 in place of notebook memory). Main-text palette (kip3_palette): data navy, guides INK_DIM; S4 the ordered
+ramp of WM3.
 
-usage (lm2.6 container, TeX Live on PATH):  python wm_sim_figs.py
+2026-10-19: redrawn at final size in the publication style (FIGURE_STYLE.md section 5, common/jcp_style.py PUB_RC):
+Arial text and math, 10/11 pt, no equations inside the panels (the order-of-convergence guides are named in the key;
+the definitions are the caption's). In SI/figS4 this script also writes the combined fig:wm-intravoxel,
+plots/wm_intravoxel.{pdf,png} (a = the closed form, drawn by wm_closedform_figs.draw_wm3; b = the h = 8 measurement),
+and its panels.
+
+usage:  python wm_sim_figs.py      # -> ../plots/{pdf,png}/wm1_*, wm4_* (+ ../plots/wm_intravoxel.* in SI/figS4)
 """
-import os, glob
+import os, sys, glob
 import numpy as np
 import matplotlib
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+from matplotlib.ticker import FuncFormatter, NullFormatter, MaxNLocator
 from pathlib import Path
 import h5py
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, '..', '..', '..', 'common'))
+import jcp_style as J                               # noqa: E402
+import panel_export                                 # noqa: E402
 
 SIM = os.environ.get('WM_OUT', os.path.join(os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'data'), 'wm_sim'))
 FIG_DIR = Path(os.environ.get('WM_FIGD', os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'plots')))
@@ -41,230 +54,78 @@ def fit_sigma(marg, h):
     return np.sqrt(var) * h                       # back to box units
 
 
+
+
+def save(fig, stem):
+    """Write ../plots/pdf/<stem>.pdf and ../plots/png/<stem>.png and run the publication checks."""
+    pdf = FIG_DIR / 'pdf' / (stem + '.pdf')
+    fig.savefig(pdf)
+    fig.savefig(FIG_DIR / 'png' / (stem + '.png'), dpi=300)
+    J.pub_check(fig, stem, si=True)
+    J.check_text_overlap(fig, stem)
+    J.pub_fonts(str(pdf), stem)
+    print('  -> %s.{pdf,png} (%.2f x %.2f in)' % (stem, fig.get_figwidth(), fig.get_figheight()))
+
+
 # ======== WM1 (notebook cell 8) ========
-# WM1: 1-D L2 convergence of the WPE-equilibrated marginal vs. the analytic
-# Gaussian, as h -> 0. Plots the ABSOLUTE 1-D L2 error
-#   L2(h) = || p(h) - a(h) ||_2
-# where p is the time-averaged simulated x-marginal and a is the discrete
-# analytic Gaussian on the same fine grid.
-#
-# Error bars are the THEORETICAL 1-SD Poisson shot-noise prediction:
-#   E[||p-a||^2] = (1 - sum a^2) / n_part
-#   SD[||p-a||]  = sqrt(2 sum a^2 / n_part^2) / (2 E[||p-a||])  (delta method)
-# i.e. how much L2 would fluctuate across hypothetical replicates of the
-# same n_part Monte Carlo simulation. A second dotted curve overlays the
-# theoretical Poisson shot-noise mean -- at the current n_part the data
-# falls right on top of it, confirming that what WM1 measures is the
-# sampling floor, not the WPE quadrature error (which scales O(h^2.5)
-# absolute, far below the floor; see WM5 for the WM prediction).
-#
-# O(h) and O(h^2) guide lines bracket the measurement as before.
-# Saves figures/wm1_l2_convergence.{pdf,png}.
-from matplotlib.ticker import FuncFormatter, NullFormatter
-from pathlib import Path
-import subprocess
-
-
-
-# Probe for LaTeX once -- fall back to mathtext if absent.
-try:
-    subprocess.run(['latex', '--version'], capture_output=True, check=True, timeout=5)
-    USE_LATEX = True
-except Exception:
-    USE_LATEX = False
-    print('[WM1] LaTeX binary not found; using matplotlib mathtext fallback.')
-
-rc_pub = {
-    'font.family':         'serif',
-    'font.size':           14,
-    'axes.labelsize':      16,
-    'axes.titlesize':      15,
-    'xtick.labelsize':     14,
-    'ytick.labelsize':     14,
-    'legend.fontsize':     14,
-    'lines.linewidth':     1.6,
-    'lines.markersize':    7,
-    'axes.linewidth':      1.1,
-    'xtick.direction':     'in',  'ytick.direction':     'in',
-    'xtick.top':           True,  'ytick.right':         True,
-    'xtick.minor.visible': True,  'ytick.minor.visible': True,
-    'xtick.major.size':    6.0,   'ytick.major.size':    6.0,
-    'xtick.minor.size':    3.0,   'ytick.minor.size':    3.0,
-    'xtick.major.width':   1.0,   'ytick.major.width':   1.0,
-    'xtick.minor.width':   0.8,   'ytick.minor.width':   0.8,
-    'savefig.bbox':        'tight',
-    'savefig.pad_inches':  0.05,
-}
-if USE_LATEX:
-    rc_pub.update({'text.usetex': True, 'font.serif': ['Computer Modern Roman']})
-else:
-    rc_pub.update({'mathtext.fontset': 'cm'})
-
-print('  N |  h    | n_part |   abs L2 (1-D) |  shot mean   |   shot SD')
-print('----+-------+--------+----------------+--------------+-------------')
-h_arr, rel1_arr, rel3_arr, shot_mean_arr, shot_sd_arr = [], [], [], [], []
-for N in Ns:
-    h = L / N
-    p = resA[N]['marg'] / resA[N]['marg'].sum()
-    a = analytic_marginal(N)
-    spp, saa, spa = (p * p).sum(), (a * a).sum(), (p * a).sum()
-    abs1 = np.sqrt(np.sum((p - a)**2))                             # absolute 1-D L2
-    abs3 = np.sqrt(max(spp**3 - 2.0 * spa**3 + saa**3, 0.0))        # absolute 3-D L2
-    # Multinomial shot-noise prediction for ||p - a||_2:
-    #   E[||p-a||^2] = (1 - sum a^2) / n_part
-    #   Var[||p-a||^2] ~ 2 sum a^2 / n_part^2  (chi-squared, p_i << 1)
-    #   SD[||p-a||]   = SD[||p-a||^2] / (2 E[||p-a||])  (delta method)
-    n_part = resA[N]['n_part']
-    sum_a2 = float(saa)
-    shot_mean_L2  = np.sqrt(max(1.0 - sum_a2, 0.0) / n_part)
-    shot_var_L2sq = 2.0 * sum_a2 / (n_part * n_part)
-    shot_sd_L2    = np.sqrt(shot_var_L2sq) / (2.0 * shot_mean_L2) if shot_mean_L2 > 0 else 0.0
-    h_arr.append(h); rel1_arr.append(abs1); rel3_arr.append(abs3)
-    shot_mean_arr.append(shot_mean_L2); shot_sd_arr.append(shot_sd_L2)
-    print(f'{N:4d}| {h:.3f} | {n_part:6d} |    {abs1:.3e}    |  {shot_mean_L2:.3e}  |  {shot_sd_L2:.2e}')
-h_arr         = np.array(h_arr)
-rel1_arr      = np.array(rel1_arr)
-shot_mean_arr = np.array(shot_mean_arr)
-shot_sd_arr   = np.array(shot_sd_arr)
-
-with plt.rc_context(rc_pub):
-    fig, ax = plt.subplots(figsize=(7.5, 5.5))
+# WM1: 1-D L2 convergence of the WPE-equilibrated marginal vs. the analytic Gaussian, as h -> 0. Plots the ABSOLUTE
+# 1-D L2 error L2(h) = || p(h) - a(h) ||_2, p the time-averaged simulated x-marginal and a the discrete analytic
+# Gaussian on the same grid. Error bars are the THEORETICAL 1-SD Poisson shot-noise prediction:
+#   E[||p-a||^2] = (1 - sum a^2) / n_part,  SD[||p-a||] = sqrt(2 sum a^2 / n_part^2) / (2 E[||p-a||])  (delta method)
+# At the current n_part the data falls on the shot-noise mean: WM1 measures the sampling floor, not the WPE
+# quadrature error (O(h^2.5) absolute, far below the floor; see WM5). O(h) and O(h^2) guides bracket the data.
+def wm1_figure():
+    print('  N |  h    | n_part |   abs L2 (1-D) |  shot mean   |   shot SD')
+    h_arr, rel1_arr, shot_sd_arr = [], [], []
+    for N in Ns:
+        h = L / N
+        p = resA[N]['marg'] / resA[N]['marg'].sum()
+        a = analytic_marginal(N)
+        abs1 = np.sqrt(np.sum((p - a)**2))                             # absolute 1-D L2
+        n_part = resA[N]['n_part']
+        sum_a2 = float((a * a).sum())
+        shot_mean_L2 = np.sqrt(max(1.0 - sum_a2, 0.0) / n_part)
+        shot_sd_L2 = np.sqrt(2.0 * sum_a2 / (n_part * n_part)) / (2.0 * shot_mean_L2) if shot_mean_L2 > 0 else 0.0
+        h_arr.append(h); rel1_arr.append(abs1); shot_sd_arr.append(shot_sd_L2)
+        print(f'{N:4d}| {h:.3f} | {n_part:6d} |    {abs1:.3e}    |  {shot_mean_L2:.3e}  |  {shot_sd_L2:.2e}')
+    h_arr, rel1_arr, shot_sd_arr = np.array(h_arr), np.array(rel1_arr), np.array(shot_sd_arr)
     good = rel1_arr > 0
-    ax.errorbar(h_arr[good], rel1_arr[good], yerr=shot_sd_arr[good],
-                fmt='o-', color=C_DATA, mfc='white', mew=1.4,
-                capsize=3, ecolor=C_DATA, elinewidth=1.0,
-                label=r'measured 1-D $L^2$ error')
-    # ax.plot(h_arr[good], shot_mean_arr[good], ':', color='C0', lw=1.6, alpha=0.85,
-    #         label=r'Poisson shot-noise floor')
-    # O(h) and O(h^2) guide lines, anchored at the coarsest h, with offsets so
-    # they straddle the data and don't overlap each other at large h.
-    ia   = int(np.argmax(h_arr[good])); h0 = h_arr[good][ia]; y0 = rel1_arr[good][ia]
-    hl   = np.array([h_arr.min() / 1.4, h_arr.max() * 1.4])
-    f    = np.sqrt(2.0)
-    line_oh  = (y0 * f) * (hl / h0)**1
-    line_oh2 = (y0 / f) * (hl / h0)**2
-    ax.plot(hl, line_oh,  '--', color=C_GUIDE, lw=1.2)
-    ax.plot(hl, line_oh2, ':', color=C_GUIDE, lw=1.6)
-
-    ax.set_xscale('log', base=2); ax.set_yscale('log')
-    ax.set_xticks(h_arr); ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f'{v:g}'))
-    ax.xaxis.set_minor_formatter(NullFormatter())
-    ax.set_xlabel(r'$h$', fontsize=20)
-    ax.set_ylabel(r'$L^2$ error', fontsize=20)
-    ax.grid(True, which='major', alpha=0.30, lw=0.5)
-    ax.grid(True, which='minor', alpha=0.10, lw=0.4)
-    #ax.legend(loc='lower right', frameon=True, framealpha=0.95, edgecolor='0.6')
-
-    # Inline slope labels rotated to match visual line angles
-    fig.canvas.draw()
-    def visual_slope_deg(ax, slope, x_ref, y_ref, x_step=1.10):
-        x2 = x_ref * x_step
-        y2 = y_ref * (x2 / x_ref)**slope
-        p1 = ax.transData.transform((x_ref, y_ref))
-        p2 = ax.transData.transform((x2, y2))
-        return float(np.degrees(np.arctan2(p2[1] - p1[1], p2[0] - p1[0])))
-
-    # Place each label at a point along its guide line, offset vertically
-    h_lab_1 = h_arr.min() * 1.6;  y_lab_1 = (y0 * f) * (h_lab_1 / h0)**1
-    h_lab_2 = h_arr.min() * 4.0;  y_lab_2 = (y0 / f) * (h_lab_2 / h0)**2
-    ax.text(h_lab_1, y_lab_1 * 1.55, r'$\mathcal{O}(h)$', fontsize=20,
-            ha='center', va='bottom', color=C_GUIDE,
-            rotation=visual_slope_deg(ax, 1, h_lab_1, y_lab_1), rotation_mode='anchor')
-    ax.text(h_lab_2, y_lab_2 * 0.4, r'$\mathcal{O}(h^2)$', fontsize=20,
-            ha='center', va='bottom', color=C_GUIDE,
-            rotation=visual_slope_deg(ax, 2, h_lab_2, y_lab_2), rotation_mode='anchor')
-
     if good.sum() >= 2:
         o, _ = np.polyfit(np.log(h_arr[good]), np.log(rel1_arr[good]), 1)
         print(f'\nabsolute 1-D L2 convergence order ~ {o:.2f}')
 
-    plt.tight_layout()
-    fig.savefig(FIG_DIR / 'pdf' / 'wm1_l2_convergence.pdf')
-    fig.savefig(FIG_DIR / 'png' / 'wm1_l2_convergence.png', dpi=300)
-    print('  -> figures/wm1_l2_convergence.{pdf,png}')
+    with plt.rc_context(J.PUB_RC):
+        fig = J.si_page(4.0, 2.9)
+        ax = J.pub_ax(fig, 0.78, 0.12, 3.12, 2.32)
+        ax.errorbar(h_arr[good], rel1_arr[good], yerr=shot_sd_arr[good], fmt='o-', color=C_DATA, mfc='white',
+                    mew=1.2, capsize=3, ecolor=C_DATA, elinewidth=1.0, label='measured')
+        # O(h) and O(h^2) guides anchored at the coarsest h, offset so they straddle the data
+        ia = int(np.argmax(h_arr[good])); h0 = h_arr[good][ia]; y0 = rel1_arr[good][ia]
+        hl = np.array([h_arr.min() / 1.4, h_arr.max() * 1.4])
+        f = np.sqrt(2.0)
+        ax.plot(hl, (y0 * f) * (hl / h0)**1, '--', color=C_GUIDE, lw=1.2, label='first order')
+        ax.plot(hl, (y0 / f) * (hl / h0)**2, ':', color=C_GUIDE, lw=1.6, label='second order')
+        ax.set_xscale('log', base=2); ax.set_yscale('log')
+        ax.set_xticks(h_arr); ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f'{v:g}'))
+        ax.xaxis.set_minor_formatter(NullFormatter())
+        ax.set_xlim(hl[0], hl[1])
+        ax.set_xlabel(r'lattice spacing $h$')
+        ax.set_ylabel('$L$\u00b2 error')
+        ax.grid(True, which='major', alpha=0.25, lw=0.5)
+        hs, ls = ax.get_legend_handles_labels()
+        ax.legend(hs[-1:] + hs[:-1], ls[-1:] + ls[:-1], loc='lower right')     # the measurement first
+        save(fig, 'wm1_l2_convergence')
+        panel_export.export(fig, 'wm1_l2_convergence')        # one panel: nothing is written
+    return fig
 
 
 # ======== WM4 (notebook cell 13) ========
-# WM4: empirical intra-voxel SHAPE with replicate + axis + frame averaging.
-# VOXEL-MEAN NORMALIZATION: rho(x_v + delta) / <rho>_vox. Curves do NOT
-# pass through 1 at delta = 0 in general -- the lift/dip there IS the WPE
-# quadrature-error diagnostic, identical to what WM3-right shows directly
-# via Delta(x_v) = (h^2 k / 24)(1 - k(x_v - c)^2).
-#
-# Two sampling modes, selected automatically based on data availability:
-#
-#   * 3-D mode (when repA[N_fine]['h5_paths'] exists):
-#       For each (rep, frame, cardinal axis, parity sign), pull the
-#       coarse-voxel slab from the HDF5 lazily. Within that slab, sum the
-#       fine-grid bins WITHIN each perpendicular coarse voxel to build
-#       N_c^2 coarse-voxel-local 1-D profiles. By isotropic separability
-#       of the harmonic Gaussian, each such profile has the same expected
-#       ratio shape, just independent shot noise.
-#       n_sample per shell ~ n_rep * 6 cardinal * N_c^2 * n_frame
-#         h_c=8, N_c=32 -> ~6144 per (rep,frame) -> ~552k per shell
-#         h_c=4, N_c=64 -> ~24576 per (rep,frame) -> ~2.2M per shell
-#       (empty-centroid voxels are masked out; effective n is smaller.)
-#
-#   * 1-D marginal mode (fallback when no h5_paths):
-#       Use the 1-D x/y/z marginals from repA (or single-run resA).
-#       n_sample per shell = n_rep * 3 axes * n_frame * 2 parity = up to 540.
-#
-# Error bars are THEORETICAL Poisson shot-noise SEM (not empirical
-# std/sqrt(n_sample)). Per-sample Var(R[k]) for R = p[k]/<p>_vox via
-# delta method on a multinomial ratio with shared-bin correlation:
-#     Var(R[k])/R^2 = 1/(n_part*a[k]) - 1/(n_fc*n_part*<a>_vox)
-# Same formula for all k inside the voxel -- the voxel-mean denominator
-# weights all n_fc bins equally, unlike the centroid (which used only
-# two). SEM = sqrt(Var/n_sample).
-#
-# This panel isolates the intra-voxel SHAPE (drift tilt + diffusive
-# curvature) and validates that the WPE lattice produces the correct
-# Boltzmann profile inside each coarse voxel. The WPE quadrature error
-# (lift/dip) is no longer encoded here -- see WM3 right and WM5.
-#
-# Split into two separate figures, one per coarse spacing h_c. Same
-# publication formatting as WM3.
-# Saves figures/wm4_intravoxel_shape_h{8,4}.{pdf,png}.
-from pathlib import Path
-from matplotlib.ticker import MaxNLocator
-import subprocess, h5py
-
-
-
-# Probe for LaTeX once -- fall back to mathtext if absent.
-try:
-    subprocess.run(['latex', '--version'], capture_output=True, check=True, timeout=5)
-    USE_LATEX = True
-except Exception:
-    USE_LATEX = False
-    print('[WM4] LaTeX binary not found; using matplotlib mathtext fallback.')
-
-rc_pub = {
-    'font.family':         'serif',
-    'font.size':           14,
-    'axes.labelsize':      16,
-    'axes.titlesize':      15,
-    'xtick.labelsize':     14,
-    'ytick.labelsize':     14,
-    'legend.fontsize':     14,
-    'lines.linewidth':     1.6,
-    'lines.markersize':    7,
-    'axes.linewidth':      1.1,
-    'xtick.direction':     'in',  'ytick.direction':     'in',
-    'xtick.top':           True,  'ytick.right':         True,
-    'xtick.minor.visible': True,  'ytick.minor.visible': True,
-    'xtick.major.size':    6.0,   'ytick.major.size':    6.0,
-    'xtick.minor.size':    3.0,   'ytick.minor.size':    3.0,
-    'xtick.major.width':   1.0,   'ytick.major.width':   1.0,
-    'xtick.minor.width':   0.8,   'ytick.minor.width':   0.8,
-    'savefig.bbox':        'tight',
-    'savefig.pad_inches':  0.05,
-}
-if USE_LATEX:
-    rc_pub.update({'text.usetex': True, 'font.serif': ['Computer Modern Roman']})
-else:
-    rc_pub.update({'mathtext.fontset': 'cm'})
-
+# WM4: empirical intra-voxel SHAPE with replicate + axis + frame averaging, VOXEL-MEAN normalized
+# rho(x_v + delta) / <rho>_vox. Two sampling modes: 3-D coarse-voxel-local profiles from the HDF5 frames (each
+# (rep, frame, cardinal axis, parity sign, perpendicular coarse voxel) gives one profile) when repA has h5_paths,
+# else the 1-D marginals. Error bars are the THEORETICAL Poisson shot-noise SEM of the ratio,
+#     Var(R[k])/R^2 = 1/(n_part*a[k]) - 1/(n_fc*n_part*<a>_vox),  SEM = sqrt(Var/n_sample).
+# One figure per coarse spacing h_c; the manuscript uses h_c = 8.
 N_fine = max(Ns); h_fine = L / N_fine
 
 USE_3D = ('repA' in globals() and repA and N_fine in repA
@@ -414,6 +275,7 @@ def _extract_1d_shells(h_c, R_list):
 
 R_LIST = (0.0, SIGMA, 2*SIGMA)
 COLORS = (STOPS[1], STOPS[3], C_PT)   # main-text palette, as WM3: ordered distance from the centre
+R_LABELS = ('centre subvolume', r'subvolume holding $\sigma$', r'subvolume holding $2\sigma$')
 
 # Theoretical Poisson bars need (i) the analytic 1-D Gaussian at fine bins,
 # and (ii) the effective per-sample particle count.
@@ -424,55 +286,103 @@ else:
     _n_part_per_sample = float(resA[N_fine]['n_part'])
 print(f'Poisson SEM uses n_part_per_sample = {_n_part_per_sample:.0f}')
 
-print()
-print('  h_c  | |x_v-c| | n_samp  | mean@delta=h_fine/2 | SEM    | mean@delta=+h_c/2 | SEM')
-print('-------+---------+---------+---------------------+--------+-------------------+-------')
-with plt.rc_context(rc_pub):
-    for h_c in (8.0, 4.0):
-        n_fc = int(round(h_c / h_fine))
-        if n_fc < 2 or n_fc % 2 != 0:
-            raise ValueError(f'n_fc={n_fc} must be even and >=2 for centroid interpolation')
-        d_out = ((np.arange(n_fc) + 0.5) / n_fc - 0.5) * h_c
 
-        # One pass through the data per h_c to grab all R shells.
-        shells = _extract_3d_shells(h_c, R_LIST) if USE_3D else _extract_1d_shells(h_c, R_LIST)
+def wm4_data(h_c):
+    """Per shell: (|x_v - c|, delta/h_c, mean profile, Poisson SEM, Taylor prediction)."""
+    n_fc = int(round(h_c / h_fine))
+    if n_fc < 2 or n_fc % 2 != 0:
+        raise ValueError(f'n_fc={n_fc} must be even and >=2 for centroid interpolation')
+    d_out = ((np.arange(n_fc) + 0.5) / n_fc - 0.5) * h_c
+    shells = _extract_3d_shells(h_c, R_LIST) if USE_3D else _extract_1d_shells(h_c, R_LIST)
+    out = []
+    for R in R_LIST:
+        per_sample = shells[R]
+        x_v_mag = abs(shell_voxels(h_c, R)[0][1])
+        if per_sample.shape[0] == 0:
+            print(f'  WARNING: no samples in shell |x_v-c|={x_v_mag:.1f}')
+            out.append(None)
+            continue
+        mean = per_sample.mean(axis=0)
+        sem = _poisson_sem(h_c, R, _a_fine_wm4, _n_part_per_sample, per_sample.shape[0])
+        # Taylor voxel-mean-normalized rho_t / <rho_t>_vox (midpoint Riemann over the n_fc fine bins)
+        phip = K * x_v_mag; phipp = K
+        rho_t = 1 - phip*d_out - 0.5*phipp*d_out**2 + 0.5*(phip*d_out)**2
+        kmid, kedge = n_fc // 2, n_fc - 1
+        print(f'  {h_c:4.1f} | {x_v_mag:6.2f}  | {per_sample.shape[0]:7d} '
+              f'|     {mean[kmid]:.5f}      | {sem[kmid]:.1e} '
+              f'|     {mean[kedge]:.5f}     | {sem[kedge]:.1e}')
+        out.append((x_v_mag, d_out / h_c, mean, sem, rho_t / rho_t.mean()))
+    return out
 
-        fig, ax = plt.subplots(figsize=(7.5, 5.5))
-        for R, color in zip(R_LIST, COLORS):
-            per_sample = shells[R]
-            x_v_mag = abs(shell_voxels(h_c, R)[0][1])
-            if per_sample.shape[0] == 0:
-                print(f'  WARNING: no samples in shell |x_v-c|={x_v_mag:.1f}')
-                continue
-            mean = per_sample.mean(axis=0)
-            # Theoretical Poisson shot-noise SEM (replaces empirical std/sqrt(n)).
-            # Per-sample n_part = total particles in one (rep, axis, frame) marginal.
-            sem  = _poisson_sem(h_c, R, _a_fine_wm4, _n_part_per_sample,
-                                per_sample.shape[0])
-            ax.errorbar(d_out / h_c, mean, yerr=sem, fmt='o-', ms=4, lw=1.0,
-                        color=color, capsize=2, ecolor=color, elinewidth=0.9,
-                        label=fr'$|x_v-c|={x_v_mag:.1f}$')
-            # Taylor voxel-mean-normalized: rho_t / <rho_t>_vox
-            # (midpoint Riemann over the n_fc fine bins; matches the empirical
-            # voxel mean above byte-for-byte).
-            phip = K * x_v_mag; phipp = K
-            rho_t = 1 - phip*d_out - 0.5*phipp*d_out**2 + 0.5*(phip*d_out)**2
-            ax.plot(d_out / h_c, rho_t / rho_t.mean(), '--', lw=1.0, alpha=0.7, color=color)
-            kmid  = n_fc // 2
-            kedge = n_fc - 1
-            print(f'  {h_c:4.1f} | {x_v_mag:6.2f}  | {per_sample.shape[0]:7d} '
-                  f'|     {mean[kmid]:.5f}      | {sem[kmid]:.1e} '
-                  f'|     {mean[kedge]:.5f}     | {sem[kedge]:.1e}')
-        ax.axhline(1.0, color=C_GUIDE, alpha=0.5, lw=0.7)
-        ax.set_xlabel(r'$\delta / h_{\rm coarse}$', fontsize=20)
-        ax.set_ylabel(r'$\rho(x_v+\delta) / \langle\rho\rangle_{\rm vox}$', fontsize=20)
-        ax.set_xticks([-0.5, -0.25, 0.0, 0.25, 0.5])
-        ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
-        ax.legend(fontsize=14, loc='upper right', frameon=True, framealpha=0.95, edgecolor='0.6')   # every curve is below 1.0 there
-        ax.grid(True, alpha=0.3)
-        plt.tight_layout()
-        out_pdf = FIG_DIR / 'pdf' / f'wm4_intravoxel_shape_h{h_c:g}.pdf'
-        out_png = FIG_DIR / 'png' / f'wm4_intravoxel_shape_h{h_c:g}.png'
-        fig.savefig(out_pdf, bbox_inches='tight')
-        fig.savefig(out_png, bbox_inches='tight', dpi=300)
-        print(f'  -> {out_pdf.name}, {out_png.name}')
+
+def draw_wm4(ax, shells):
+    """Panel b of fig:wm-intravoxel: the measured intra-voxel density (markers) against the Taylor
+    prediction (dashed), three subvolumes."""
+    for sh, color in zip(shells, COLORS):
+        if sh is None:
+            continue
+        _, x, mean, sem, pred = sh
+        ax.errorbar(x, mean, yerr=sem, fmt='o-', ms=3.5, lw=1.0, color=color, capsize=2, ecolor=color,
+                    elinewidth=0.9)
+        ax.plot(x, pred, '--', lw=1.0, alpha=0.8, color=color)
+    ax.axhline(1.0, color=C_GUIDE, alpha=0.5, lw=0.7)
+    ax.set_xlabel(r'offset in the subvolume $\delta / h_{\mathrm{coarse}}$')
+    ax.set_ylabel(r'$\rho(x_v+\delta)$ / subvolume mean')
+    ax.set_xticks([-0.5, -0.25, 0.0, 0.25, 0.5])
+    ax.set_xlim(-0.55, 0.55)
+    ax.xaxis.set_major_formatter(FuncFormatter(lambda v, _: f'{v:g}'.replace('-', '−')))
+    ax.yaxis.set_major_locator(MaxNLocator(nbins=5))
+    ax.grid(True, alpha=0.25, lw=0.5)
+    pos = ax.legend([Line2D([], [], color=c, marker='o', ms=3.5, lw=1.0) for c in COLORS], R_LABELS,
+                    loc='upper right')
+    ax.add_artist(pos)
+    ax.legend([Line2D([], [], color=C_GUIDE, marker='o', ms=3.5, lw=1.0), Line2D([], [], color=C_GUIDE, ls='--')],
+              ['measured', 'Taylor prediction'], loc='lower left')
+
+
+PANEL_W, PANEL_H = 3.2, 2.9         # in, as wm_closedform_figs: one fig:wm-intravoxel panel on its own
+PANEL_AX = (0.62, 0.12, 2.5, 2.28)
+
+
+def wm4_figure(h_c, shells):
+    with plt.rc_context(J.PUB_RC):
+        fig = J.si_page(PANEL_W, PANEL_H)
+        draw_wm4(J.pub_ax(fig, *PANEL_AX), shells)
+        save(fig, f'wm4_intravoxel_shape_h{h_c:g}')
+    return fig
+
+
+def intravoxel_combined(shells8):
+    """fig:wm-intravoxel as one file: a = the closed form (wm_closedform_figs.draw_wm3), b = the h = 8 measurement."""
+    from wm_closedform_figs import draw_wm3
+    W, H = 6.5, 2.95
+    XA, XB, AW, AH, YT = 0.62, 3.88, 2.5, 2.2, 0.32
+    with plt.rc_context(J.PUB_RC):
+        fig = J.si_page(W, H)
+        draw_wm3(J.pub_ax(fig, XA, YT, AW, AH))
+        draw_wm4(J.pub_ax(fig, XB, YT, AW, AH), shells8)
+        J.pub_letter(fig, 'a', 0.02, 0.02)
+        J.pub_letter(fig, 'b', XB - 0.60, 0.02)
+        pdf = FIG_DIR / 'wm_intravoxel.pdf'
+        fig.savefig(pdf)
+        fig.savefig(FIG_DIR / 'wm_intravoxel.png', dpi=300)
+        J.pub_check(fig, 'wm_intravoxel', si=True)
+        J.check_text_overlap(fig, 'wm_intravoxel')
+        J.pub_fonts(str(pdf), 'wm_intravoxel')
+        print('  -> wm_intravoxel.{pdf,png} (%.2f x %.2f in)' % (W, H))
+        panel_export.export(fig, 'wm_intravoxel')
+    return fig
+
+
+def main():
+    wm1_figure()
+    print('\n  h_c  | |x_v-c| | n_samp  | mean@delta=h_fine/2 | SEM    | mean@delta=+h_c/2 | SEM')
+    shells = {h_c: wm4_data(h_c) for h_c in (8.0, 4.0)}
+    for h_c, sh in shells.items():
+        wm4_figure(h_c, sh)
+    if os.path.basename(os.path.dirname(HERE)) == 'figS4':     # S4 holds both halves of fig:wm-intravoxel
+        intravoxel_combined(shells[8.0])
+
+
+if __name__ == '__main__':
+    main()

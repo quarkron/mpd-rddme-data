@@ -184,3 +184,144 @@ def check_text_overlap(fig, label='figure'):
                 print('  %s TEXT OVERLAP: %r and %r' % (label, ta[:52], tb[:52]))
                 hits += 1
     return hits
+
+
+# ---------------------------------------------------------------------------------------------
+# Publication layout (2026-10-19, FIGURE_STYLE.md): Arial throughout, 10-11 pt text, a bold 13 pt
+# panel title on the same line as its bold 15 pt letter, every figure on an 8.5 x 11 in page.
+# This supersedes the AIP/LaTeX settings above for the figures restyled to it.
+# ---------------------------------------------------------------------------------------------
+PAGE_W, PAGE_H = 8.5, 11.0       # in, the letter page every combined figure is drawn on
+MARGIN = 0.5                     # in, on every side; the content box is 7.5 x 10 in
+TEXT_PT = 10                     # tick labels, legends, annotations
+LABEL_PT = 11                    # axis labels and in-figure titles
+TITLE_PT = 13                    # panel title, bold
+LETTER_PT = 15                   # panel letter, bold
+INK = '#1b2430'
+
+PUB_RC = {
+    'text.usetex': False,
+    'font.family': 'sans-serif',
+    'font.sans-serif': ['Arial', 'Helvetica', 'Liberation Sans'],
+    'mathtext.fontset': 'custom',             # math in Arial too: no Computer Modern anywhere
+    'mathtext.rm': 'Arial',
+    'mathtext.sf': 'Arial',
+    'mathtext.it': 'Arial:italic',
+    'mathtext.bf': 'Arial:bold',
+    'mathtext.default': 'it',
+    'pdf.fonttype': 42,                       # TrueType, so Illustrator sees editable ArialMT text
+    'ps.fonttype': 42,
+    'svg.fonttype': 'none',
+    'font.size': TEXT_PT,
+    'axes.labelsize': LABEL_PT,
+    'axes.titlesize': LABEL_PT,
+    'xtick.labelsize': TEXT_PT,
+    'ytick.labelsize': TEXT_PT,
+    'legend.fontsize': TEXT_PT,
+    'figure.titlesize': TITLE_PT,
+    'axes.linewidth': 0.8,
+    'xtick.major.width': 0.8, 'ytick.major.width': 0.8,
+    'xtick.minor.width': 0.6, 'ytick.minor.width': 0.6,
+    'xtick.major.size': 3.5, 'ytick.major.size': 3.5,
+    'xtick.direction': 'in', 'ytick.direction': 'in',
+    'lines.linewidth': 1.5,
+    'lines.markersize': 5,
+    'legend.frameon': False,
+    'legend.handlelength': 1.8,
+    'legend.borderpad': 0.3,
+    'legend.labelspacing': 0.3,
+    'axes.edgecolor': INK, 'axes.labelcolor': INK, 'xtick.color': INK, 'ytick.color': INK, 'text.color': INK,
+    'savefig.bbox': None,                     # keep the full page
+    'figure.dpi': 300,
+}
+
+
+def pub_page():
+    """A new 8.5 x 11 in figure for a main-text figure (call inside plt.rc_context(PUB_RC))."""
+    import matplotlib.pyplot as plt
+    return plt.figure(figsize=(PAGE_W, PAGE_H))
+
+
+def si_page(width, height):
+    """A new SI figure of the size its content needs (at most SI_W wide; call inside plt.rc_context(PUB_RC))."""
+    import matplotlib.pyplot as plt
+    return plt.figure(figsize=(width, height))
+
+
+SI_W = 7.5                       # in, the widest an SI figure may be (the content box of the letter page)
+
+
+def pub_ax(fig, x, ytop, w, h):
+    """An axes placed in INCHES from the figure's top-left corner."""
+    W, H = fig.get_figwidth(), fig.get_figheight()
+    return fig.add_axes([x / W, 1.0 - (ytop + h) / H, w / W, h / H])
+
+
+def pub_text(fig, x, ytop, text, **kw):
+    """Figure text placed in inches from the figure's top-left corner."""
+    return fig.text(x / fig.get_figwidth(), 1.0 - ytop / fig.get_figheight(), text, **kw)
+
+
+def pub_header(fig, letter, title, x, ytop, w, center=True):
+    """Panel letter (bold 15 pt) at x and its title (bold 13 pt) on the same baseline, the title centred over the
+    panel's width w (from x) or, with center=False, starting right after the letter. ytop = the line's top, in.
+    SI figures pass title=None: the letter alone."""
+    W, H = fig.get_figwidth(), fig.get_figheight()
+    y = 1.0 - (ytop + LETTER_PT / 72.0) / H
+    lt = fig.text(x / W, y, letter, fontsize=LETTER_PT, fontweight='bold', ha='left', va='baseline', color=INK)
+    tt = None
+    if title:
+        if center:
+            tt = fig.text((x + 0.5 * w) / W, y, title, fontsize=TITLE_PT, fontweight='bold', ha='center',
+                          va='baseline', color=INK)
+        else:
+            tt = fig.text((x + 0.32) / W, y, title, fontsize=TITLE_PT, fontweight='bold', ha='left',
+                          va='baseline', color=INK)
+        tt.set_gid('headline')                 # panel_export leaves titles out of the per-panel files
+    return lt, tt
+
+
+def pub_letter(fig, letter, x, ytop):
+    """An SI panel letter (bold 15 pt) with its top at ytop, in inches from the figure's top-left; no title."""
+    return pub_header(fig, letter, None, x, ytop, 0.0)[0]
+
+
+def pub_rule(fig, ytop, x0=MARGIN, x1=None):
+    """A thin separator between panel rows."""
+    from matplotlib.lines import Line2D
+    W, H = fig.get_figwidth(), fig.get_figheight()
+    x1 = W - MARGIN if x1 is None else x1
+    fig.add_artist(Line2D([x0 / W, x1 / W], [1.0 - ytop / H] * 2, transform=fig.transFigure, color=INK, lw=0.5,
+                          alpha=0.3))
+
+
+def pub_check(fig, label='figure', si=False):
+    """Main text: everything inside the page margins. SI (si=True): the content at most SI_W wide. Both: no text
+    below TEXT_PT (bold titles and letters excepted)."""
+    fig.canvas.draw()
+    r = fig.canvas.get_renderer()
+    bb = fig.get_tightbbox(r)
+    W, H = fig.get_figwidth(), fig.get_figheight()
+    if si:
+        ok = (bb.x1 - bb.x0) <= SI_W + 0.02
+        where = '  << WIDER than %.1f in' % SI_W
+    else:
+        ok = bb.x0 >= MARGIN - 0.02 and bb.x1 <= W - MARGIN + 0.02 and bb.y0 >= MARGIN - 0.02 \
+            and bb.y1 <= H - MARGIN + 0.02
+        where = '  << OUTSIDE the %.1f in margins' % MARGIN
+    small = sorted({round(t.get_fontsize(), 1) for t in fig.findobj(matplotlib.text.Text)
+                    if t.get_text().strip() and t.get_visible() and t.get_fontsize() < TEXT_PT - 0.01})
+    print('  %s content %.2f-%.2f x %.2f-%.2f in on the %.2f x %.2f canvas%s%s'
+          % (label, bb.x0, bb.x1, H - bb.y1, H - bb.y0, W, H, '' if ok else where,
+             ('  << type below %d pt: %s' % (TEXT_PT, small)) if small else ''))
+    return ok and not small
+
+
+def pub_fonts(pdf_path, label=None):
+    """After saving: list the fonts the PDF embeds and flag anything that is not Arial (mathtext falls back to
+    Computer Modern for glyphs Arial lacks, such as angle brackets, over-bars and arrows; write those in words)."""
+    import fitz
+    names = sorted({f[3].split('+')[-1] for f in fitz.open(pdf_path)[0].get_fonts()})
+    bad = [n for n in names if not n.startswith('Arial')]
+    print('  %s fonts: %s%s' % (label or pdf_path, ', '.join(names), ('  << NOT ARIAL: %s' % bad) if bad else ''))
+    return not bad

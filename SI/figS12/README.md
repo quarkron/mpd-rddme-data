@@ -1,17 +1,15 @@
-# SI/figS12: `fig:three-kl`
+# SI/figS12: `fig:two-eq-readdy`
 
-**Manuscript file:** rxthree_kl.pdf
+**Manuscript file:** two4_readdy.pdf
 
-**Re-render** (from `scripts/`, host venv, TeX Live 2026 on PATH):
+**Re-render** (from `scripts/`):
 
 ```bash
-python rxthree_kl_fig.py   # -> plots/{pdf,png}/rxthree_kl.*; --install copies into the manuscript
+python two4_readdy_fig.py   # -> plots/{pdf,png}/
 ```
 
-**What it shows:** the Kullback-Leibler divergence of the subvolume occupancy distributions of A and B from the BD
-reference over the relaxation of the ternary mixture. This was block C of the main-text `fig:three-relax-readdy`
-(main/fig2) until 2026-10-05 and moved to the supplement with its discussion. The build prints the medians over
-tau >= 1 that the SI text quotes.
+**Plotting:** `two4_readdy_fig.py`
 
-**Data:** none of its own: it imports main/fig2's pooling (`main/fig2/scripts/rxthree_data.py`, `prepare()`), so the
-arms, seeds and tau grid are exactly the main figure's; `data` links to main/fig2's data, -> fig2.
+**Producing the data:** ReaDDy: `readdy_two.py` (run from the directory holding `readdy_rx.py`), 16 seeds per ratio, `--na 3622 --nb {3622,1073,453,232} --sigma-b 3r`. Lattice: `vex_twospecies.py --ratio r --out vex_out2/two_r{r}.npz` (needs `lm_build.py`). **No campaign script; parameters from the npz metadata.**
+
+**Data origin (copied into `data/`):** /raid/racda/campaigns/lmrddme_validation/readdy_ref/out_two, /raid/racda/campaigns/lmrddme_validation/mpd_crddme/vex_out2

@@ -16,7 +16,8 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 LOG = os.environ.get('AUDIT_LOG', os.path.join(ROOT, 'tools', 'external_opens.log'))
 OK = [ROOT, sys.prefix, sys.base_prefix, sysconfig.get_paths()['stdlib'], tempfile.gettempdir(), '/usr', '/etc',
       '/proc', '/sys', '/dev', '/tmp', os.path.expanduser('~/.cache'), os.path.expanduser('~/.config'),
-      os.path.expanduser('~/.matplotlib'), os.environ.get('TMPDIR', '/tmp')]
+      os.path.expanduser('~/.matplotlib'), os.path.expanduser('~/.local/share/fonts'), os.path.expanduser('~/.fonts'),
+      os.environ.get('TMPDIR', '/tmp')]                               # installed fonts (Arial) are system files
 TEX = [p for p in os.environ.get('PATH', '').split(':') if 'texlive' in p]
 OK += [os.path.dirname(os.path.dirname(os.path.dirname(p))) for p in TEX]      # .../texlive/2026
 seen = set()

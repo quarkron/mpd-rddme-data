@@ -11,7 +11,7 @@ One figure in three lettered blocks, following the application figures of the sa
        (relative to its instantaneous mean) beside the free-energy landscape U the operators read (relative to its
        mean), U computed from the same frame (rx_field_data.plane_landscape).
 The divergence from the reference in time (block C until 2026-10-05) is the SI figure fig:rx-field-kl-time,
-SI/figS16/scripts/rx_field_kl_fig.py, which imports ARMS from here.
+SI/figS17/scripts/rx_field_kl_fig.py, which imports ARMS from here.
 
 Only the blocks are lettered. Each plot names its own axes, the species is named inside the frame
 and the key names the three descriptions, so inner letters would add nothing to look up.
@@ -99,18 +99,25 @@ def has_tex():
         return False
 
 
-def IN(x, y, w, h):
-    """An axes rectangle in inches (x, y from the bottom left) -> figure fractions."""
-    return [x / TEXTW, y / TEXTH, w / TEXTW, h / TEXTH]
+J = jcp_style
+
+
+def TX(fig, x, ytop, text, **kw):
+    """Figure text placed in inches from the page's top-left corner."""
+    return fig.text(x / J.PAGE_W, 1.0 - ytop / J.PAGE_H, text, **kw)
+
+
+# Page geometry (FIGURE_STYLE.md): 8.5 x 11 in, 0.5 in margins. Two plot columns share blocks b and c.
+XL, XR, CW = 1.30, 4.90, 2.95            # left edges and width of the two columns, in
+YA, YB, YC = 0.50, 2.80, 6.55            # header lines of blocks a, b, c
 
 
 def block_b(fig):
-    """Block B: steady occupancy folded onto one period of the field."""
-    geom = dict(pa=IN(0.8125, 2.55, 2.5025, 0.95), pc=IN(3.90, 2.55, 2.5025, 0.95))
-    ax = {k: fig.add_axes(R(v)) for k, v in geom.items()}
+    """Block b: steady occupancy folded onto one period of the field."""
+    ax = {'pa': J.pub_ax(fig, XL, YB + 0.62, CW, 2.40), 'pc': J.pub_ax(fig, XR, YB + 0.62, CW, 2.40)}
     for a in ax.values():
         a.grid(alpha=0.25, lw=0.5, which='both')
-
+        a.tick_params(top=True, right=True)
     for name, pkey in (('A', 'pa'), ('C', 'pc')):
         a = ax[pkey]
         ph, pm, ps = D.iprd_profile(name)
@@ -118,24 +125,25 @@ def block_b(fig):
         if name == 'A':
             assert abs(phw[np.argmin(pmw)] - 0.25) < 0.07, 'field-phase folding is misaligned'
         a.fill_between(phw, pmw - psw, pmw + psw, color='0.82', lw=0, zorder=1)
-        a.plot(phw, pmw, '-', color=P.ARM['ref'], lw=1.2, label='iPRD', zorder=2)
+        a.plot(phw, pmw, '-', color=P.ARM['ref'], lw=1.6, label='iPRD', zorder=2)
         for tag, lbl, col, ls, mk, panels in ARMS:
             if 'profile' not in panels or tag == 'ref':
                 continue
             x, ym, ys = D.lattice_profile('excl' if tag == 'exc' else 'ideal', name)
             xw = np.r_[x, 1.0]
             a.errorbar(xw, np.r_[ym, ym[0]], yerr=np.r_[ys, ys[0]], fmt=mk, ls=ls, color=col,
-                       mfc='white' if tag == 'exc' else col, mew=1.0, ms=3.6, lw=0.9,
-                       elinewidth=0.9, capsize=1.5, label=lbl, zorder=3)
-        a.set_xlabel(r'$x/\lambda$', labelpad=1.5)
+                       mfc='white' if tag == 'exc' else col, mew=1.2, ms=5.5, lw=1.3,
+                       elinewidth=1.0, capsize=2, label=lbl, zorder=3)
+        a.set_xlabel(r'$x/\lambda$')
         a.set_xlim(0, 1)
-        a.set_ylim(0.52, 1.40)                      # headroom below the trough for the key
-        # Top left: every arm passes through the species mean at x = 0 and climbs only after the
-        # trough at a quarter period, so this corner is the one none of them enters.
-        a.text(0.03, 0.96, r'species $\mathsf{%s}$' % name, transform=a.transAxes, ha='left',
-               va='top')
-
-    ax['pa'].set_ylabel(r'$\langle n\rangle / \bar{n}$')
+        a.set_ylim(0.52, 1.40)
+        a.text(0.03, 0.96, 'species %s' % name, transform=a.transAxes, ha='left', va='top', fontsize=J.LABEL_PT)
+    ax['pa'].set_ylabel('occupancy / mean')
+    from matplotlib.lines import Line2D
+    handles = [Line2D([], [], color=col, ls=ls, marker=mk, ms=5.5, mfc='white' if tag == 'exc' else col, mew=1.2,
+                      lw=1.6, label=lbl) for tag, lbl, col, ls, mk, _ in ARMS]
+    for a in ax.values():
+        a.legend(handles=handles, loc='lower right', frameon=False)
     return ax
 
 
@@ -145,42 +153,40 @@ def block_c(fig):
     along the field, each cell the mean of its plane of 1024 subvolumes (rx_field_data.plane_landscape)."""
     from matplotlib.colors import LinearSegmentedColormap, Normalize
     from matplotlib.cm import ScalarMappable
-    # Diverging around the mean, white at the mean: a flat strip reads white, so the build-up of the field response
-    # is the contrast. Occupancy teal (below) -> orange (above); U sand (low) -> navy (high), as in fig:schematic.
+    from matplotlib.patches import Rectangle
     cm_n = LinearSegmentedColormap.from_list('occ', ['#2bb3a3', '#ffffff', '#d97321'])
     cm_u = LinearSegmentedColormap.from_list('U', ['#f5dfa0', '#ffffff', '#1d3a7a'])
     rows = [D.plane_landscape(os.path.join(D.LAT, fn), tw) for fn, tw in SNAPS]
     rn = max(np.abs(nA[:NX] / nA.mean() - 1).max() for nA, _, _ in rows)
     ru = max(np.abs(U[:NX] - U.mean()).max() for _, U, _ in rows)
     NR = Normalize(1 - rn, 1 + rn); NU = Normalize(-ru, ru)
-    cw = 2.5025 / NX                                                     # cell edge, in
-    cols = ((0.8125, cm_n, NR, lambda nA, U: nA[:NX] / nA.mean()),
-            (3.90, cm_u, NU, lambda nA, U: U[:NX] - U.mean()))
-    ytop = 1.46
+    cw = CW / NX                                                         # cell edge, in
+    cols = ((XL, cm_n, NR, lambda nA, U: nA[:NX] / nA.mean()),
+            (XR, cm_u, NU, lambda nA, U: U[:NX] - U.mean()))
+    y0, dy = YC + 1.05, 0.72
     for i, (nA, U, tau) in enumerate(rows):
-        y = ytop - i * 0.40
+        y = y0 + i * dy
         for x0, cm, nm, val in cols:
-            a = fig.add_axes(IN(x0, y, NX * cw, cw))
-            a.pcolormesh(np.arange(NX + 1), [0, 1], val(nA, U)[None, :], cmap=cm, norm=nm,
-                         edgecolors='white', linewidth=0.6)
+            a = J.pub_ax(fig, x0, y, NX * cw, cw)
+            a.pcolormesh(np.arange(NX + 1), [0, 1], val(nA, U)[None, :], cmap=cm, norm=nm, edgecolors='white',
+                         linewidth=0.8)
             a.set_xlim(0, NX); a.set_ylim(0, 1); a.axis('off')
-            a.add_patch(__import__('matplotlib').patches.Rectangle((0, 0), NX, 1, fill=False,
-                                                                     ec=P.INK_DIM, lw=0.6, clip_on=False))
-        fig.text(0.74 / TEXTW, (y + cw / 2) / TEXTH, r'$\tau = %g$' % round(tau, 3), ha='right', va='center',
-                 fontsize=8.5)
-    for x0, lab in ((0.8125, r'occupancy $\langle n_\mathsf{A}\rangle/\bar n_\mathsf{A}$'),
-                    (3.90, r'landscape $U-\bar U$ (kT)')):
-        fig.text((x0 + NX * cw / 2) / TEXTW, (ytop + cw + 0.07) / TEXTH, lab, ha='center', va='bottom', fontsize=8.5)
+            a.add_patch(Rectangle((0, 0), NX, 1, fill=False, ec=P.INK_DIM, lw=0.8, clip_on=False))
+        TX(fig, XL - 0.12, y + cw / 2, r'$\tau = %g$' % round(tau, 3), ha='right', va='center', fontsize=J.TEXT_PT)
+    for x0, lab in ((XL, 'occupancy of A / mean'),
+                    (XR, r'landscape $U$ minus its mean ($k_\mathrm{B}T$)')):
+        TX(fig, x0 + NX * cw / 2, y0 - 0.12, lab, ha='center', va='bottom', fontsize=J.LABEL_PT)
+    ylast = y0 + 2 * dy + cw
+    for x0 in (XL, XR):
+        TX(fig, x0, ylast + 0.12, r'two periods of the field along $x$', ha='left', va='top',
+           fontsize=J.TEXT_PT, color=P.INK_DIM)
     tn = np.floor(100 * rn / 5) * 5 / 100; tu = np.floor(2 * ru) / 2     # end ticks inside the ramp
-    for x0, cm, nm, ticks in ((0.8125, cm_n, NR, [1 - tn, 1.0, 1 + tn]), (3.90, cm_u, NU, [-tu, 0.0, tu])):
-        cax = fig.add_axes(IN(x0 + 0.55, 0.22, NX * cw - 1.1, 0.07))
+    for x0, cm, nm, ticks in ((XL, cm_n, NR, [1 - tn, 1.0, 1 + tn]), (XR, cm_u, NU, [-tu, 0.0, tu])):
+        cax = J.pub_ax(fig, x0 + 0.45, ylast + 0.55, NX * cw - 0.9, 0.12)
         cb = fig.colorbar(ScalarMappable(nm, cm), cax=cax, orientation='horizontal', ticks=ticks)
-        cb.ax.tick_params(labelsize=7.5, length=2)
-        cb.outline.set_linewidth(0.5)
-    for x0 in (0.8125, 3.90):   # under the last row of each column
-        fig.text(x0 / TEXTW, (ytop - 2 * 0.40 - 0.13) / TEXTH, r'two periods of the field, along $x$ $\longrightarrow$',
-                 ha='left', va='center', fontsize=7.5, color=P.INK_DIM)
-    print('  block C: occupancy range +-%.3f of the mean, U range +-%.2f kT' % (rn, ru))
+        cb.ax.tick_params(labelsize=J.TEXT_PT, length=3)
+        cb.outline.set_linewidth(0.6)
+    print('  block c: occupancy range +-%.3f of the mean, U range +-%.2f kT' % (rn, ru))
 
 
 def main():
@@ -191,63 +197,31 @@ def main():
     A = p.parse_args()
 
     D.field_axis_check()
-    tex = has_tex()
-    rc = dict(jcp_style.RC)
-    rc.update({'xtick.direction': 'in', 'ytick.direction': 'in', 'xtick.top': True,
-               'ytick.right': True})
-    rc.update({'text.usetex': True, 'font.serif': ['Computer Modern Roman']} if tex
-              else {'mathtext.fontset': 'cm'})
-    rc = jcp_style.sans(rc, tex)                  # text AND math; see jcp_style.sans
-
     import matplotlib
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
 
-    with plt.rc_context(rc):
-        # Under usetex matplotlib ignores fontweight: the weight has to be in the TeX.
-        blk = (lambda c: r'\textbf{%s}' % c) if tex else (lambda c: c)
-        fig = plt.figure(figsize=(TEXTW, TEXTH))
-
-        ax_a = fig.add_axes(IN(0.2275, 3.83, 6.1425, 1.12))
-        draw_scheme(ax_a, tex=tex)
-        # A's letter and note sit in the band above the cartoon; the other three have a letter
-        # row of their own already.
-        LETTER(fig, blk, 'A', 0.998)
-
-        axb = block_b(fig)
-        # B is the occupancy row, C the divergence row, D the configurations: the letter sits at
-        # the top left of the block it names.
-        for y, c, note in (
-                (3.88, 'B', 'MPD-RDDME reproduces equilibrium distributions predicted by iPRD with high accuracy'),
-                (2.12, 'C', 'Particles are driven toward locations of energy minima')):
-            LETTER(fig, blk, c, y / TEXTH, note)
-        # Built by hand rather than harvested from the axes: errorbar hands back a container
-        # whose legend entry carries the cap and the bar, which reads as a fourth symbol.
-        from matplotlib.lines import Line2D
-        handles = [Line2D([], [], color=col, ls=ls, marker=mk, ms=3.6,
-                          mfc='white' if tag == 'exc' else col, mew=1.0, lw=1.2, label=lbl)
-                   for tag, lbl, col, ls, mk, _ in ARMS]
-        # The key goes INSIDE the reactant profile, lower right. It used to sit on the letter row,
-        # which block B's headline now needs in full; the band between that row and the panels is
-        # 0.15 in, too short for a line of key. Lower right is the one corner of that panel no arm
-        # enters: the trough is at a quarter period, on the left.
-        for k_ in ('pa', 'pc'):   # the same key in every plot; lower right is empty in both
-            axb[k_].legend(handles=handles, loc='lower right', fontsize=7.2, frameon=False,
-                           handlelength=1.8, labelspacing=0.35, borderpad=0.2, handletextpad=0.5)
-
+    with plt.rc_context(J.PUB_RC):
+        fig = J.pub_page()
+        W = J.PAGE_W - 2 * J.MARGIN
+        J.pub_header(fig, 'a', 'Reversible bimolecular reaction in a sinusoidal potential', J.MARGIN, YA, W)
+        ax_a = J.pub_ax(fig, J.MARGIN + 0.05, YA + 0.45, W - 0.1, (W - 0.1) * 20.5 / 113.0)
+        draw_scheme(ax_a, tex=False)
+        J.pub_rule(fig, YB - 0.18)
+        J.pub_header(fig, 'b', 'MPD-RDDME reproduces equilibrium distributions predicted by iPRD', J.MARGIN, YB, W)
+        block_b(fig)
+        J.pub_rule(fig, YC - 0.18)
+        J.pub_header(fig, 'c', 'Particles are driven toward locations of energy minima', J.MARGIN, YC, W)
         block_c(fig)
-
-        jcp_style.check_width(fig, TEXTW, 'rx_field')
-        jcp_style.check_text_overlap(fig, 'rx_field')
-
+        J.pub_check(fig, 'rx_field')
+        J.check_text_overlap(fig, 'rx_field')
         os.makedirs(os.path.dirname(A.out) or '.', exist_ok=True)
         for ext in ('pdf', 'png'):
             fig.savefig('%s.%s' % (A.out, ext), dpi=300)
-        import os as _os, sys as _sys                  # each panel alone, no letter or headline: ../plots/panels/
-        _sys.path.insert(0, _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', '..', '..', 'common'))
+        J.pub_fonts(A.out + '.pdf', 'rx_field')
         import panel_export
         panel_export.export(fig, 'rx_field')
-    print('wrote %s.pdf/.png  TEX=%s' % (A.out, tex))
+    print('wrote %s.pdf/.png' % A.out)
 
     # The composition shift is quoted in the text but no longer plotted, so the build prints it:
     # a number in the manuscript should be reproducible by running the thing that made the figure.
