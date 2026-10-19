@@ -23,7 +23,7 @@ rules without restating them.
   | panel letter (`a`, `b`, ...) | 15 pt, bold |
   | panel title | 13 pt, bold |
   | axis labels, in-panel headings | 11 pt |
-  | tick labels, legends, annotations, colour-bar labels | 10 pt |
+  | tick labels, legends, annotations, color-bar labels | 10 pt |
 
   Nothing is smaller than 10 pt. The figure is printed smaller than drawn when it sits in the text, so anything
   below 10 pt becomes illegible.
@@ -38,7 +38,7 @@ rules without restating them.
 ## 3. Letters and titles
 
 - The letter and its title are on **one line**: the bold letter at the panel's left edge, the bold title on the same
-  baseline, centred over the panel (or immediately right of the letter when the panel is narrow). Never the letter on
+  baseline, centered over the panel (or immediately right of the letter when the panel is narrow). Never the letter on
   one line and the title under it.
 - A title states the panel's message or subject in a few words. No numbers, symbols or units in titles.
 - Side-by-side panels have their letters and titles on a common baseline; stacked panels share a left edge.

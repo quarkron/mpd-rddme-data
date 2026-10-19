@@ -100,7 +100,7 @@ Figures that use another figure's data read it in place through a relative path 
 
 **Panels.** Every figure also writes its panels as separate files, `plots/panels/<name>_<letter>.{pdf,png}`, without
 the letter or headline. Unlettered two-panel figures (S13, S16, S17) are split into `_left` and `_right`; a piece shared
-by two panels (S12's key, S20's colour bar) goes to `_shared`; single-panel figures (S1, S14, S15) write none. S5-S7
+by two panels (S12's key, S20's color bar) goes to `_shared`; single-panel figures (S1, S14, S15) write none. S5-S7
 are split by `common/tikz_panels.py` (called from `render_all.sh`); S4's two panels are its two files.
 
 ## Regenerating the data

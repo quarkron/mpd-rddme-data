@@ -275,7 +275,7 @@ def _extract_1d_shells(h_c, R_list):
 
 R_LIST = (0.0, SIGMA, 2*SIGMA)
 COLORS = (STOPS[1], STOPS[3], C_PT)   # main-text palette, as WM3: ordered distance from the centre
-R_LABELS = ('centre subvolume', r'subvolume holding $\sigma$', r'subvolume holding $2\sigma$')
+R_LABELS = ('center subvolume', r'subvolume holding $\sigma$', r'subvolume holding $2\sigma$')
 
 # Theoretical Poisson bars need (i) the analytic 1-D Gaussian at fine bins,
 # and (ii) the effective per-sample particle count.

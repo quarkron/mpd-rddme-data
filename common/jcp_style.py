@@ -325,3 +325,31 @@ def pub_fonts(pdf_path, label=None):
     bad = [n for n in names if not n.startswith('Arial')]
     print('  %s fonts: %s%s' % (label or pdf_path, ', '.join(names), ('  << NOT ARIAL: %s' % bad) if bad else ''))
     return not bad
+
+
+
+# ---------------------------------------------------------------------------------------------
+# Illustrator-safe images (2026-10-19). Matplotlib's PDF backend stores an image with 256 colors or fewer as an
+# indexed (palette) image, and with 16 or fewer as a 1-, 2- or 4-bit one. Adobe Illustrator misreads the low-bit
+# kind and paints the whole image one color. Force plain 8-bit RGB for every image a figure script saves (the
+# files are a little larger); importing this module is enough.
+# ---------------------------------------------------------------------------------------------
+def _rgb_images_only():
+    from matplotlib.backends import backend_pdf as _bp
+    import PIL.Image as _pil
+    if getattr(_bp.PdfFile._writeImg, '_rgb_only', False):
+        return
+    _orig = _bp.PdfFile._writeImg
+
+    def _write(self, data, id, smask=None):
+        g = _pil.Image.getcolors
+        _pil.Image.getcolors = lambda im, maxcolors=256: None      # the palette branch is skipped
+        try:
+            return _orig(self, data, id, smask)
+        finally:
+            _pil.Image.getcolors = g
+    _write._rgb_only = True
+    _bp.PdfFile._writeImg = _write
+
+
+_rgb_images_only()

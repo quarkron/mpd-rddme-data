@@ -135,8 +135,8 @@ def wm2_figure():
 # WM3 (closed-form): intra-voxel density at three representative voxels, VOXEL-MEAN normalized
 # rho(x_v+delta)/<rho>_vox. Curves do NOT pass through 1 at delta=0 in general -- the lift/dip at delta=0 IS the
 # WM offset diagnostic, Delta(x_v) = (h^2 k / 24)(3 - k|x_v-c|^2).
-WM3_POS = ((0.0, 'at the centre', C_BULK), (SIGMA, r'$\sigma$ from the centre', C_SIG),
-           (2 * SIGMA, r'$2\sigma$ from the centre', C_SECOND))
+WM3_POS = ((0.0, 'at the center', C_BULK), (SIGMA, r'$\sigma$ from the center', C_SIG),
+           (2 * SIGMA, r'$2\sigma$ from the center', C_SECOND))
 WM3_H = ((8.0, '-'), (1.0, '--'))
 
 

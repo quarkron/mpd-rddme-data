@@ -3,6 +3,7 @@
 #   ./render_all.sh                 # all figures
 #   ./render_all.sh main/fig4 SI/figS9   # only these folders
 #   AUDIT=1 ./render_all.sh         # also record any file read from outside the repo (tools/external_opens.log)
+#   FORCE=1 ./render_all.sh main/fig5   # re-render even a figure saved from Illustrator (overwrites the hand edits)
 # Needs: the Python environment of requirements.txt and pdflatex (TeX Live; the figures were made with 2026) on PATH.
 # Outputs go to each folder's plots/ (full figure) and plots/panels/ (one file per panel); logs to logs/.
 set -u
@@ -16,6 +17,11 @@ run () {   # run <folder> <script> [args...]
   local d=$1; shift
   if [ $# -gt 0 ] && [ -n "${SEL:-}" ] && ! [[ " $SEL " == *" $d "* ]]; then return; fi
   local log="$ROOT/logs/$(echo $d | tr / _).log"
+  # a figure finished by hand in Illustrator is not overwritten: skip it unless FORCE=1
+  if [ "${FORCE:-0}" != 1 ] && $PY "$ROOT/tools/illustrator_edited.py" "$d" > "$log" 2>&1; then
+    printf '%-12s %-28s SKIPPED: edited in Illustrator (%s); FORCE=1 to re-render\n' "$d" "$1" "$(tr -d '\n' < "$log" | sed 's/^ *//')"
+    return
+  fi
   if [ "${AUDIT:-0}" = 1 ]; then
     (cd "$ROOT/$d/scripts" && $PY "$ROOT/tools/audit_open.py" "$@") > "$log" 2>&1
   else
