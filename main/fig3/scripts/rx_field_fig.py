@@ -174,7 +174,7 @@ def block_c(fig):
             a.add_patch(Rectangle((0, 0), NX, 1, fill=False, ec=P.INK_DIM, lw=0.8, clip_on=False))
         TX(fig, XL - 0.12, y + cw / 2, r'$\tau = %g$' % round(tau, 3), ha='right', va='center', fontsize=J.TEXT_PT)
     for x0, lab in ((XL, 'occupancy of A / mean'),
-                    (XR, r'landscape $U$ minus its mean ($k_\mathrm{B}T$)')):
+                    (XR, r'mean-subtracted energy landscape ($k_\mathrm{B}T$)')):
         TX(fig, x0 + NX * cw / 2, y0 - 0.12, lab, ha='center', va='bottom', fontsize=J.LABEL_PT)
     ylast = y0 + 2 * dy + cw
     for x0 in (XL, XR):

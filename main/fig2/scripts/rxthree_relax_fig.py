@@ -93,7 +93,7 @@ def draw_cartoon(ax, pos0, spec0, cpos0, slab=4.0):
         ax.add_patch(Circle((45.0, y), 0.5 * SIG[key] if key != 'C' else 2.0, facecolor=COL[key],
                             edgecolor='none', zorder=6))
         ax.text(49.0, y, lbl, fontsize=jcp_style.TEXT_PT, ha='left', va='center', color=P.INK, zorder=6,
-                path_effects=halo)
+                bbox=dict(boxstyle='square,pad=0.08', fc='white', ec='none', alpha=0.85))   # live text, not a halo
     ax.set_xlim(0, 80); ax.set_ylim(0, 80); ax.set_aspect('equal')
     ax.set_xticks([]); ax.set_yticks([])
     for sp in ax.spines.values():

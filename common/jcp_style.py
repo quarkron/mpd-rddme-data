@@ -353,3 +353,65 @@ def _rgb_images_only():
 
 
 _rgb_images_only()
+
+
+
+# ---------------------------------------------------------------------------------------------
+# Editable-text audit (2026-10-19). Every visible label must reach the PDF as text, so that Illustrator opens it
+# as live type. Text with a path effect (a white halo), text drawn into an image, or a label set as a TextPath
+# arrives as outlines instead. After each PDF save, this compares the figure's visible text with the text in the
+# PDF and prints any label it cannot find ("NOT EDITABLE TEXT"). Importing this module turns it on.
+# ---------------------------------------------------------------------------------------------
+def _audit_text(fig, path, cropped=False):
+    """Flag labels that would reach the PDF as outlines: a path effect (halo), or text in a rasterized artist. On a
+    whole-figure save, also check that each non-tick label is found as text in the PDF."""
+    import re
+    ticks = set()
+    for ax in fig.axes:
+        for axis in (ax.xaxis, ax.yaxis):
+            for tk in axis.get_major_ticks() + axis.get_minor_ticks():
+                ticks.update((tk.label1, tk.label2))
+    bad = []
+    for t in fig.findobj(matplotlib.text.Text):
+        s = t.get_text()
+        if not s.strip() or not t.get_visible() or (t.axes is not None and not t.axes.get_visible()):
+            continue
+        if t.get_path_effects():
+            bad.append(s + ' [halo]')
+        elif t.get_rasterized() or (t.axes is not None and t.axes.get_rasterized()):
+            bad.append(s + ' [rasterized]')
+    if not cropped:
+        try:
+            import fitz
+            pdf = re.sub(r'\s+', '', ''.join(p.get_text() for p in fitz.open(path)))
+        except Exception:
+            pdf = None
+        if pdf is not None:
+            for t in fig.findobj(matplotlib.text.Text):
+                s = t.get_text()
+                if (t in ticks or not s.strip() or not t.get_visible() or t.get_path_effects()
+                        or (t.axes is not None and not t.axes.get_visible())):
+                    continue
+                plain = re.sub(r'\\[A-Za-z]+', ' ', s)
+                if any(run not in pdf for run in re.findall(r'[A-Za-z0-9.]{2,}', plain.replace('$', ' '))):
+                    bad.append(s + ' [not found as text]')
+    if bad:
+        print('  %s: NOT EDITABLE TEXT: %s' % (path, '; '.join(sorted(set(bad))[:12])))
+
+
+def _savefig_with_audit():
+    from matplotlib.figure import Figure
+    if getattr(Figure.savefig, '_audited', False):
+        return
+    _orig = Figure.savefig
+
+    def savefig(self, fname, *a, **k):
+        out = _orig(self, fname, *a, **k)
+        if isinstance(fname, str) and fname.lower().endswith('.pdf'):
+            _audit_text(self, fname, cropped=k.get('bbox_inches') not in (None, 'tight'))
+        return out
+    savefig._audited = True
+    Figure.savefig = savefig
+
+
+_savefig_with_audit()

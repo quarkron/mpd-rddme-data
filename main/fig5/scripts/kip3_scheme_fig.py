@@ -194,8 +194,7 @@ def draw_scheme(ax, layout='wide'):
     if pub:
         ax.text(xc, y0 + 1.0, 'attach', fontsize=fs, ha='center', va='bottom', color=P.INK)
         ax.text(xc, y0 - 1.0, 'detach', fontsize=fs, ha='center', va='top', color=P.INK)
-        ax.text(xe, y0 - 0.62, 'empty', fontsize=fs, ha='center', va='top', color=P.INK_DIM)
-        ax.text(xm, y0 - 0.62, 'motor', fontsize=fs, ha='center', va='top', color=P.INK_DIM)
+        # (2026-10-19: the 'empty' / 'motor' words under the two boxes are gone; the caption names them)
     else:
         ax.text(2.2, y0 + 1.0, r'$k_{\mathrm{on}}$, per empty site', fontsize=7, ha='center',
                 va='bottom', color=P.INK)
