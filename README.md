@@ -33,15 +33,6 @@ cd main/fig4/scripts && python fig_polymer_r2.py         # -> main/fig4/plots/po
 The plotting scripts never write outside the repository. Several accept `--install`, which copies the result into a
 manuscript checkout's `figures/` folder; set `MANUSCRIPT_FIGURES=/path/to/manuscript/figures` to use it.
 
-## Figure style
-
-`FIGURE_STYLE.md` holds the publication rules (Arial, 10-11 pt text, bold 13 pt titles on the same line as bold
-15 pt letters, 8.5 x 11 in pages, no equations or parameter values inside panels) and how `common/jcp_style.py`
-implements them (`PUB_RC`, `pub_page`, `si_page`, `pub_ax`, `pub_header`, `pub_letter`, `pub_check`, `pub_fonts`).
-All figures follow it: the main-text figures on 8.5 x 11 in pages with titles, the SI figures at their own size
-(at most 7.5 in wide) with letters only. The TikZ drawings S5-S7 are set in TeX Gyre Heros (a Helvetica clone).
-Every PDF has an Illustrator `.ai` copy beside it (`tools/make_ai.py`).
-
 ## Layout
 
 ```
