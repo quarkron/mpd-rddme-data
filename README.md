@@ -58,7 +58,7 @@ requirements.txt
 | Folder | Manuscript | Label | Plotting script | Data |
 |---|---|---|---|---|
 | main/fig1 | Fig. 1 | fig:schematic | plots/figure1.pdf, finished in Illustrator; split_figure1.py cuts the panels (make_figure1.py is the TikZ it started from) | none |
-| main/fig2 | Fig. 2 | fig:three-relax-readdy | rxthree_relax_fig.py | 232 MB |
+| main/fig2 | Fig. 2 | fig:three-relax-readdy | plots/pdf/rxthree_relax.pdf, finished in Illustrator; block b (divergence from BD) placed by fig2_block_b_kl.py (rxthree_relax_fig.py is the matplotlib it started from) | 232 MB |
 | main/fig3 | Fig. 3 | fig:rx-field-kl | rx_field_fig.py | 15 MB |
 | main/fig4 | Fig. 4 | fig:phase | fig_phase.py | SI/figS8/data |
 | main/fig5 | Fig. 5 | fig:kip3-traffic | kip3_app_fig.py (arguments in render_all.sh) | 49 MB |
@@ -76,7 +76,7 @@ requirements.txt
 | SI/figS11 | Fig. S11 | fig:advantage | adv_fig.py | 0.3 MB |
 | SI/tableV | Table V | tab:advantage | adv_table.py | 0.2 MB |
 | SI/figS12 | Fig. S12 | fig:two-eq-readdy | two4_readdy_fig.py | 1.8 MB |
-| SI/figS13 | Fig. S13 | fig:three-kl | rxthree_kl_fig.py | main/fig2/data |
+| SI/figS13 | Fig. S13 | fig:three-eq | rxthree_eq_fig.py | main/fig2/data |
 | SI/figS14 | Fig. S14 | fig:three-rho | rxthree_rho_fig.py | main/fig2/data |
 | SI/figS15 | Fig. S15 | fig:rx-K-main | rx_K_main_fig.py | 0.9 MB |
 | SI/figS16 | Fig. S16 | fig:rx-field-counts | rx_field_counts_fig.py | main/fig3/data |

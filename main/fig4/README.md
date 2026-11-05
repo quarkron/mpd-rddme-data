@@ -16,3 +16,9 @@ python fig_phase.py --install   # -> plots/phase.{pdf,png}, copied into the manu
 
 **Code and data live in main/fig4** (SI/figS18 imports the same modules): `demix_scene3d.snapshots`, `demix_slab_maps.panel_maps`, `demix_lengths.panel_lengths`; runs in
 `main/fig4/data/demix_noneq/slab` (from `scripts/demix_slab.sh`). This script only lays the figure out.
+
+**2026-11-05, block b recoloured in the Illustrator PDF** (`scripts/fig4_block_b_colours.py`): finite-size is ink and
+point particles are Okabe-Ito orange, because navy and green mean crowder and polymer in blocks a and c. The script reads
+`plots/phase_precolour.pdf` (the Illustrator file before the change) and swaps only block b's colour operators and its
+two band forms; nothing outside block b changes. ★Re-running `fig_phase.py` would discard the Illustrator edits and
+bring back navy/green.

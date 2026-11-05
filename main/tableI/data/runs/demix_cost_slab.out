@@ -1,0 +1,27 @@
+DEMIX_COST_SLAB_START Wed Oct 28 12:51:31 CDT 2026
+[make_scene] state /raid/racda/lmrddme_polymer/demix_noneq/slab/D_CS_both020_si_s1.npz: 2198 chains, 50593 bound, 12516 bodies
+port demix64_si_slab_state cf0 r1 per_step=0.268887
+port demix64_si_slab_state cf0 r2 per_step=0.268296
+port demix64_si_slab_state cf0 r3 per_step=0.268325
+port demix64_si_slab_state cf1 r1 per_step=0.156741
+port demix64_si_slab_state cf1 r2 per_step=0.156914
+port demix64_si_slab_state cf1 r3 per_step=0.157215
+rd sc rep 1 rc=0 "per_step_s": 10.735108841583132
+rd sc rep 2 rc=0 "per_step_s": 10.72921403418295
+rd sc rep 3 rc=0 "per_step_s": 10.718956906395032
+DEMIX_COST_STATE_sc_COMPLETE Wed Oct 28 12:58:47 CDT 2026
+rd cpu rep 1 rc=0 "per_step_s": 0.7323196175973863
+rd cpu rep 2 rc=0 "per_step_s": 0.7261769684031606
+rd cpu rep 3 rc=0 "per_step_s": 0.7166744764894247
+DEMIX_COST_STATE_cpu_COMPLETE Wed Oct 28 12:59:18 CDT 2026
+[make_scene] state /raid/racda/lmrddme_polymer/demix/D_CS_both020_si_s1.npz: 2650 chains, 45492 bound, 12516 bodies
+port demix64_si_state_ctl cf0 r1 per_step=0.308186
+port demix64_si_state_ctl cf0 r2 per_step=0.307695
+port demix64_si_state_ctl cf0 r3 per_step=0.308044
+rd cpu rep 1 rc=0 "per_step_s": 0.7852005516877398
+rd cpu rep 2 rc=0 "per_step_s": 0.7823970366967842
+rd cpu rep 3 rc=0 "per_step_s": 0.7929919298971072
+DEMIX_COST_STATE_cpu_COMPLETE Wed Oct 28 13:00:12 CDT 2026
+lat slab t 8 rc=0 wall 1939s chains=2244, bound=49552
+lat slab t 10 rc=0 wall 2337s chains=2133, bound=50682
+DEMIX_COST_SLAB_COMPLETE Wed Oct 28 13:30:40 CDT 2026

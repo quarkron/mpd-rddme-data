@@ -39,3 +39,16 @@ Since 2026-10-09 the default window is tau 20 (RXTHREE_WINDOW unset), so SI/figS
 follows it; SI/figS13 (cross-species correlation) keeps its own copy of rxthree_data.py and still reads the tau-4 runs.
 Panel d marks the drawn body's motion on the equilibrium enlargement (mark_path: start outline, recorded path
 unwrapped and projected on the slice, arrow; body 0 of seed 0, 13 nm, near the median of the 64 bodies).
+
+## Block b swapped with SI Fig. S13 (2026-11-05)
+
+The owner moved the equilibrium distributions (old block b) to the SI (`SI/figS13`, `fig:three-eq`) and brought the
+divergence of the occupancy distributions from BD over time (`fig:three-kl`, SI Fig. S13 since 2026-10-05) back as block
+b. The figure is the owner's Illustrator file, so it is not re-rendered: `scripts/fig2_block_b_kl.py` draws block b alone
+at the old block's axes, removes the old block from `plots/pdf/rxthree_relax_prekl.pdf` (the Illustrator file before the
+swap), places the new one 1:1, drops Illustrator's private copy (PieceInfo) and checks that no pixel outside block b
+changed. It prints the medians the main text quotes.
+
+```bash
+cd scripts && python fig2_block_b_kl.py   # -> plots/pdf/rxthree_relax.pdf, plots/png/rxthree_relax.png
+```

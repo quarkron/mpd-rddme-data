@@ -31,7 +31,7 @@ run () {   # run <folder> <script> [args...]
 }
 SEL="$*"; FAIL=""
 run main/fig1  split_figure1.py     # the published Fig. 1 is the Illustrator file plots/figure1.pdf
-run main/fig2  rxthree_relax_fig.py
+run main/fig2  rxthree_relax_fig.py     # Illustrator-finished; block b (the divergence) is placed by fig2_block_b_kl.py
 run main/fig3  rx_field_fig.py
 run main/fig4  fig_phase.py
 run main/fig5  kip3_app_fig.py --pt ../data/oct09b/c32_pt_iso_L1000_s1.npz --exc ../data/oct09b/c32_exc_iso_L1000_s1.npz \
@@ -46,7 +46,7 @@ run SI/figS9   lp_match_fig.py
 run SI/figS10  cpu_gpu_validation_fig.py
 run SI/figS11  adv_fig.py
 run SI/figS12  two4_readdy_fig.py
-run SI/figS13  rxthree_kl_fig.py
+run SI/figS13  rxthree_eq_fig.py
 run SI/figS14  rxthree_rho_fig.py
 run SI/figS15  rx_K_main_fig.py
 run SI/figS16  rx_field_counts_fig.py
