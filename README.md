@@ -1,4 +1,4 @@
-# VEX-RDDME manuscript: figures, data and scripts
+# MPD-RDDME manuscript: figures, data and scripts
 
 Contianeed in this repo are the figures, raw data, and scripts used to generate the figures for the manuscript.
 
